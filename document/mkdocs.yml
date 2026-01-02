@@ -1,0 +1,170 @@
+site_name: rick 的笔记本
+repo_url: https://github.com/rick-368/Notebook
+repo_name: rick/Notebook
+theme:
+  name: material
+  icon:
+    logo: material/cat # 页面左上角的图标
+  language: zh # 语言
+
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue
+      toggle:
+        icon: material/toggle-switch 
+        name: 天黑请闭眼
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: 天亮请睁眼
+
+  features:
+      - navigation.instant # 现在页面不会跳转,而是类似单页应用,搜索和各种跳转都是在当前页面完成,对美观有很大帮助
+      - navigation.tabs # 页面上方的标签页
+      - navigation.tracking # 页面滚动时，导航栏高亮当前页面
+      - navigation.sections # 使导航栏分块
+      - navigation.prune # 只渲染当前页面的导航
+      - navigation.top # 返回顶部按钮
+      - search.suggest # 补全建议
+      - search.highlight # 搜索结果高亮
+      - search.share # 搜索结果分享
+      - navigation.footer # 页脚提示下一章
+      - content.code.copy # 代码段上的赋值按钮
+      - navigation.indexes  # 关键特性：支持索引页面
+      - navigation.expand  # 关键特性：支持展开子目录
+  
+nav:
+  - 前言: index.md
+  - 计算机科学:
+    - 高级数据结构与算法分析: 
+      - 计算机科学/高级数据结构与算法分析/index.md
+      - 树: 计算机科学/高级数据结构与算法分析/chapter1.md
+      - 摊还分析: 计算机科学/高级数据结构与算法分析/chapter2.md
+      - 堆: 计算机科学/高级数据结构与算法分析/chapter3.md
+    - 人工智能引论: 
+      - 计算机科学/人工智能引论/index.md
+      - 知识学习与推理: 计算机科学/人工智能引论/chapter1.md
+      - 探索探寻与问题求解: 计算机科学/人工智能引论/chapter2.md
+  - 数理基础:
+    - 概率论与数理统计:
+      - 数理基础/概率论与数理统计/index.md
+      - 随机事件和概率: 数理基础/概率论与数理统计/chapter1.md
+      - 随机变量及其概率分布: 数理基础/概率论与数理统计/chapter2.md
+    - 普通物理学二: 
+      - 数理基础/普通物理学2/index.md
+      - 电势: 数理基础/普通物理学2/chapter2.md
+      - 导体: 数理基础/普通物理学2/chapter3.md
+      - 电阻和电容: 数理基础/普通物理学2/chapter4.md
+      - 电路: 数理基础/普通物理学2/chapter5.md
+      - 磁场: 数理基础/普通物理学2/chapter6.md
+      - 电流的磁场: 数理基础/普通物理学2/chapter7.md
+  - 课外拓展:
+    - markdown: 课外拓展/01-markdown/markdown_basic_grammar.md
+    - the missing semester: 
+      - 课外拓展/02-the missing semester/index.md
+      - Shell: 课外拓展/02-the missing semester/01-Shell.md
+      - Data Wrangling: 课外拓展/02-the missing semester/02-Data_wrangling.md
+      - Vim: 课外拓展/02-the missing semester/03-Vim.md
+      - Git: 课外拓展/02-the missing semester/04-Git.md
+      - Debugging&Profiling: 课外拓展/02-the missing semester/05-Debugging&Profiling.md
+      - Metaprogramming: 课外拓展/02-the missing semester/06-Metaprogramming.md
+      - Security and Cryptography: 课外拓展/02-the missing semester/07-Security and Cryptography.md
+      - MKDoc: 课外拓展/02-the missing semester/08-MKDoc.md
+    - CS61A:
+      - 课外拓展/03-CS61A/index.md
+      - python基础: 课外拓展/03-CS61A/01-python.md
+      - 递归: 课外拓展/03-CS61A/02-python.md
+      - 序列: 课外拓展/03-CS61A/03-python.md
+      - 迭代器与生成器: 课外拓展/03-CS61A/04-python.md
+      - 类: 课外拓展/03-CS61A/05-python.md
+      - 效率提升与异常处理: 课外拓展/03-CS61A/06-python.md
+      - Python 补充: 课外拓展/03-CS61A/07-python.md
+      - Scheme 基础: 课外拓展/03-CS61A/08-scheme.md
+      - scheme 进阶: 课外拓展/03-CS61A/09-scheme.md
+      - SQL: 课外拓展/03-CS61A/10-SQL.md
+    - CS61B:
+      - 课外拓展/04-CS61B/index.md
+      - Java基础: 课外拓展/04-CS61B/01-Java.md
+      - 类: 课外拓展/04-CS61B/02-Java.md
+      - 数据类型: 课外拓展/04-CS61B/03-Java.md
+      - 列表: 课外拓展/04-CS61B/04-Java.md
+  - 其他:
+    - 无线网络应用:
+      - 其他/无线网络应用/index.md
+      - 协议和模型: 其他/无线网络应用/chapter1.md
+      - 网络通信: 其他/无线网络应用/chapter2.md
+      - 通过ISP连接到Internet: 其他/无线网络应用/chapter3.md
+      - 网络寻址: 其他/无线网络应用/chapter4.md
+      - 无线技术: 其他/无线网络应用/chapter5.md
+
+
+  
+markdown_extensions:
+  - pymdownx.highlight:  # 代码高亮
+        anchor_linenums: true
+  - admonition # 警告语法
+  - def_list
+  - footnotes
+  - abbr
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - md_in_html
+  - pymdownx.arithmatex: # latex支持
+          generic: true
+  - toc:
+          permalink: true # 固定标题位置为当前位置
+          toc_depth: 3 # 目录深度
+  - pymdownx.highlight: # 代码块高亮
+          anchor_linenums: true
+          linenums: true # 显示行号
+          use_pygments: true # 代码高亮
+          pygments_lang_class: true
+          auto_title: true # 显示编程语言名称
+          linenums_style: pymdownx-inline # 行号样式,防止复制的时候复制行号
+  - pymdownx.betterem # 强调美化,比如**text**会被美化
+  - pymdownx.caret # 上标和下标
+  - pymdownx.mark # 上标和下标
+  - pymdownx.tilde # 上标和下标
+  - pymdownx.keys # 显示按键组合
+  - pymdownx.critic
+  - pymdownx.details # 可以折叠的代码块 ??? note 可以让警告变成折叠的
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.magiclink # 自动识别链接
+  - pymdownx.smartsymbols # 智能符号
+  - pymdownx.snippets # 代码段
+  - pymdownx.tasklist:
+        custom_checkbox: true # 自定义复选框
+  - attr_list
+  - pymdownx.emoji:
+        emoji_index: !!python/name:material.extensions.emoji.twemoji
+        emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences: # 代码块中支持Mermaid
+        custom_fences: # 支持 Mermaid
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+          alternate_style: true
+          combine_header_slug: true
+  - pymdownx.tasklist:
+          custom_checkbox: true
+          clickable_checkbox: true
+  - meta # 支持Markdown文件上方自定义标题标签等
+  - tables
+
+extra_javascript:
+    - https://polyfill.io/v3/polyfill.min.js?features=es6
+    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    - javascripts/math-config.js
+    - javascripts/math-fix.js 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/rick-368/Notebook
