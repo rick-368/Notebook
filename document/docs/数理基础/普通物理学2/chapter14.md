@@ -20,8 +20,7 @@
 - 毕奥-萨伐尔定律：$d \overrightarrow{B} = \frac{\mu_{0}}{4 \pi}\frac{i d \overrightarrow{s} × \overrightarrow{r}}{r^{3}}$
 - 安培定律：$\oint \overrightarrow{B} \cdot d \overrightarrow{s} = \mu_{0} i_{e n c}$
 - 安培定律（另一种形式）：$\nabla × \overrightarrow{B}(\overrightarrow{r}) = \mu_{0}\overrightarrow{J}(\overrightarrow{r})$
-- 法拉第电磁感应定律：$\oint \overrightarrow{E} \cdot d \overrightarrow{s} = - \frac{d \Phi_{B}}{d t} = - \frac{d}{d t} \int \overrightarrow{B} \cdot d \overrightarrow{A}
-$
+- 法拉第电磁感应定律：$\oint \overrightarrow{E} \cdot d \overrightarrow{s} = - \frac{d \Phi_{B}}{d t} = - \frac{d}{d t} \int \overrightarrow{B} \cdot d \overrightarrow{A}$
 - 法拉第电磁感应定律（微分形式）：$\nabla × \overrightarrow{E} = - \frac{\partial \overrightarrow{B}}{\partial t}$
 - 麦克斯韦方程组：
 $$

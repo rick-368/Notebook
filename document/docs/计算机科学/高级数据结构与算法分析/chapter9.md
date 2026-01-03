@@ -16,10 +16,12 @@
 对于每个面试者，随机变量$X_i$表示他是否被接受，$X_i=1$表示接受，$X_i=0$表示拒绝。则随机算法的期望是：
 
 $$
-E[X_1+X_2+\cdots+X_n]=\sum_{i=1}^n P(X_i=1) \\
-P(X_i=1)=\frac{1}{i}\\
-E[X_1+X_2+\cdots+X_n]=\sum_{i=1}^n \frac{1}{i} \\
-ln(n+1)\leq \sum_{i=1}^n \frac{1}{i} \leq 1+ln(n) 
+\begin{aligned}
+&E[X_1+X_2+\cdots+X_n]=\sum_{i=1}^n P(X_i=1) \\
+&P(X_i=1)=\frac{1}{i}\\
+&E[X_1+X_2+\cdots+X_n]=\sum_{i=1}^n \frac{1}{i} \\
+&ln(n+1)\leq \sum_{i=1}^n \frac{1}{i} \leq 1+ln(n) 
+\end{aligned}
 $$
 
 由上述推导我们可以得到随机算法的期望为$O(ln(n))$。
@@ -33,9 +35,9 @@ $$
 3. 从第$k+1$个面试者开始，如果他的得分比前$k$个面试者都高，则接受，否则拒绝。
 
 设事件$A_i$为最好的人排在第$i$个位置，$B_i$为第$i$个面试者被接受。则招到最好的人的概况为：
+
 $$
-P=\sum_{i=1}^n P(A_i)\cdot P(B_i|A_i)=\frac{1}{n}\sum_{i=1}^n P(B_i|A_i) \\
-= \frac{1}{n}\sum_{i=k+1}^{n} \frac{k}{i-1}=\frac{1}{n}\sum_{i=k}^{n-1}\frac{k}{i} \geq \frac{k}{n} \int_{k}^{n-1} \frac{1}{x} dx = \frac{k}{n}ln \frac{k}{n} 
+P=\sum_{i=1}^n P(A_i)\cdot P(B_i|A_i)=\frac{1}{n}\sum_{i=1}^n P(B_i|A_i) = \frac{1}{n}\sum_{i=k+1}^{n} \frac{k}{i-1}=\frac{1}{n}\sum_{i=k}^{n-1}\frac{k}{i} \geq \frac{k}{n} \int_{k}^{n-1} \frac{1}{x} dx = \frac{k}{n}ln \frac{k}{n} 
 $$
 
 ## 快速排序
@@ -61,18 +63,24 @@ $$
 ![收缩算法](image/收缩算法.png)
 
 要想通过收缩算法得到最优解，我们需要保证在每一次缩边操作中，我们不能选到在最优解中的边。设$A_i$为第$i$次收缩操作没有选到最优解中的边，|E|为图$G$的边数，则有：
+
 $$
-P(A_1)=1-\frac{k}{|E|} \\
-degree(u)\geq k \rightarrow |E|\geq \frac{kn}{2} \\
-P(A_1)\geq 1- \frac{2}{n}\\
-P(A_2|A_1)=1-\frac{k}{|E'|}\geq 1-\frac{2}{n-1} \\
-P(A_i|A_1,A_2,...,A_{i-1}) \geq 1-\frac{2}{n-i+1} \\
-P(A_1,A_2,...,A_i)=P(A_1)P(A_2|A_1)P(A_3|A_1,A_2)...\geq \prod_{j=1}^{i-1} (1-\frac{2}{n-j+1})= \frac{2}{n(n-1)}\geq \frac{1}{n^2}
+\begin{align}
+&P(A_1)=1-\frac{k}{|E|} \\
+&degree(u)\geq k \rightarrow |E|\geq \frac{kn}{2} \\
+&P(A_1)\geq 1- \frac{2}{n}\\
+&P(A_2|A_1)=1-\frac{k}{|E'|}\geq 1-\frac{2}{n-1} \\
+&P(A_i|A_1,A_2,...,A_{i-1}) \geq 1-\frac{2}{n-i+1} \\
+&P(A_1,A_2,...,A_i)=P(A_1)P(A_2|A_1)P(A_3|A_1,A_2)...\geq \prod_{j=1}^{i-1} (1-\frac{2}{n-j+1})= \frac{2}{n(n-1)}\geq \frac{1}{n^2}
+\end{align}
 $$
+
 因此，做$k$次收缩操作失败的概率为:
+
 $$
 P\leq (1-\frac{2}{n^2})^k\leq e^{-2k/n^2}
 $$
+
 令$k=n^2ln(n)$，则失败的概率会小于$\frac{1}{n^2}$。
 
 ## 蒙特卡洛算法和拉斯维加斯算法

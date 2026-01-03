@@ -1,4 +1,4 @@
- # 多维随机变量
+# 多维随机变量
 ## 二维随机变量
 ### 定义
 设一随机试验$E$的样本空间为$S$，定义$S$上的随机变量 $X=X(e),Y=Y(e)$，称它们构成的向量$(X,Y)$为二维(元)随机向量或二维(元)随机变量
@@ -47,7 +47,7 @@ $$
 $$
 F(x , y) = P\{(X\le x) \cap (Y\le y)\}=P\{(X\le x , Y\le y)\},\forall x\in\mathbb{R},\forall y\in\mathbb{R}
 $$
-为二维随机变量(X，Y)的联合 (joint)分布函数，即
+为二维随机变量$(X，Y)$的联合 (joint)分布函数，即
 $$
 F(x , y) = P\{(X , Y)\in(\infty , x]\times(\infty , y]\}
 $$
@@ -56,7 +56,7 @@ $$
 
 - $F(x,y)$ 关于 $x,y$均单调不减, 即
 $$
-x_{1}< x_{2}\Rightarrow F(x_{1} , y)\le F(x_{2} , y); y_{1}< y_{2}\Rightarrow F(x , y_{1})\le F(x , y_{2})
+x_{1}< x_{2}\Rightarrow F(x_{1} , y)\le F(x_{2} , y);\quad  y_{1}< y_{2}\Rightarrow F(x , y_{1})\le F(x , y_{2})
 $$
 
 - $F(+\infty , +\infty)=1$，且对任意 $x,y$
@@ -66,7 +66,7 @@ $$
 
 - $F(x,y)$ 关于 $x,y$ 右连续, 即
 $$
-\lim_{\varepsilon \rightarrow 0^{ + }}F(x + \varepsilon , y) = F(x , y); \lim_{\varepsilon \rightarrow 0^{ + }}F(x , y + \varepsilon) = F(x , y)
+\lim_{\varepsilon \rightarrow 0^{ + }}F(x + \varepsilon , y) = F(x , y); \quad\lim_{\varepsilon \rightarrow 0^{ + }}F(x , y + \varepsilon) = F(x , y)
 $$
 
 - 若$x₁ < x₂ , y₁ < y₂$ ,则
@@ -95,9 +95,13 @@ $$
 $$
 F_{X|Y}(x|y) = P(X \le x|Y=y) = \frac{P(X \le x , Y=y)}{P(Y=y)}
 $$ 
-注意：若$P(Y=y)=0$，但对任意给定的$\varepsilon > 0 ,P(y < Y \le y + \varepsilon)> 0 $，则在$\{Y = y\}$条件下，$X$的条件分布函数定义为
+注意：若$P(Y=y)=0$，但对任意给定的$\varepsilon > 0 ,P(y < Y \le y + \varepsilon)> 0$，则在$\{Y = y\}$条件下，$X$的条件分布函数定义为
+
 $$
-F_{X|Y}(x|y) = \lim_{\varepsilon \rightarrow 0^{ + }}P(X \le x|y < Y \le y + \varepsilon)= \lim_{\varepsilon \rightarrow 0^{ + }}\frac{P(X \le x , y < Y \le y + \varepsilon)}{P(y < Y \le y + \varepsilon)}\equiv P(X \le x|Y=y),\forall x\in\mathbb{R}
+\begin{aligned}
+&F_{X|Y}(x|y) = \lim_{\varepsilon \rightarrow 0^{ + }}P(X \le x|y < Y \le y + \varepsilon)= \lim_{\varepsilon \rightarrow 0^{ + }}\frac{P(X \le x , y < Y \le y + \varepsilon)}{P(y < Y \le y + \varepsilon)} \\
+&\equiv P(X \le x|Y=y),\forall x\in\mathbb{R}
+\end{aligned}
 $$
 
 ### 二维连续型随机变量
@@ -143,7 +147,7 @@ $$
 f_{Y \mid X}(y \mid x) = \frac{f(x , y)}{f_{X}(x)} , y \in \mathbb R
 $$ 
 ##### 性质
-- $ f_{X \mid Y}(x|y)\ge 0 , \forall x \in \mathbb R$
+- $f_{X \mid Y}(x|y)\ge 0 , \forall x \in \mathbb R$
 - $\int_{ - \infty}^{ + \infty} f_{X | Y} ( x | y ) d x = 1$
 - $P(a < X < b|Y = y) = \int_{a}^{b}f_{X|Y}(x|y)d x$
 - 在$f_{X|Y}(x|y)$的连续点x，有
@@ -153,20 +157,22 @@ $$
 - $f(x, y) = f_{X|Y}(x|y) f_Y(y) = f_X(x) f_{Y|X}(y|x)$（当所写的条件概率密度函数有意义时）
 #### 常见分布
 ##### 二维均匀分布
-设二维随机变量(X，Y)在二维有界区域 D 上取值，且具有联合概率密度函数
+设二维随机变量$(X，Y)$在二维有界区域 D 上取值，且具有联合概率密度函数
 $$
 f(x,y)=\begin{cases}
-\frac{1}{S}, & (x,y)\in D \\
+\frac{1}{S}, & (x,y)\in D \cr
 0, & \text{otherwise}
 \end{cases}
 $$
-其中，S为区域D的面积。则称(X，Y)服从D上的均匀分布。
+其中，S为区域D的面积。则称$(X，Y)$服从D上的均匀分布。
 ##### 二维正态分布
-设二维随机变量(X，Y)具有联合概率密度函数
+设二维随机变量$(X，Y)$具有联合概率密度函数
+
 $$
 f(x,y)=\frac{1}{2\pi \sigma_1 \sigma_2 \sqrt{1-\rho^2}}e^{\left(-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_1)^2}{\sigma_1^2}+\frac{(y-\mu_2)^2}{\sigma_2^2}-\frac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}\right)\right)} x,y\in\mathbb{R}
 $$
-其中$μ₁,μ₂,σ₁,σ₂,ρ$都是常数,称(X,Y) 服从参数为$(μ₁,μ₂,σ₁,σ₂,ρ)$的二维(元)正态分布，记为$(X,Y)\sim N(\mu_1,\mu_2,\sigma_1,\sigma_2,\rho)$。
+
+其中$μ₁,μ₂,σ₁,σ₂,ρ$都是常数,称$(X,Y)$ 服从参数为$(μ₁,μ₂,σ₁,σ₂,ρ)$的二维(元)正态分布，记为$(X,Y)\sim N(\mu_1,\mu_2,\sigma_1,\sigma_2,\rho)$。
 
 ### 随机变量的相互独立
 设$F(x,y)$及$Fx(x),Fy(y)$分别是二维随机变量$(X,Y)$的联合分布函数及边际分布函数，若对所有的$x, y ∈ ℝ$，有
@@ -177,13 +183,13 @@ $$
 $$
 F(x , y) = F_{X}(x)F_{Y}(y), \forall x , y \in \mathbb R
 $$
-则称随机变量X，Y相互独立.
+则称随机变量$X，Y$相互独立.
 
-若$(X，Y)$是离散型随机变量，则X，Y相互独立等价于
+若$(X，Y)$是离散型随机变量，则$X，Y$相互独立等价于
 $$
 P(X = x_{i} , Y = y_{j}) = P(X = x_{i})P(Y = y_{j})
 $$
-即$p_{i j} = p_{i.}p_{.j}$对一切i，j都成立。
+即$p_{i j} = p_{i.}p_{.j}$对一切$i，j$都成立。
 若$(X,Y)$是连续型随机变量，$f(x,y), fx(x), fY(y)$分别是(X,Y)的联合概率密度函数和边际概率密度函数，则X，Y相互独立等价于
 $$
 f(x , y) = f_{X}(x)f_{Y}(y) ,几乎处处成立
@@ -211,7 +217,7 @@ P(X_{1} = x_{1 i_{1}} , X_{2} = x_{2 i_{2}} , \dotsc , X_{n} = x_{n i_{n}}) , i_
 $$
 称为 n维离散型随机变量$( X_{1} , X_{2} , \cdots , X_{n} )$的联合分布律
 ### 连续型随机变量的联合概率密度函数
-若存在非负函数$f(x_{1} , x_{2} , \dotsc , x_{n})$ ，使得对于任意实数：$x_{1} , x_{2} , \cdots , x_{n} $，有
+若存在非负函数$f(x_{1} , x_{2} , \dotsc , x_{n})$ ，使得对于任意实数：$x_{1} , x_{2} , \cdots , x_{n}$，有
 $$
 F(x_{1} , x_{2} , \dotsc , x_{n}) = \int_{ - \infty}^{x_{1}}\int_{ - \infty}^{x_{2}}\cdot \cdot \cdot \int_{ - \infty}^{x_{n}}f(t_{1} , t_{2} , \dotsc , t_{n})d t_{1}d t_{2}\cdot \cdot \cdot d t_{n}
 $$ 
@@ -233,10 +239,10 @@ $$
 #### 定理3
 设$(X_{1} , X_{2} , \dotsc , X_{m})$与$(Y_{1} , Y_{2} , \dotsc , Y_{n})$相互独立，若$h(x_1,x_2,\dotsc,x_m)$和$g(y_1,y_2,\dotsc,y_n)$为连续函数，则$h(X_1,X_2,\dotsc,X_m)$与$g(Y_1,Y_2,\dotsc,Y_n)$相互独立。
 #### 独立性的几点说明
-- X，Y相互独立，则$f(X)$与$g(Y)$也相互独立，其中$f,g$均为一元连续函数。
+- $X，Y$相互独立，则$f(X)$与$g(Y)$也相互独立，其中$f,g$均为一元连续函数。
 - 任意常数$C$与任意随机变量$X$均独立。
-- X，Y相互独立，则$\{X\in A\},\{Y\in B\}$两个事件也相互独立。
-## Z = X + Y
+- $X，Y$相互独立，则$\{X\in A\},\{Y\in B\}$两个事件也相互独立。
+## $Z = X + Y$
 ### 二维离散型随机变量
 若$(X，Y)$为二维离散型随机变量，联合分布律为
 $$
@@ -262,14 +268,19 @@ $$
 
 ### 二维连续型随机变量
 若$(X，Y)$为二维连续型随机变量，其联合概率密度函数为$f(x，y)$，则 $Z=X+Y$ 的分布函数为
+
 $$
-F_{z}(z) = P(X + Y \le z) = \iint \limits_{x + y \le z}f(x , y)d x d y = \int_{ - \infty}^{ + \infty}[\int_{ - \infty}^{z - x}f(x , y)d y]d x \\ \xlongequal{u = x+y} \int_{ - \infty}^{ + \infty} \Biggl [ \int_{ - \infty}^{z} f ( x , u - x ) d u \Biggr ] d x = \int_{ - \infty}^{z} [ \int_{ - \infty}^{ + \infty} f ( x , u - x ) d x \Biggr ] d u \\ = \int_{ - \infty}^{z}f_{Z}(u)d u
+\begin{aligned}
+&F_{z}(z) = P(X + Y \le z) = \iint \limits_{x + y \le z}f(x , y)d x d y = \int_{ - \infty}^{ + \infty}[\int_{ - \infty}^{z - x}f(x , y)d y]d x \\ &\overset{u = x+y}{=} \int_{ - \infty}^{ + \infty} \Biggl [ \int_{ - \infty}^{z} f ( x , u - x ) d u \Biggr ] d x = \int_{ - \infty}^{z} \Biggl[ \int_{ - \infty}^{ + \infty} f ( x , u - x ) d x \Biggr ] d u \\ &= \int_{ - \infty}^{z}f_{Z}(u)d u
+\end{aligned}
 $$ 
+
 所以Z 的概率密度函数为
 $$
 f_{Z}(z) = ∫_{ - ∞}^{ + ∞}f(x , z - x)d x
 $$
-(由于 $X$ 与 $Y$ 的对称性，也可写为$∫_{ - ∞}^{ + ∞} f ( z - y , y ) d y $)
+
+(由于 $X$ 与 $Y$ 的对称性，也可写为$∫_{ - ∞}^{ + ∞} f ( z - y , y ) d y$)
 
 当 $X$ 和 $Y$相互独立时， $Z=X+Y$ 的概率密度函数公式称为卷积公式，即
 $$
@@ -302,27 +313,45 @@ $$
 X + Y \sim \Gamma(\alpha_{1} + \alpha_{2} , \beta)
 $$
 特别地，由于指数分布是特殊的$Γ$分布，$E(λ)$即为$Γ(1,λ)$，故对于$X\sim E(λ)$ $Y\sim E(λ)$，若$X$与$Y$独立，则
-$$X + Y \sim \Gamma(2 , \lambda)$$
+$$
+X + Y \sim \Gamma(2 , \lambda)
+$$
 ## $M=max(X,Y)$  $N=min(X,Y)$的分布
 设 $X，Y$是两个相互独立的随机变量，它们的分布函数分别为 $F_X(x)$和$F_Y(y)$.于是$M$的分布函数为
+
 $$
-F_{m a x}(z) = P(M ≤ z) = P(X ≤ z , Y ≤ z)(这里无需独立) \\ = P(X \le z)P(Y \le z)= F_{X}(z)F_{Y}(z)
+\begin{aligned}
+&F_{m a x}(z) = P(M ≤ z) = P(X ≤ z , Y ≤ z)(这里无需独立) \\ &= P(X \le z)P(Y \le z)= F_{X}(z)F_{Y}(z)
+\end{aligned}
 $$
+
 N的分布函数为
+
 $$
-F_{\min}(z) = P(N \le z) = 1 - P(N > z)=1-P(X>z,Y>z) (这里无需独立)\\
-= 1-(1-F_X(z))(1-F_Y(z))
+\begin{aligned}
+&F_{\min}(z) = P(N \le z) = 1 - P(N > z)=1-P(X>z,Y>z) (这里无需独立)\\
+&= 1-(1-F_X(z))(1-F_Y(z))
+\end{aligned}
 $$
 
 推广到 $n$个相互独立的随机变量情形设$X_{1} , X_{2} , \dotsc , X_{n}$是 n个相互独立的随机变量，它们的分布函数分别为$F_{X_{i}}(x_{i}) ,i = 1 , 2 , \dotsc ,n$。于是$M = \max_{1 \le i \le n}X_{i}$的分布函数为
+
 $$
 F_{m a x}(z) = F_{X_{1}}(z)F_{X_{2}}(z)\cdot \cdots F_{X_{n}}(z)
 $$
+
 $N = \min_{1 \le i \le n} X_{i}$的分布函数为
+
+
 $$
 F_{m i n}(z) = 1 - [1 - F_{X_{1}}(z)][1 - F_{X_{2}}(z)]\cdot \cdots[1 - F_{X_{n}}(z)]
 $$
-特别地，当$X_{1} , X_{2} , \cdots , X_{n}$相互独立且具有相同分布函数 $F(x)$时，$$
-F_{m a x}(z) = [F(z)]^{n} \\ 
-F_{\min}(z) = 1 - [1 - F(z)]^{n}
+
+特别地，当$X_{1} , X_{2} , \cdots , X_{n}$相互独立且具有相同分布函数 $F(x)$时，
+
+$$
+\begin{aligned}
+&F_{m a x}(z) = [F(z)]^{n} \\ 
+&F_{\min}(z) = 1 - [1 - F(z)]^{n}
+\end{aligned}
 $$

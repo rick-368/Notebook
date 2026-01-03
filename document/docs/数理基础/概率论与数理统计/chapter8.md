@@ -36,7 +36,9 @@
 - 复杂假设：假设空间包含多个元素。
 
 > 原假设$H_0$和备择假设$H_1$一定不相容，但不一定互补。
+
 > 原假设$H_0$是不易被否定的，原假设和备择假设对于一定立场下不可以互换。原假设是研究者想收集证据予以反驳的假设，而备择假设是研究者想收集证据予以支持的假设。
+
 > 参数假设问题中，我们不成文规定原假设$H_0$中一般含有“=”。
 
 ### 检验
@@ -62,13 +64,13 @@
 - 第Ⅰ类错误（弃真）：拒绝了实际上为真的原假设 $H_0$ 。  
   犯第Ⅰ类错误的概率称为弃真概率，通常记为 $\alpha(\theta)$，即：
   $$
-  \alpha(\theta) = P\{\text{第Ⅰ类错误}\} = P\{\text{拒绝 } H_0 \mid H_0 \text{ 为真}\} = P\{X \in W \mid H_0 \text{ 为真}\}.
+  \alpha(\theta) = P(\text{第Ⅰ类错误}) = P(\text{拒绝 } H_0 \mid H_0 \text{ 为真} )= P(X \in W \mid H_0 \text{ 为真}).
   $$
 
 - 第Ⅱ类错误（取伪/存伪）：接受了实际上为假的原假设  $H_0$ 。  
   犯第Ⅱ类错误的概率称为取伪概率，通常记为 $\beta(\theta)$，即：
   $$
-  \beta(\theta) = P\{\text{第Ⅱ类错误}\} = P\{\text{接受 } H_0 \mid H_0 \text{ 为假}\} = P\{X \in A \mid H_0 \text{ 为假}\}.
+  \beta(\theta) = P(\text{第Ⅱ类错误} )= P(\text{接受 } H_0 \mid H_0 \text{ 为假}) = P(X \in A \mid H_0 \text{ 为假}).
   $$
 
 >两类错误的关系：当$n$固定时，$\alpha$越小，$\beta$就越大；$\alpha$越大，$\beta$就越小。
@@ -101,12 +103,13 @@
 $$
 \overline{X} = \frac{1}{n} \sum_{i=1}^n X_i,
 $$
+
 $$
 S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2.
 $$
 
 #### 正态总体均值 $\mu$的假设检验
-##### $\sigma^2$ 已知时
+##### 方差已知时
 
 ###### $H_0 : \mu = \mu_0 \longleftrightarrow H_1 : \mu > \mu_0$
 
@@ -167,7 +170,7 @@ $$
 
 简写为  $W = \{z \geq Z_\alpha\}$ 。
 
-###### $H_0 : \mu = \mu_0 \longleftrightarrow H_1 : \mu < \mu_0 $
+###### $H_0 : \mu = \mu_0 \longleftrightarrow H_1 : \mu < \mu_0$
 
 仍取  
 $$
@@ -282,7 +285,7 @@ $$
 
 ![假设检验总结1](image/假设检验总结1.png)
 
-##### $\sigma^2$ 未知时
+##### 方差未知时
 
 当 $\sigma^2$ 已知时，检验统计量为
 $$
@@ -365,9 +368,11 @@ W = \{ \chi^2 \leq C \}
 $$
 
 $C$ 由下式确定
+
 $$
 \alpha = \sup_{\sigma^2 \geq \sigma_0^2} P_{\sigma^2, \mu} (\chi^2 \leq C) = \sup_{\sigma^2 \geq \sigma_0^2} P_{\sigma^2, \mu} \left( \frac{\sum_{i=1}^n (X_i - \overline{X})^2}{\sigma^2} \leq C \frac{\sigma_0^2}{\sigma^2} \right)
 $$
+
 $$
 = \sup_{\sigma^2 \geq \sigma_0^2} P_{\sigma^2, \mu} \left( \chi^2 (n-1) \leq C \frac{\sigma_0^2}{\sigma^2} \right) = P \left( \chi^2 (n-1) \leq C \right)
 $$
@@ -410,7 +415,7 @@ $$
 
 #### 比较均值的假设检验 
 
-##### $\sigma_X^2$ 和 $\sigma_Y^2$ 均已知时  
+##### 方差均已知时  
 这时 $\mu_X$ 和 $\mu_Y$ 的 MLE 分别为 $\overline{X}$ 和 $\overline{Y}$。 与作为尺度参数的方差不同, 均值是位置参数, 位置可以平行移动, 我们取  
 
 $$
@@ -447,7 +452,7 @@ $$
 W = \{(x, y) : |z| \geq z_{\alpha/2}\}
 $$
 
-##### $\sigma_X^2$ 和 $\sigma_Y^2$ 均未知时 
+##### 方差均未知时 
 我们只考虑 $\sigma_X^2=\sigma_Y^2=\sigma^2$ 的情况。 
 这时，$S_w^2 = (Q_X^2 + Q_Y^2)/(m+n-2)$ 是 $\sigma^2$ 的无偏估计，其中 $Q_X^2 = \sum_{i=1}^m (X_i - \overline{X})^2$，  
 $Q_Y^2 = \sum_{j=1}^n (Y_i - \overline{Y})^2$。用它代替 $Z$ 中的 $\sigma_X^2$ 和 $\sigma_Y^2$ 得  
@@ -461,18 +466,23 @@ $$
 $$
 H_0 : \mu_X \geq \mu_Y \longleftrightarrow H_1 : \mu_X < \mu_Y,
 $$
+
 $$
 W = \{(x, y) : t \leq -t_\alpha (n + m - 2)\}
 $$
+
 $$
 H_0 : \mu_X \leq \mu_Y \longleftrightarrow H_1 : \mu_X > \mu_Y,
 $$
+
 $$
 W = \{(x, y) : t \geq t_\alpha (n + m - 2)\}
 $$
+
 $$
 H_0 : \mu_X = \mu_Y \longleftrightarrow H_1 : \mu_X \neq \mu_Y,
 $$
+
 $$
 W = \{(x, y) : t \leq -t_\alpha / 2 (n + m - 2) \text{ 或 } t \geq t_\alpha / 2 (n + m - 2)\}
 $$
@@ -485,10 +495,13 @@ $$
 S_X^2 = \frac{1}{m-1} \sum_{i=1}^m (X_i - \overline{X})^2, \quad S_Y^2 = \frac{1}{n-1} \sum_{j=1}^n (Y_j - \overline{Y})^2.
 $$
 取  
+
 $$
 F = \frac{S_X^2}{S_Y^2} = \frac{\sum_{i=1}^m (X_i - \overline{X})^2 / (m-1)}{\sum_{j=1}^n (Y_i - \overline{Y})^2 / (n-1)}
 $$
+
 作检验统计量。且  
+
 $$
 \frac{F}{\sigma_X^2 / \sigma_Y^2} = \frac{S_X^2 / \sigma_X^2}{S_Y^2 / \sigma_Y^2} \sim F(m-1, n-1).
 $$

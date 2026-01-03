@@ -23,7 +23,7 @@ $$
 
 ### 与电偶极子的比较
 - 磁偶极子：$\overrightarrow{\mu} = N i \overrightarrow{A}$，$\tau_{B} = \overrightarrow{\mu} × \overrightarrow{B}$，$U_{B} = - \overrightarrow{\mu}\cdot \overrightarrow{B}$
-- 电偶极子：$\overrightarrow{p} = q \overrightarrow{d}$，$\tau_{E} = \overrightarrow{p} × \overrightarrow{E}$，$U_{E} = - \overrightarrow{p}\cdot \overrightarrow{E}$
+- 电偶极子：$\overrightarrow{p} = q \overrightarrow{d}$，$\tau_{E} = \overrightarrow{p} × \overrightarrow{E}$，$U_{E} = - \overrightarrow{p}\cdot \overrightarrow{E}$  
 电场线与磁场线之间的一个显著区别是，电场线始于正电荷并终止于负电荷，而磁场线总是形成闭合回路。
 
 ![磁偶极子和电偶极子](image/磁偶极子和电偶极子.png)
@@ -66,11 +66,13 @@ $$
 \cos \alpha = \frac{R}{r} = \frac{R}{\sqrt{R^{2} + z^{2}}}
 $$
 因此
+
 $$
 B = \int d B_{\|} = \frac{\mu_{0}i R}{4 \pi(R^{2} + z^{2})^{3 / 2}}\int d s
 $$
 
-因为∫ds就是环的周长2πR，我们得到了所需的公式，其中$\mu = i \pi R^{2}$ 
+因为$∫ds$就是环的周长$2πR$，我们得到了所需的公式，其中$\mu = i \pi R^{2}$ 
+
 $$
 B(z) = \frac{\mu_{0}}{2 \pi}\frac{\mu}{(R^{2} + z^{2})^{3 / 2}}
 $$

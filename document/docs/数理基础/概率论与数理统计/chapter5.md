@@ -1,8 +1,8 @@
 # 大数定律
- 设$ X_{1},X_{2},\dotsc ,X_{n},\dotsc$ 是一列随机变量，则在一定的条件下随机变量序列 
+ 设$X_{1},X_{2},\dotsc ,X_{n},\dotsc$ 是一列随机变量，则在一定的条件下随机变量序列 
  $Y_{n}=\frac{X_{1}+X_{2}+\cdots +X_{n}}{n}$ 收敛到 $\mu$（当 $n\rightarrow +\infty$ 时）。
 ## 依概率收敛
-设$ Y_{1},Y_{2},\dotsc ,Y_{n},\dotsc$ 是一列随机变量，$Y$为随机变量，若对于$\forall \epsilon >0$，均有：
+设$Y_{1},Y_{2},\dotsc ,Y_{n},\dotsc$ 是一列随机变量，$Y$为随机变量，若对于$\forall \epsilon >0$，均有：
 $$
 \lim_{n\rightarrow +\infty}P(|Y_{n}-Y|>\epsilon)=0
 $$
@@ -19,24 +19,31 @@ $$
 $$
 ## Markov不等式
 设随机变量$Y$的$k(k\geq 1)$阶矩存在，即$E(Y^{k})$存在，则对于任意$\epsilon >0$，有：
+
 $$
 P(|Y|\geq \epsilon)\leq \frac{E(|Y|^{k})}{\epsilon^{k}}
 $$
+
 成立。
 定理的等价形式为：
+
 $$
 P(|Y|< \epsilon)\geq 1- \frac{E(|Y|^{k})}{\epsilon^{k}}
 $$
 ## 切比雪夫不等式
 设随机变量$X$具有数学期望$E(X)$，方差$\sigma^{2}$，则对于任意$\epsilon >0$，有：
+
 $$
 P(|X-\mu|>\epsilon)\leq \frac{\sigma^{2}}{\epsilon^{2}}
 $$
+
 成立。
 定理的等价形式为：
+
 $$
 P(|X-\mu|< \epsilon)\geq 1- \frac{\sigma^{2}}{\epsilon^{2}}
 $$
+
 在Markov不等式中取$Y=X-\mu , k=2$即可得到切比雪夫不等式。
 ## 几种大数定律
 ### （弱）大数定律
@@ -47,7 +54,7 @@ $$
 $$
 \lim_{n\rightarrow +\infty}P(|\frac{1}{n}\sum_{i=1}^{n}X_i-c_n|<\epsilon)=1
 $$
-成立，即有$\frac{1}{n}\sum_{i=1}^{n}X_i-c_n \xrightarrow{P} 0$，当$n\rightarrow +\infty$，则称随机变量序列$\{X_i,i\geq 1\}$服从(弱)大数定律。
+成立，即有$\frac{1}{n}\sum_{i=1}^{n}X_i-c_n \xrightarrow{P} 0$，当$n\rightarrow +\infty$，则称随机变量序列$\{X_i,i\geq 1\}$服从(弱)大数定律。  
 特别的，若$c_n$与$n$无关，则可写为$\frac{1}{n}\sum_{i=1}^{n}X_i \xrightarrow{P} c$，当$n\rightarrow +\infty$。
 ### 贝努里大数定律
 设$n_A$为$n$重贝努里试验中事件A发生的次数，并记事件$A$在每次试验中发生的概率为$p$，则对于任意$\epsilon >0$，有：
@@ -87,10 +94,13 @@ $$
 类似的，有$\overline{X_n} \sim N(\mu, \frac{\sigma^{2}}{n}) \quad (\overline{X_n}=n^{-1}\sum_{i=1}^{n}X_i)$。
 ### De Moivre-Laplace中心极限定理
 设$n_A$为$n$重伯努利试验中事件A发生的次数，并记事件$A$在每次试验中发生的概率为$p$，则对任何实数$x$，有：
+
 $$
 \lim_{n\rightarrow +\infty}P(\frac{n_A-np}{\sqrt{np(1-p)}}\leq x)= \int_{-\infty}^{x}\frac{e^{-t^2/2}}{\sqrt{2\pi}}dt=\Phi(x)
 $$
+
 即:
+
 $$
 \frac{n_A-np}{\sqrt{np(1-p)}}\sim N(0,1) \quad （近似）
 $$                                                                                       

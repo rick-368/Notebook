@@ -69,23 +69,32 @@ $$
 ## 贝尔曼方程
 
 贝尔曼方程也被称为动态规划方程，由理查德·贝尔曼提出。
+
 - 价值函数方程：$V(s)=E_\pi[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+⋯|S_t=s]$
 - 动作价值函数方程：$q(s,a)=E_\pi[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+⋯|S_t=s,A_t=a]$
 
 对于价值函数：
+
 $$
-V_\pi(s)=E_\pi[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+⋯|S_t=s] \\
-= E_{a\sim\pi(s,·)}[E_\pi[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+⋯|S_t=s]] \\
-= \sum_{a\in A} \pi(a|s)q_\pi(s,a)
+\begin{aligned}
+&V_\pi(s)=E_\pi[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+⋯|S_t=s] \\
+&= E_{a\sim\pi(s,·)}[E_\pi[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+⋯|S_t=s]] \\
+&= \sum_{a\in A} \pi(a|s)q_\pi(s,a)
+\end{aligned}
 $$
+
 其中$\pi(a|s)$表示采取策略$\pi$时，在状态$s$下采取动作$a$的概率。$q_\pi(s,a)$表示在状态$s$下采取动作$a$后，智能体获得的回报的期望。
 
 对于动作价值函数：
+
 $$
-q_\pi(s,a)=E_\pi[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+⋯|S_t=s,A_t=a] \\
-= E_{s'\sim P(·|s,a)}[R(s,a,s')+\gamma E_\pi[R_{t+2}+\gamma R_{t+3}+⋯|S_{t+1}=s']] \\
-= \sum_{s'\in S} P(s'|s,a) [R(s,a,s')+\gamma V_\pi(s')]
+\begin{aligned}
+&q_\pi(s,a)=E_\pi[R_{t+1}+\gamma R_{t+2}+\gamma^2R_{t+3}+⋯|S_t=s,A_t=a] \\
+&= E_{s'\sim P(·|s,a)}[R(s,a,s')+\gamma E_\pi[R_{t+2}+\gamma R_{t+3}+⋯|S_{t+1}=s']] \\
+&= \sum_{s'\in S} P(s'|s,a) [R(s,a,s')+\gamma V_\pi(s')]
+\end{aligned}
 $$
+
 其中$P(s'|s,a)$表示在状态$s$下采取动作$a$后，转移到状态$s'$的概率。$R(s,a,s')$表示在状态$s$下采取动作$a$后，到达状态$s'$时，智能体获得的回报，$V_\pi(s')$表示智能体在状态$s'$下能够获得的回报的期望。
 
 价值函数的贝尔曼方程：
@@ -99,8 +108,9 @@ $$
 贝尔曼方程描述了价值函数或动作价值函数的递推关系，是研究强化学习问题的重要手段。
 
 ## 基于价值的强化学习
-回顾强化学习的定义：给定一个马尔科夫决策过程$MDP=(S,A,P,R,γ)$，学习一个最优策略$\pi^*$，使得对任意$s\in S$，使得$V_{\pi^*}(s)$值最大。
+回顾强化学习的定义：给定一个马尔科夫决策过程$MDP=(S,A,P,R,γ)$，学习一个最优策略$\pi^*$，使得对任意$s\in S$，使得$V_{\pi^*}(s)$值最大。  
 为了求解最优策略$\pi^*$,下图展示了一种思路：从一个任意的策略开始，首先计算该策略下的价值函数（或动作价值函数），然后根据价值函数调整改进策略使其更优，不断迭代这个过程直到策略收敛。通过策略计算价值函数的过程叫做策略评估（policy evaluation），通过价值函数优化策略的过程叫做策略优化（policy improvement），策略评估和策略优化交替进行的强化学习的求解方法叫做通用策略迭代（generalized policy iteration,GPI）。
+
 ![通用策略迭代](image/通用策略迭代.png)
 
 

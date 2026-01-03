@@ -1,6 +1,7 @@
 # 电流的磁场
 ## 毕奥-萨伐尔定律
 - 实验发现，由电流长度元素 $idr$ 在距离 $r$ 处的点 $P$ 产生的磁场 $dB$ 符合平方反比定律$$d \overrightarrow{B} = \frac{\mu_{0}}{4 \pi}\frac{i d \overrightarrow{s} × \overrightarrow{r}}{r^{3}} $$其中常数 $\mu_{0} = 4 \pi × 1 0^{ - 7}T \cdot m / A$被称为磁导率常数。
+
 ![比奥定律](image/比奥定律.png)
 ### 长直导线产生的磁场
 根据毕奥-萨伐尔定律，该电流元在P点产生的磁场方向指向纸内。
@@ -111,7 +112,7 @@ $$
 
 ![螺线管磁场](image/螺线管的磁场分析.png)
 
-设n为螺线管单位长度的匝数；则线圈包围了nh匝$$
+设n为螺线管单位长度的匝数；则线圈包围了$nh$匝$$
 i_{e n c} = i(n h)
 $$  
 安培定律由此给出$$
@@ -136,15 +137,15 @@ $$
 其中长度元$id\overrightarrow{s}$由体积元替换。$\overrightarrow{r} = (x - x ')\hat{x} + (y - y ')\hat{y} + (z - z ')\hat{z}$.应用散度，我们得到$$
 \nabla \cdot \bar{B} = \frac{\mu_{0}}{4 \pi}\int \nabla \cdot \left(\frac{\overrightarrow{J} × \overrightarrow{r}}{r^{3}}\right)d V^{\prime}
 $$
-由于散度不适用于J，而J不依赖于$(x,y,z)$，我们可以重写
+由于散度不适用于$J$，而$J$不依赖于$(x,y,z)$，我们可以重写
 $$
 \nabla \cdot \overrightarrow{B} = - \frac{\mu_{0}}{4 \pi}\int J \cdot(\nabla × \frac{\overrightarrow{r}}{r^{3}})d V '
 $$
-注意$F/r³ = - ▽(1/r)$的表达式，这是点电荷（q = 4πϵ₀）的电场；它不会绕行，只会向外扩散。其旋度为零（电动力学中已知）。因此，我们得出结论$\triangledown \cdot \bar{B} = 0$  
+注意$F/r³ = - ▽(1/r)$的表达式，这是点电荷（$q = 4πϵ₀$）的电场；它不会绕行，只会向外扩散。其旋度为零（电动力学中已知）。因此，我们得出结论$\triangledown \cdot \bar{B} = 0$  
 
 麦克斯韦的磁通量定律通过构造闭合的高斯面，可以得到 $\triangledown \cdot \bar{B} = 0$的积分形式：
 $$
 \oint \bar{B} d \overline{A} = \int ( \nabla \cdot \overrightarrow{B} ) d V = 0
 $$ 
-在第一个等式中，我们应用了散度定理。该定律指出，通过任何闭合高斯面的净磁通量为零。这表明磁单极子不存在。存在的最简单磁结构是磁偶极子。
+在第一个等式中，我们应用了散度定理。该定律指出，通过任何闭合高斯面的净磁通量为零。这表明磁单极子不存在。存在的最简单磁结构是磁偶极子。  
 这表明磁场的散度为0。则**磁场是一个无源有旋场**，相对的，**静电场是一个有源无旋场**。

@@ -23,7 +23,7 @@ theme:
         name: 天亮请睁眼
 
   features:
-      - navigation.instant # 现在页面不会跳转,而是类似单页应用,搜索和各种跳转都是在当前页面完成,对美观有很大帮助
+      #- navigation.instant # 现在页面不会跳转,而是类似单页应用,搜索和各种跳转都是在当前页面完成,对美观有很大帮助
       - navigation.tabs # 页面上方的标签页
       - navigation.tracking # 页面滚动时，导航栏高亮当前页面
       - navigation.sections # 使导航栏分块
@@ -45,15 +45,42 @@ nav:
       - 树: 计算机科学/高级数据结构与算法分析/chapter1.md
       - 摊还分析: 计算机科学/高级数据结构与算法分析/chapter2.md
       - 堆: 计算机科学/高级数据结构与算法分析/chapter3.md
+      - 基本算法（回溯、分治、动态规划）: 计算机科学/高级数据结构与算法分析/chapter4.md
+      - 贪心算法: 计算机科学/高级数据结构与算法分析/chapter5.md
+      - P与NP: 计算机科学/高级数据结构与算法分析/chapter6.md
+      - 近似算法: 计算机科学/高级数据结构与算法分析/chapter7.md
+      - 局部搜索: 计算机科学/高级数据结构与算法分析/chapter8.md
+      - 随机算法: 计算机科学/高级数据结构与算法分析/chapter9.md
+      - 并行算法: 计算机科学/高级数据结构与算法分析/chapter10.md
+      - 外部排序: 计算机科学/高级数据结构与算法分析/chapter11.md
+
+    - 计算机系统II:
+      - 计算机科学/计算机系统2/index.md
+      - 进程: 计算机科学/计算机系统2/chapter1.md
+      - CPU调度: 计算机科学/计算机系统2/chapter2.md
+      - 进程间通信: 计算机科学/计算机系统2/chapter3.md
+      - 线程: 计算机科学/计算机系统2/chapter4.md
+      - 同步: 计算机科学/计算机系统2/chapter5.md
     - 人工智能引论: 
       - 计算机科学/人工智能引论/index.md
-      - 知识学习与推理: 计算机科学/人工智能引论/chapter1.md
-      - 探索探寻与问题求解: 计算机科学/人工智能引论/chapter2.md
+      - 知识表达与推理: 计算机科学/人工智能引论/chapter1.md
+      - 搜索探寻与问题求解: 计算机科学/人工智能引论/chapter2.md
+      - 机器学习: 计算机科学/人工智能引论/chapter3.md
+      - 神经网络与深度学习: 计算机科学/人工智能引论/chapter4.md
+      - 强化学习: 计算机科学/人工智能引论/chapter5.md
+      - 博弈论: 计算机科学/人工智能引论/chapter6.md
+      - 人工智能伦理与安全: 计算机科学/人工智能引论/chapter7.md
   - 数理基础:
     - 概率论与数理统计:
       - 数理基础/概率论与数理统计/index.md
       - 随机事件和概率: 数理基础/概率论与数理统计/chapter1.md
       - 随机变量及其概率分布: 数理基础/概率论与数理统计/chapter2.md
+      - 多维随机变量: 数理基础/概率论与数理统计/chapter3.md
+      - 随机变量的数字特征: 数理基础/概率论与数理统计/chapter4.md
+      - 大数定律: 数理基础/概率论与数理统计/chapter5.md
+      - 统计与抽样分布: 数理基础/概率论与数理统计/chapter6.md
+      - 估计: 数理基础/概率论与数理统计/chapter7.md
+      - 假设检验: 数理基础/概率论与数理统计/chapter8.md
     - 普通物理学二: 
       - 数理基础/普通物理学2/index.md
       - 电势: 数理基础/普通物理学2/chapter2.md
@@ -62,6 +89,26 @@ nav:
       - 电路: 数理基础/普通物理学2/chapter5.md
       - 磁场: 数理基础/普通物理学2/chapter6.md
       - 电流的磁场: 数理基础/普通物理学2/chapter7.md
+      - 磁性材料: 数理基础/普通物理学2/chapter8.md
+      - 法拉第电磁感应定律: 数理基础/普通物理学2/chapter9.md
+      - 电感: 数理基础/普通物理学2/chapter10.md
+      - LC振荡电路: 数理基础/普通物理学2/chapter11.md
+      - 麦克斯韦方程组与电磁波: 数理基础/普通物理学2/chapter12.md
+      - 光: 数理基础/普通物理学2/chapter13.md
+      - 期中复习: 数理基础/普通物理学2/chapter14.md
+      - 几何光学: 数理基础/普通物理学2/chapter15.md
+      - 光的干涉: 数理基础/普通物理学2/chapter16.md
+      - 衍射: 数理基础/普通物理学2/chapter17.md 
+      - 光栅与光谱: 数理基础/普通物理学2/chapter18.md
+      - 光的偏振: 数理基础/普通物理学2/chapter19.md
+      - 光的量子性: 数理基础/普通物理学2/chapter20.md
+      - 电磁辐射的量子性: 数理基础/普通物理学2/chapter21.md
+      - 物质波: 数理基础/普通物理学2/chapter22.md
+      - 薛定谔方程和量子隧穿: 数理基础/普通物理学2/chapter23.md
+      - 量子阱（Quantum Wells）: 数理基础/普通物理学2/chapter24.md
+      - 氢原子模型: 数理基础/普通物理学2/chapter25.md
+      - 电子的角动量和自旋: 数理基础/普通物理学2/chapter26.md
+
   - 课外拓展:
     - markdown: 课外拓展/01-markdown/markdown_basic_grammar.md
     - the missing semester: 

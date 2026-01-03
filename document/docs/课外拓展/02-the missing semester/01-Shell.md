@@ -1,4 +1,3 @@
-
 # Shell
 ## 常用Shell命令
 - `echo`：打印字符串
@@ -90,6 +89,7 @@ ls *.txt
 ls [a-z]*.txt
 ls project?.txt
 ```
+
 - {}:用于扩展列表，如`{1..5}`表示1到5。
 
 ```bash
@@ -97,6 +97,7 @@ for i in {1..5}; do
     echo $i
 done
 ```
+
 - shellcheck：检查shell脚本语法错误。  
 - tldr：查看shell命令的简短用法。
 - find：搜索文件。  
@@ -106,6 +107,7 @@ done
 ```bash
   find . -name "*.tmp" -exec rm {} \;
 ```  
+
 - grep：搜索文本。
   具体形式：`grep 匹配模式 文件名`或者
   `grep -R 匹配模式 路径`  
@@ -114,6 +116,7 @@ done
   ```bash
   grep "hello" file.txt
   ```  
+  
 - rg: 类似于grep，但速度更快,有一些不错的标志可以用。
 - history: 查看历史命令。
 - fzf: 交互式命令行搜索工具。

@@ -1,7 +1,7 @@
 # 随机变量的数字特征
 ## 数学期望
 ### 离散型随机变量的数学期望
-设离散型随机变量 $X$ 的分布律为$P(X = x_{k}) = p_{k} , k = 1 , 2 , \dotsc$，若级数$∑_{k=1}^{ + \infty}x_kp_k$绝对收敛(即$\sum_{k = 1}^{ + \infty}|x_{k}|p_{k}< + \infty$) ,则称 X 的(数学)期望存在，其值为$\sum_{k = 1}^{ + \infty}x_{k}p_{k}$ ,即随机变量 X 的数学期望(mathematical expectation)(通常记为 $E(X)$) 为
+设离散型随机变量 $X$ 的分布律为$P(X = x_{k}) = p_{k} , k = 1 , 2 , \dotsc$，若级数$∑_{k=1}^{ + \infty}x_kp_k$绝对收敛(即$\sum_{k = 1}^{ + \infty}|x_{k}|p_{k}< + \infty$) ,则称 $X$ 的(数学)期望存在，其值为$\sum_{k = 1}^{ + \infty}x_{k}p_{k}$ ,即随机变量 $X$ 的数学期望(mathematical expectation)(通常记为 $E(X)$) 为
 $$
 E(X) = \sum_{k = 1}^{ + \infty}x_{k}p_{k}
 $$
@@ -19,20 +19,29 @@ E(X) = 0 \times (1 - p) + 1 \times p = p
 $$
 #### 二项分布(n,p)
 $X$ 为二项分布，即$X$ 的分布律为$P(X = k) = {n \choose k}p^{k}(1-p)^{n-k}$，则$X$ 的数学期望为
+
 $$
-E(X) = \sum_{k = 0}^{n}k \cdot C_{n}^{k}p^{k}(1 - p)^{n - k} = \sum_{k = 1}^{n}n \cdot C_{n - 1}^{k - 1}p^{k}(1 - p)^{n - k}= \\ 
-n p \sum_{k = 1}^{n}C_{n - 1}^{k - 1}p^{k - 1}(1 - p)^{(n - 1) - (k - 1)} = n p \sum_{j = 0}^{n - 1}C_{n - 1}^{j}p^{j}(1 - p)^{(n - 1) - j} = n p
+\begin{aligned}
+&E(X) = \sum_{k = 0}^{n}k \cdot C_{n}^{k}p^{k}(1 - p)^{n - k} = \sum_{k = 1}^{n}n \cdot C_{n - 1}^{k - 1}p^{k}(1 - p)^{n - k}= \\ 
+&n p \sum_{k = 1}^{n}C_{n - 1}^{k - 1}p^{k - 1}(1 - p)^{(n - 1) - (k - 1)} = n p \sum_{j = 0}^{n - 1}C_{n - 1}^{j}p^{j}(1 - p)^{(n - 1) - j} = n p
+\end{aligned}
 $$
+
 #### 泊松分布(λ)
 $X$ 为泊松分布，即$X$ 的分布律为$P(X = k) = \frac{\lambda^{k}e^{-\lambda}}{k!}$，则$X$ 的数学期望为
+
 $$
- E(X) = \sum_{k = 0}^{ + \infty}k \frac{\lambda^{k}\hbox e^{ - \lambda}}{k !} = \sum_{k = 1}^{ + \infty}k \frac{\lambda^{k}e^{ - \lambda}}{k !} = \lambda{e}^{ - \lambda}\sum_{k = 1}^{ + \infty}\frac{\lambda^{k - 1}}{(k - 1)!} = \lambda{e}^{ - \lambda}\cdot e^{\lambda} = \lambda
+E(X) = \sum_{k = 0}^{ + \infty}k \frac{\lambda^{k}\hbox e^{ - \lambda}}{k !} = \sum_{k = 1}^{ + \infty}k \frac{\lambda^{k}e^{ - \lambda}}{k !} = \lambda{e}^{ - \lambda}\sum_{k = 1}^{ + \infty}\frac{\lambda^{k - 1}}{(k - 1)!} = \lambda{e}^{ - \lambda}\cdot e^{\lambda} = \lambda
 $$
+
 #### 几何分布(p)
 $X$ 为几何分布，即$X$ 的分布律为$P(X = k) = (1 - p)^{k - 1}p$，则$X$ 的数学期望为
+
 $$
-E(X) = \sum_{k = 1}^{ + \infty}k p(1 - p)^{k - 1} = p \cdot \sum_{k = 1}^{ + \infty}((1 - p)^{k})^{\prime} = p \cdot \left(\frac{x}{1 - x}\right)^{\prime}|_{x = 1 - p} \\
-= p \cdot  \frac{1}{p^{2}} = \frac{1}{p}
+\begin{aligned}
+&E(X) = \sum_{k = 1}^{ + \infty}k p(1 - p)^{k - 1} = p \cdot \sum_{k = 1}^{ + \infty}((1 - p)^{k})^{\prime} = p \cdot \left(\frac{x}{1 - x}\right)^{\prime}|_{x = 1 - p} \\
+&= p \cdot  \frac{1}{p^{2}} = \frac{1}{p}
+\end{aligned}
 $$
 #### 均匀分布(a,b)
 $X$ 服从均匀分布 $U(a，b)$，其概率密度为：$f ( x ) = \begin{cases} \frac{1}{b - a} , & a < x < b , \cr 0 , & 其 他 , \end{cases}$，则$X$ 的数学期望为
@@ -41,16 +50,23 @@ E(X) = \int_{ - \infty}^{ + \infty}x f(x)d x = \int_{a}^{b}\frac{x}{b - a}d x = 
 $$
 #### 指数分布(λ)
  $X$ 服从指数分布 $E(λ)$，其概率密度为：$f(x) = \begin{cases} \lambda e^{ - \lambda x} , & x > 0 , \\0 , & x \le 0 , \end{cases}$则$X$ 的数学期望为
+
 $$
-E(X) = \int_{ - \infty}^{ + \infty}x f(x)d x = \int_{0}^{ + \infty}x \cdot \lambda{e}^{ - \lambda x}d x= - x e^{ - \lambda x}|_{0}^{ + \infty} + \int_{0}^{ + \infty}{e}^{ - \lambda x}d x \\ 
-= - \frac{1}{\lambda}{e}^{ - \lambda x}|_{0}^{ + \infty} = \frac{1}{\lambda}
+\begin{aligned}
+&E(X) = \int_{ - \infty}^{ + \infty}x f(x)d x = \int_{0}^{ + \infty}x \cdot \lambda{e}^{ - \lambda x}d x= - x e^{ - \lambda x}|_{0}^{ + \infty} + \int_{0}^{ + \infty}{e}^{ - \lambda x}d x \\ 
+&= - \frac{1}{\lambda}{e}^{ - \lambda x}|_{0}^{ + \infty} = \frac{1}{\lambda}
+\end{aligned}
 $$
 #### 正态分布(μ,σ)
 设随机变量 $X$ 服从正态分布$N(μ, σ²)$,其概率密度函数为：$f(x) = \frac{1}{\sqrt{2 \pi}\sigma}{e}^{ - \frac{(x - \mu)^{2}}{2 \sigma^{2}}} , - \infty < x < + \infty$ ，则$X$ 的数学期望为
+
 $$
-E(X)=\int_{ - \infty}^{ + \infty}x f(x)d x = \int_{ - \infty}^{ + \infty}\frac{x}{\sqrt{2 \pi}\sigma}{e}^{ - \frac{(x - \mu)^{2}}{2 \sigma^{2}}}d x = \frac{1}{\sqrt{2 \pi}\sigma}\int_{ - \infty}^{ + \infty}(x - \mu)e^{ - \frac{(x - \mu)^{2}}{2 \sigma^{2}}}d x \\
-\xlongequal{\triangle t = \frac{x - \mu}{\sigma}} \mu + \frac{\sigma}{\sqrt{2 \pi}} \int_{ - \infty}^{ + \infty} t {e}^{ - \frac{t^{2}}{2}} d t = \mu + 0 = \mu 
+\begin{aligned}
+&E(X)=\int_{ - \infty}^{ + \infty}x f(x)d x = \int_{ - \infty}^{ + \infty}\frac{x}{\sqrt{2 \pi}\sigma}{e}^{ - \frac{(x - \mu)^{2}}{2 \sigma^{2}}}d x = \frac{1}{\sqrt{2 \pi}\sigma}\int_{ - \infty}^{ + \infty}(x - \mu)e^{ - \frac{(x - \mu)^{2}}{2 \sigma^{2}}}d x \\
+&\overset{\triangle t = \frac{x - \mu}{\sigma}}{=} \mu + \frac{\sigma}{\sqrt{2 \pi}} \int_{ - \infty}^{ + \infty} t {e}^{ - \frac{t^{2}}{2}} d t = \mu + 0 = \mu 
+\end{aligned}
 $$
+
 ### 数学期望的计算
 #### 定理1
 设 $Y$ 是随机变量 $X$ 的函数： $Y=g(X)$，其中 $g(·)$是连续函数，$X$ 是离散型随机变量，它的分布律为$P ( X = x_{k} ) = p_{k} , k = 1 , 2 , . ...$若$\sum_{k = 1}^{ + \infty}g(x_{k})p_{k}$绝对收敛，则有
@@ -88,8 +104,8 @@ $$
 $$
 V a r(X) = D(X) = E\{[X - E(X)]^{2}\}
 $$
-将$\sqrt{V a r (X)}$记为$σ(X)$或$ SD(N)$,称为N 的标准差 (standard deviation) 或均方差,它是与随机变量X具有相同量纲的量
-方差 $Var(X)$和标准差$SD(X)$均可刻画X取值的分散程度，是衡量$X$取值分散程度的常用标准。
+将$\sqrt{V a r (X)}$记为$σ(X)$或$SD(N)$,称为N 的标准差 (standard deviation) 或均方差,它是与随机变量X具有相同量纲的量  
+方差 $Var(X)$和标准差$SD(X)$均可刻画X取值的分散程度，是衡量$X$取值分散程度的常用标准。  
 若$X$的取值比较集中，则$Var(X)(SD(X))$较小；若X的取值比较分散，则$Var(X)(SD(X))$较大。
 ### 方差的计算
 若随机变量$X$的方差存在，则有
@@ -102,15 +118,18 @@ $$
 Var(X) = E\{[X - E(X)]^{2}\} = E(X^{2}) - (E(X))^{2} = (1 - p)^{2}p + p^{2}(1 - p) = p(1 - p)
 $$
 #### 泊松分布的方差
-$X$ 为泊松分布，即$X$ 的分布律为$P(X = k) = \frac{\lambda^{k}e^{-\lambda}}{k!}$，则$X$ 的方差为
+$X$ 为泊松分布，即$X$ 的分布律为$P(X = k) = \frac{\lambda^{k}e^{-\lambda}}{k!}$，则$X$ 的方差为  
 之前已得到期望$E(X) = λ$ ,利用方差的计算公式，先计算
+
 $$
 E(X^{2}) = E[X(X - 1) + X] = E[X(X - 1)] + E(X)= \sum_{k = 0}^{ + \infty}k(k - 1)\frac{\lambda^{k}e^{ - \lambda}}{k !} + \lambda = \lambda^{2}{e}^{ - \lambda}\sum_{k = 2}^{ + \infty}\frac{\lambda^{k - 2}}{(k - 2)!} + \lambda= \lambda^{2}e^{ - \lambda}e^{\lambda} + \lambda = \lambda^{2} + \lambda 
 $$
+
 $$
 \Rightarrow V a r(X) = E(X^{2}) - [E(X)]^{2} = \lambda
 $$
-泊松分布的均值和方差相等，都等于参数λ
+
+泊松分布的均值和方差相等，都等于参数$λ$
 
 ![泊松分布方差的推广](image/泊松分布方差的推广.png)
 #### 几何分布的方差
@@ -138,7 +157,7 @@ $$
 - 设X，Y是两个随机变量，则有$Var(X+Y)=Var(X)+Var(Y)+2E\{[X-E(X)][Y-E(Y)]\}$，特别的，若$X,Y$相互独立，则有$Var(X+Y)=Var(X)+Var(Y)$
 - $Var(X)=0 \Leftrightarrow P(X=C)=1 且 C=E(X)$
 #### 二项分布的方差
-随机变量 $X$ 具有二项分布 $B(n,p)，n≥1，0<p<1$。
+随机变量 $X$ 具有二项分布 $B(n,p)，n≥1，0<p<1$。  
 （与求期望采用相同的方法）随机变量$X$可视为 $n$ 重贝努里试验中事件 $A$ 发生的次数，其中 $P(A)=p$ 引入随机变量
 $$
 Y_{i} = 
@@ -157,7 +176,8 @@ $$
 $$
 注意到$X = μ + σZ$ ,利用方差的性质可得：
 $$
-V a r(X) = V a r(\mu + \sigma Z) = \sigma^{2}V a r(Z) = \sigma^{2}$$
+V a r(X) = V a r(\mu + \sigma Z) = \sigma^{2}V a r(Z) = \sigma^{2}
+$$
 ## 协方差
 设$X$和$Y$是两个随机变量，若$E\{[X - E(X)][Y - E(Y)]\}$存在，则称其为$X$和$Y$的协方差(covariance)，记为$Cov(X,Y)$，即
 $$
@@ -169,7 +189,7 @@ $$
 Cov(X,Y) = E(XY) - E(X)E(Y)
 $$
 ### 协方差的性质
-引入协方差后，方差的性质 (3)及其推广可重新书写.
+引入协方差后，方差的性质 (3)及其推广可重新书写.  
 当随机变量$X$ 与 $Y$的方差存在时，有
 $$
 Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)
@@ -179,6 +199,7 @@ $$
 V a r \Biggl(\sum_{i = 1}^{n}X_{i}\Biggr) = \sum_{i = 1}^{n}V a r(X_{i}) + 2 \sum_{1 \le i < j \le n}C o v(X_{i} , X_{j})
 $$
 协方差的性质如下
+
 - $Cov(X,Y)=Cov(Y,X)$
 - $Cov(X,X)=Var(X)$
 - $Cov(aX,bY)=abCov(X,Y),\quad a,b \in \mathbb{R}$
@@ -188,15 +209,17 @@ $$
 $$
 \rho_{X Y} = \frac{C o v(X , Y)}{\sqrt{V a r(X)}\sqrt{V a r(Y)}}
 $$
-为X 与 Y 的相关系数(correlation coefficient)，有时也简记为$\rho$，且
+为$X$ 与 $Y$ 的相关系数(correlation coefficient)，有时也简记为$\rho$，且
+
 $$
 \rho_{X Y} = Cov(X^* , Y^*) 
 $$
+
 其中$X^*$ 和 $Y^*$ 分别是$X$ 和 $Y$的标准化变量，即
 $$
 X^* = \frac{X - E(X)}{\sqrt{Var(X)}} , \quad Y^* = \frac{Y - E(Y)}{\sqrt{Var(Y)}}
 $$
-$\rho_{XY}$是一个无量纲的数字特征。
+$\rho_{XY}$是一个无量纲的数字特征。  
 相关系数是刻画两个变量之间相依关系的一种数字特征。
 ### 相关系数的性质
 - $\mid \rho_{X Y}\mid \le 1$
@@ -210,25 +233,29 @@ $$
 $$
 P(Y=a+bX)=1
 $$
-考虑用$X$的线性函数$a+bX$近似表示Y，用均方误差$e(a , b) = E\{[Y - (a + b X)]^{2}\}$衡量用$a+bX$近似表示$Y$的好坏程度。如果$e(a，b)$越小，则$a+bX$与$Y$的近似程度越好
+考虑用$X$的线性函数$a+bX$近似表示Y，用均方误差$e(a , b) = E\{[Y - (a + b X)]^{2}\}$衡量用$a+bX$近似表示$Y$的好坏程度。如果$e(a，b)$越小，则$a+bX$与$Y$的近似程度越好  
+
 相关系数$ρ_{XY}$是一个用来表征 $X，Y$之间线性关系紧密程度的数字特征
-当$|\rho_{XY}|$较大时,$e(a_{0} , b_{0})$较小，表明 $X，Y$线性关系的程度较强；
-当$|ρ_{XY}| = 1$时，$e(a_{0} , b_{0}) = 0$，表明 $X，Y$之间以概率1存在线性关系；
-当$|ρ_{XY}|$较小时，$e(a_{0} , b_{0})$较大，表明 $X，Y$线性关系的程度较弱
+
+- 当$|\rho_{XY}|$较大时,$e(a_{0} , b_{0})$较小，表明 $X，Y$线性关系的程度较强；
+- 当$|ρ_{XY}| = 1$时，$e(a_{0} , b_{0}) = 0$，表明 $X，Y$之间以概率1存在线性关系；
+- 当$|ρ_{XY}|$较小时，$e(a_{0} , b_{0})$较大，表明 $X，Y$线性关系的程度较弱
 #### 相关性
 当$\rho_{X Y}> 0$时，称$X$ 与 $Y$ 为正相关，当$\rho_{X Y}< 0$时，称$X$ 与$Y$ 为负相关
 当$\rho_{X Y}=0$时，称$X$ 与$Y$ 为不相关或零相关
 
 随机变量$X$与$Y$不相关的等价条件：
+
 - $Cov(X,Y)=0$
 - $E(XY)=E(X)E(Y)$
 - $Var(X+Y)=Var(X)+Var(Y)$
 ##### 相关性和独立性的关系
 X与Y不相关，仅就二者的线性关系而言；而X与Y相互独立，是就一般关系而言的。  
-$X$与$Y$相互独立$\Rightarrow$$X$与$Y$不相关
+$X$与$Y$相互独立$\Rightarrow$$X$与$Y$不相关  
 $X$与$Y$不相关$\not\Rightarrow$ $X$与$Y$相互独立
 
 **特例：若$(X,Y)$服从二维正态分布，则$X，Y$相互独立的充要条件是$X$与$Y$不相关**
+
 ![二维正态分布的性质](image/二维正太变量的性质.png)
 ## 其他数学特征
 ### 矩
@@ -256,7 +283,7 @@ $$
 过设二维随机变量$( X_{1} , X_{2} )$的四个二阶中心矩存在，则称
 $$ 
 \begin{pmatrix}
- Var(X_{1}) & Cov(X_{1} , X_{2}) \\
+ Var(X_{1}) & Cov(X_{1} , X_{2}) \cr
  Cov(X_{2} , X_{1}) & Var(X_{2}) 
 \end{pmatrix}
 $$ 

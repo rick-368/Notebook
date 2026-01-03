@@ -38,8 +38,10 @@
    25
 
 ```
+
    - 在scheme中也支持函数的嵌套和递归定义
 ``` scheme
+
    >(define(sqrt x)
      (define(update guess)
        (if (= (square guess) x)
@@ -48,20 +50,26 @@
    > (sqrt 25)
    5
 ```
+
   - `lambda`：定义匿名函数，语法为`(lambda (var1 var2...) body)`，返回一个函数，参数为var1, var2...，函数体为body。
+
 ``` scheme
   > (define (square x) lambda (x) (* x x))
   > (square 5)
   25
 ```
+
   - `cond`：条件语句，语法为`(cond (test1 exp1) (test2 exp2) ... (else expn))`，当test1为真时，执行exp1，否则判断test2，直到找到真值，执行对应的exp。如果没有真值，则执行else。
-  - `begin`：多表达式语句，语法为`(begin exp1 exp2...)`，将多个表达式组成一个表达式，返回最后一个表达式的值。
+  - `begin`：多表达式语句，语法为`(begin exp1 exp2...)`，将多个表达式组成一个表达式，返回最后一个表达式的值
+
 ``` scheme
   > (begin (print "Hello") (print "World"))
   Hello
   World
 ```
+
   - `let`：局部变量绑定，语法为`(let ((var1 exp1) (var2 exp2) ...) body)`，将var1, var2...绑定到exp1, exp2...的值，在body中使用var1, var2...。
+
 ``` scheme
   > (define c (let((a 3)
               (b 4)
@@ -70,6 +78,7 @@
   7
 ```
   > 在本例中，a和b是局部变量，在let表达式中绑定到3和4，在body中使用+运算符将a和b相加，得到7，赋值给c。
+
   - `repeat`：重复执行表达式，语法为`(repeat n exp)`，重复执行n次exp。
 ## Scheme 列表
 - 在Scheme中，每个列表都有一个链表的形式，每个元素都是一个值，每个元素都有指针指向下一个元素。

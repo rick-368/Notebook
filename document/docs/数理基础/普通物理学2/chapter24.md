@@ -58,9 +58,11 @@ $$
 对于在中央圆柱体（ $U = 0$ ）内运动的电子，其总（机械）能量  $E$  等于动能 $K$ 。
 
 因此，在中央圆柱体内运动的电子的总能量为  
+
 $$
 E_n = \left( \frac{h^2}{8mL^2} \right)n^2 \propto n^2
 $$
+
 其中 $n = 1, 2, 3, \ldots$，这里的正整数 $n$ 是电子在势阱中量子态的**量子数**。  
 阱越窄（$L$ 越小）$⇒ E_n$ 越大。
 
@@ -169,6 +171,7 @@ $$
 \psi_n(x, y) = \frac{2}{\sqrt{L_x L_y}} \sin\left(\frac{n_x \pi}{L_x} x\right) \sin\left(\frac{n_y \pi}{L_y} y\right),
 $$
 其中包含两个量子数 $n_x$和 $n_y$ ，对应的能量为：
+
 $$
 E_{n_x, n_y} = \frac{\hbar^2}{8m} \left( \frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} \right).
 $$

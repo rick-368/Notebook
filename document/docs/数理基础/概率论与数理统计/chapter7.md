@@ -108,23 +108,23 @@ $$
 #### 极大似然估计值/估计量
 称  
 $$
-\hat{\theta}(\boldsymbol{x}) = \arg\max_{\theta \in \Theta} L(\theta; \boldsymbol{x})
+\hat{\theta}(\mathbf{X}) = \arg\max_{\theta \in \Theta} L(\theta; \mathbf{X})
 $$
 
-为 $\theta$的极大似然估计值，即 $\hat{\theta}(\boldsymbol{x})$ 为满足  
+为 $\theta$的极大似然估计值，即 $\hat{\theta}(\mathbf{X})$ 为满足  
 $$
-L(\hat{\theta}(\boldsymbol{x}); \boldsymbol{x}) = \max_{\theta \in \Theta} L(\theta; \boldsymbol{x})$$
+L(\hat{\theta}(\mathbf{X}); \mathbf{X}) = \max_{\theta \in \Theta} L(\theta; \mathbf{X})$$
 
 相应的统计量  
 $$
-\hat{\theta}(\boldsymbol{X}) = \arg\max_{\theta \in \Theta} L(\theta; \boldsymbol{X})
+\hat{\theta}(\mathbf{X}) = \arg\max_{\theta \in \Theta} L(\theta; \mathbf{X})
 $$
 
 即为 $\theta$ 的极大似然估计量 (maximum likelihood estimator).
 #### 求极大似然估计
 **思想**：用“最像”$\theta$真值的值去估计$\theta$。
 
-**本质**：在参数空间$\Theta$中，找到使得似然函数$L(\theta; \boldsymbol{x})$最大的$\theta$。
+**本质**：在参数空间$\Theta$中，找到使得似然函数$L(\theta; \mathbf{x})$最大的$\theta$。
 
 **基本步骤**：
 
@@ -140,13 +140,13 @@ $$
 **说明**：
 
 - 未知参数可能不是一个，一般设为 $\theta = (\theta_1, \theta_2, \ldots, \theta_k)$；
-- (微分法) 在求 $L(\theta; \boldsymbol{x})$的最大值时，当 $L(\theta)$关于$\theta$可微时，通常转化为求似然方程
+- (微分法) 在求 $L(\theta; \mathbf{X})$的最大值时，当 $L(\theta)$关于$\theta$可微时，通常转化为求似然方程
 $$
 \frac{\partial L(\theta)}{\partial \theta_i} = 0, \quad i = 1, 2, \ldots, k
 $$
 有时，还可以转换为求对数似然函数 (log likelihood function)
 $$
-\ln L(\theta) = \ln L(\theta; \boldsymbol{x}) = \sum_{i=1}^n \ln f(x_i; \theta)
+\ln L(\theta) = \ln L(\theta; \mathbf{X}) = \sum_{i=1}^n \ln f(x_i; \theta)
 $$
 的最大值，当 $\ln L(\theta)$关于 $\theta$ 可微时，通常转化为求对数似然方程
 $$
@@ -172,7 +172,7 @@ E(\hat{\theta}) = \theta, \quad \forall \theta \in \Theta
 $$
 则称 $\hat{\theta}$ 是$\theta$的一个无偏估计量(unbiased estimator)。
 
-若$E(\hat{\theta}) \neq \theta$，则 $\hat{\theta}$ 是$\theta$ 的一个有偏估计量，并称 $|E(\hat{\theta}) - \theta|$为估计量 $\hat{\theta} $的偏差(bias)。若$E(\hat{\theta}) \neq \theta$，但满足$\lim_{n \to +\infty} E(\hat{\theta}) = \theta$，则称$\hat{\theta}$是 $\theta$ 的渐近无偏估计量 (asymptotic unbiased estimator)。
+若$E(\hat{\theta}) \neq \theta$，则 $\hat{\theta}$ 是$\theta$ 的一个有偏估计量，并称 $|E(\hat{\theta}) - \theta|$为估计量 $\hat{\theta}$的偏差(bias)。若$E(\hat{\theta}) \neq \theta$，但满足$\lim_{n \to +\infty} E(\hat{\theta}) = \theta$，则称$\hat{\theta}$是 $\theta$ 的渐近无偏估计量 (asymptotic unbiased estimator)。
 
 ![无偏估计量1](image/无偏估计量.png)
 ![无偏估计量2](image/无偏估计量2.png)
@@ -193,11 +193,11 @@ $$
 Var(\hat{\theta}_1) \leq Var(\hat{\theta}_2), \quad \forall \theta \in \Theta
 $$
 
-且至少有一个 $\theta \in \Theta$使不等号成立，则称 $\hat{\theta}_1$ 比 $\hat{\theta}_2 $有效 (effective)。
+且至少有一个 $\theta \in \Theta$使不等号成立，则称 $\hat{\theta}_1$ 比 $\hat{\theta}_2$有效 (effective)。
 
 ### 均方误差准则
 
-设 $\hat{\theta} = \hat{\theta}(\mathbf{X}) $是参数 $\theta$ 的估计量，其方差存在，称
+设 $\hat{\theta} = \hat{\theta}(\mathbf{X})$是参数 $\theta$ 的估计量，其方差存在，称
 $$
 Mse(\hat{\theta}) = E[(\hat{\theta} - \theta)^2]
 $$
@@ -244,13 +244,13 @@ $$
 设 $\theta \in \Theta \subset \mathbb{R}$是待估参数，区间估计是给出两个统计量 $\widehat{\theta}_L = \widehat{\theta}(\mathbf{X})$ 和 $\widehat{\theta}_U = \widehat{\theta}_U(\mathbf{X})$，使得随机区间 $(\widehat{\theta}_L(\mathbf{X}), \widehat{\theta}_U(\mathbf{X}))$ 以一定的可靠程度涵盖参数 $\theta$。
 
 ### 置信区间
-设总体 $X$ 的分布函数 $F(x; \theta)$ 含有一个未知参数$\theta$，$X = (X_1, X_2, \ldots, X_n)$ 是来自总体 $X$ 的样本，对给定的值$\alpha(0 < \alpha < 1)$，如果有两个统计量$\hat{\theta}_L = \hat{\theta}_L(X)$和 $\hat{\theta}_U = \hat{\theta}_U(X) $满足 $\hat{\theta}_L < \hat{\theta}_U$，使得  
+设总体 $X$ 的分布函数 $F(x; \theta)$ 含有一个未知参数$\theta$，$X = (X_1, X_2, \ldots, X_n)$ 是来自总体 $X$ 的样本，对给定的值$\alpha(0 < \alpha < 1)$，如果有两个统计量$\hat{\theta}_L = \hat{\theta}_L(X)$和 $\hat{\theta}_U = \hat{\theta}_U(X)$满足 $\hat{\theta}_L < \hat{\theta}_U$，使得  
 
 $$
 P(\hat{\theta}_L < \theta < \hat{\theta}_U) \geq 1 - \alpha, \quad \forall \theta \in \Theta,
 $$
 
-则称随机区间 $(\hat{\theta}_L, \hat{\theta}_U) $是 $\theta$的置信水平为 $1 - \alpha$的（双侧）置信区间 (confidence interval)；$\hat{\theta}_L$ 和 $\hat{\theta}_U$ 分别称为 $\theta$ 的置信水平为 $1 - \alpha$ 的（双侧）置信下限 (lower confidence limit) 和（双侧）置信上限 (upper confidence limit)；称 $1 - \alpha$ 为置信水平 (confidence level) 或置信度。
+则称随机区间 $(\hat{\theta}_L, \hat{\theta}_U)$是 $\theta$的置信水平为 $1 - \alpha$的（双侧）置信区间 (confidence interval)；$\hat{\theta}_L$ 和 $\hat{\theta}_U$ 分别称为 $\theta$ 的置信水平为 $1 - \alpha$ 的（双侧）置信下限 (lower confidence limit) 和（双侧）置信上限 (upper confidence limit)；称 $1 - \alpha$ 为置信水平 (confidence level) 或置信度。
 
 
 对给定的$\alpha \in (0,1)$，如果统计量 $\hat{\theta}_L = \hat{\theta}_L(\mathbf{X})$满足  
@@ -261,7 +261,7 @@ $$
 
 则称 $\hat{\theta}_L$ 是参数 $\theta$的置信水平为 $1 - \alpha$的单侧置信下限，随机区间 $(\hat{\theta}_L, +\infty)$是 $\theta$ 的置信水平为 $1 - \alpha$ 的单侧置信区间。
 
-对给定的 $\alpha \in (0,1)$，如果统计量 $\hat{\theta}_U = \hat{\theta}_U(\mathbf{X}) $满足  
+对给定的 $\alpha \in (0,1)$，如果统计量 $\hat{\theta}_U = \hat{\theta}_U(\mathbf{X})$满足  
 
 $$
 P(\theta < \hat{\theta}_U) \geq 1 - \alpha, \quad \theta \in \Theta
@@ -343,7 +343,7 @@ $$
 
 #### 均值  $\mu$  的置信区间  
 
-#####  $\sigma^2$  已知时  
+##### 方差已知时  
 $\overline{X}$ 是 $\mu$ 的一个常用估计量，且  $\overline{X} \sim N(\mu, \sigma^2/n)$ 。取枢轴量为  
 $$
 G(\overline{X}; \mu) = \frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim N(0, 1)
@@ -379,14 +379,14 @@ G(\overline{X};\mu) = \frac{\overline{X}-\mu}{\sigma/\sqrt{n}} \sim N(0,1)
 $$
 注意到:
 $$
-P\left\{ \frac{\overline{X}-\mu}{\sigma/\sqrt{n}} < z_{\alpha} \right\} = 1-\alpha, \iff P\left\{ \mu > \overline{X} - \frac{\sigma}{\sqrt{n}}z_{\alpha} \right\} = 1-\alpha
+P(\frac{\overline{X}-\mu}{\sigma/\sqrt{n}} < z_{\alpha}) = 1-\alpha, \iff P(\mu > \overline{X} - \frac{\sigma}{\sqrt{n}}z_{\alpha}) = 1-\alpha
 $$
 那么 $\mu$ 的置信水平为 $1-\alpha$ 的单侧置信下限为 $\overline{X} - \frac{\sigma}{\sqrt{n}}z_{\alpha}$，即 $\mu$的置信水平为 $1-\alpha$ 的单侧置信区间为
 $$
 \left( \overline{X} - \frac{\sigma}{\sqrt{n}}z_{\alpha}, +\infty \right)
 $$
 
-#####  $\sigma^2$  未知时  
+#####  方差未知时  
 
 此时，(1) 中的 $\frac{\overline{X} - \mu}{\sigma / \sqrt{n}}$不能取为枢轴量，因为其形式上含有未知参数 $\sigma$ (非待估参数)。一个自然的想法，对于 $\frac{\overline{X} - \mu}{\sigma / \sqrt{n}}$ 中的未知的总体方差 $\sigma^2$，用其无偏估计量——样本方差 $S^2$ 代替，故可取枢轴量为
 $$
@@ -394,7 +394,7 @@ T(\overline{X}; \mu) = \frac{\overline{X} - \mu}{S / \sqrt{n}} \sim t(n-1)
 $$
 注意到 $t$ 分布的单峰对称性，所以有
 $$
-P \left\{ -t_{\alpha/2}(n-1) < \frac{\overline{X} - \mu}{S / \sqrt{n}} < t_{\alpha/2}(n-1) \right\} = 1 - \alpha
+P (-t_{\alpha/2}(n-1) < \frac{\overline{X} - \mu}{S / \sqrt{n}} < t_{\alpha/2}(n-1)) = 1 - \alpha
 $$
 
 因为 $z_{1-\alpha/2} = -z_{\alpha/2}$ ，所以有
@@ -453,7 +453,7 @@ $$
 
 #### 方差  $\sigma^2$  的置信区间  
 
-##### 均值  $\mu$  已知时 （仅供参考）
+##### 均值已知时 （仅供参考）
 
 注意到  
 $$
@@ -472,31 +472,36 @@ $$
 $$
 
 即
+
 $$
 P \left\{ \frac{\sum_{i=1}^{n} (X_i - \mu)^2}{\chi_{\alpha/2}^2(n)} < \sigma^2 < \frac{\sum_{i=1}^{n} (X_i - \mu)^2}{\chi_{1-\alpha/2}^2(n)} \right\} = 1 - \alpha
 $$
 
 
 因此 $\sigma^2$的置信区间为
+
 $$
 \left( \frac{\sum_{i=1}^{n} (X_i - \mu)^2}{\chi_{\alpha/2}^2(n)}, \frac{\sum_{i=1}^{n} (X_i - \mu)^2}{\chi_{1-\alpha/2}^2(n)} \right)
 $$
 
 
 区间的平均长度为
+
 $$
 E \left[ \frac{\sum_{i=1}^{n} (X_i - \mu)^2}{\chi_{1-\alpha/2}^2(n)} - \frac{\sum_{i=1}^{n} (X_i - \mu)^2}{\chi_{\alpha/2}^2(n)} \right] = n\sigma^2 \left( \frac{1}{\chi_{1-\alpha/2}^2(n)} - \frac{1}{\chi_{\alpha/2}^2(n)} \right).
 $$
 
 进一步可知 $\sigma$ 的置信区间为
+
 $$
 \left( \sqrt{\frac{\sum_{i=1}^{n} (X_i - \mu)^2}{\chi_{\alpha/2}^2(n)}}, \sqrt{\frac{\sum_{i=1}^{n} (X_i - \mu)^2}{\chi_{1-\alpha/2}^2(n)}} \right)
 $$
 
 注 如上得到的置信区间是等尾置信区间，而不是最优置信区间。
 
-##### 均值  $\mu$  未知时  
+##### 均值未知时  
 注意到  $\frac{(n-1)S^2}{\sigma^2} = \frac{1}{\sigma^2} \sum_{i=1}^n (X_i - \overline{X})^2 \sim \chi^2(n-1)$ ，取枢轴量为
+
 $$
 G(\overline{X};\mu) = \frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)
 $$
@@ -515,18 +520,23 @@ $$
 
 
 因此 $\sigma^2$ 的置信区间为
+
 $$
 \left( \frac{(n-1)S^2}{\chi_{\alpha/2}^2(n-1)}, \frac{(n-1)S^2}{\chi_{1-\alpha/2}^2(n-1)} \right)
 $$
 
 区间的平均长度为
+
 $$
 E\left[ \frac{(n-1)S^2}{\chi_{1-\alpha/2}^2(n-1)} - \frac{(n-1)S^2}{\chi_{\alpha/2}^2(n-1)} \right] = (n-1)\sigma^2 \left( \frac{1}{\chi_{1-\alpha/2}^2(n-1)} - \frac{1}{\chi_{\alpha/2}^2(n-1)} \right).
 $$
+
 进一步可知 $\sigma$ 的置信区间为
+
 $$
 \left( \sqrt{\frac{(n-1)S^2}{\chi_{\alpha/2}^2(n-1)}}, \sqrt{\frac{(n-1)S^2}{\chi_{1-\alpha/2}^2(n-1)} } \right).
 $$
+
 注：如上得到的置信区间也不是最优置信区间。
 
 ### 两个正态总体 $N(\mu_1, \sigma_1^2)$，$N(\mu_2, \sigma_2^2)$ 的情形
@@ -537,18 +547,20 @@ $$
 
 ![置信区间1](image/置信区间1.png)
 
-##### $\sigma_1^2, \sigma_2^2$ 已知时
+##### 方差已知时
 
 由 $\overline{X} - \overline{Y} \sim N\left(\mu_1 - \mu_2, \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}\right)$，取枢轴量为
 
 $$
 G(X, Y; \mu_1, \mu_2) = \frac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sim N(0, 1)
 $$
+
 可得置信区间为
+
 $$
 \left( \overline{X} - \overline{Y} - z_{\alpha/2} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}, \quad \overline{X} - \overline{Y} + z_{\alpha/2} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \right).
 $$
-##### $\sigma_1^2, \sigma_2^2 $未知时  
+##### 方差未知时  
 此时，自然的想法是用它们的无偏估计 $S_1^2$ 和 $S_2^2$ 代替，得  
 
 $$
@@ -600,7 +612,7 @@ $$
 
 #### $\frac{\sigma_1^2}{\sigma_2^2}$ 的置信区间
 ![置信区间2](image/置信区间2.png)
-##### $\mu_1, \mu_2$ 已知时 （仅供参考）
+##### 均值已知时 （仅供参考）
 注意到
 $$
 \frac{1}{\sigma_1^2} \sum_{i=1}^{n_1} (X_i - \mu_1)^2 \sim \chi^2(n_1), \quad \frac{1}{\sigma_2^2} \sum_{j=1}^{n_2} (Y_j - \mu_2)^2 \sim \chi^2(n_2)
@@ -620,7 +632,7 @@ $$
 \left( \frac{\sum_{i=1}^{n_1} (X_i - \mu_1)^2 / n_1}{\sum_{j=1}^{n_2} (Y_j - \mu_2)^2 / n_2} \cdot F_{1-\alpha/2}(n_2, n_1), \quad \frac{\sum_{i=1}^{n_1} (X_i - \mu_1)^2 / n_1}{\sum_{j=1}^{n_2} (Y_j - \mu_2)^2 / n_2} \cdot F_{\alpha/2}(n_2, n_1) \right).
 $$
 
-##### $\mu_1, \mu_2$ 未知时
+##### 均值未知时
 
 注意到 $\frac{(n_1 - 1)S_1^2}{\sigma_1^2} \sim \chi^2(n_1 - 1)$, $\frac{(n_2 - 1)S_2^2}{\sigma_2^2} \sim \chi^2(n_2 - 1)$, 且相互独立。取枢轴量为
 
@@ -635,16 +647,19 @@ P\left\{F_{1-\alpha/2}(n_1 - 1, n_2 - 1) < \frac{S_1^2/S_2^2}{\sigma_1^2/\sigma_
 $$
 
 即
+
 $$
 P \left\{ \frac{S_1^2}{S_2^2} \frac{1}{F_{\alpha/2}(n_1 - 1, n_2 - 1)} < \frac{\sigma_1^2}{\sigma_2^2} < \frac{S_1^2}{S_2^2} \frac{1}{F_{1-\alpha/2}(n_1 - 1, n_2 - 1)} \right\} = 1 - \alpha.
 $$
 
 由此可以等尾地构造出置信区间
+
 $$
 \left( \frac{S_1^2}{S_2^2} \cdot \frac{1}{F_{\alpha/2}(n_1 - 1, n_2 - 1)}, \quad \frac{S_1^2}{S_2^2} \cdot \frac{1}{F_{1-\alpha/2}(n_1 - 1, n_2 - 1)} \right).
 $$
 
 注意到  $F$ 分布分位数的“三变性质”，该置信区间也可以写作
+
 $$
 \left( \frac{S_1^2}{S_2^2} \cdot \frac{1}{F_{\alpha/2}(n_1 - 1, n_2 - 1)}, \quad \frac{S_1^2}{S_2^2} \cdot F_{\alpha/2}(n_2 - 1, n_1 - 1) \right).
 $$

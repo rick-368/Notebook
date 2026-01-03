@@ -11,8 +11,8 @@ $i=\frac{q}{dt}=nAev_d$，也可以得出：$\vec{J}=ne\vec{v_d}$。
 - 电荷守恒的微分形式: $\frac{\partial q}{\partial t}=-\nabla\cdot\vec{J}$，J是电流密度。
 ## 电阻
 - 电阻的定义：$R=\rho \frac{L}{S}$
-- 欧姆定律：$R = \frac{V}{I}$，其中V是导体两端的电势差，I是电流。
-- 材料的电阻率$\rho$和电导率$\sigma$之间的关系为:$\rho = \frac{1}{\sigma}=\frac{E}{J}$,其中E是电场强度，J是电流密度。
+- 欧姆定律：$R = \frac{V}{I}$，其中$V$是导体两端的电势差，$I$是电流。
+- 材料的电阻率$\rho$和电导率$\sigma$之间的关系为:$\rho = \frac{1}{\sigma}=\frac{E}{J}$,其中$E$是电场强度，$J$是电流密度。
 ## 电容
 - 电容器由两个相互隔离的导体（电容器极板）组成，带有等量相反的电荷。
 ![电容器](image/电容器.png)

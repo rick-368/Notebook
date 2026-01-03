@@ -7,13 +7,15 @@
 $$
 E_x(z, t) = \hat{i} E_{0x} \cos(kz - \omega t)
 $$
+
 $$
 E_y(z, t) = \hat{j} E_{0y} \cos(kz - \omega t + \epsilon)
 $$
 
 偏振（极化）描述的是电场$E$振动的取向。
 ## 偏振的分类
-- **线偏振**：如果相位差  $\epsilon$  为零或为 $\pm 2\pi$ 的整数倍，则合成波为  
+- **线偏振**：如果相位差  $\epsilon$  为零或为 $\pm 2\pi$ 的整数倍，则合成波为 
+ 
 $$
 \vec{E} = \vec{E}_x + \vec{E}_y = (iE_{0x} + jE_{0y}) \cos(kz - \omega t)
 $$
@@ -21,6 +23,7 @@ $$
 ![线偏振](image/线偏振.png)
 
 - **圆偏振**：当两个组成波的振幅相等（ $E_{0x} = E_{0y} = E_0$ ），且它们的相对相位差 $\epsilon = -\pi/2 + 2m\pi$ （其中  $m$ 为整数）时，合成波为
+
 $$
 E = iE_0 \cos(kz - \omega t) + jE_0 \cos(kz - \omega t - \pi/2) \\
 = E_0[i\cos(kz - \omega t) + j\sin(kz - \omega t)]
@@ -29,7 +32,9 @@ $$
 ![圆偏振](image/圆偏振.png)
 
 - 在固定的$z$处，由向着光传播方向观察的观察者看来，合成电场$\vec{E}$以角频率$\omega$顺时针旋转。这被称为右旋圆偏振光（根据固定时刻$\vec{E}$的螺旋结构及传播方向，由右手定则确定）。
+
 ![右旋圆偏振光](image/右旋圆偏振光.png)
+
 - 当波前进一个波长时，$\vec{E}$矢量恰好完成一次完整的旋转。
 
 - 当它们的相对相位差$\epsilon = \pi/2 + 2m\pi$（其中$m$为整数）时，合成波为：
@@ -46,11 +51,11 @@ $$
 - 写成列向量和复数形式的琼斯矢量为：
     $$
     E = \begin{bmatrix}
-    E_x(t) \\
+    E_x(t) \cr
     E_y(t)
     \end{bmatrix} =
     \begin{bmatrix}
-    E_{0x} e^{i(kz-\omega t+\phi_x)} \\
+    E_{0x} e^{i(kz-\omega t+\phi_x)} \cr
     E_{0y} e^{i(kz-\omega t+\phi_y)}
     \end{bmatrix}
     $$
@@ -59,7 +64,7 @@ $$
   $$
   \vec{E} = 
   \begin{bmatrix}
-  E_{0x} e^{i\phi_x} \\
+  E_{0x} e^{i\phi_x} \cr
   E_{0y} e^{i\phi_y}
   \end{bmatrix}.
   $$
@@ -69,30 +74,31 @@ $$
   $$
   |H\rangle = 
   \begin{pmatrix}
-  1 \\
+  1 \cr
   0
   \end{pmatrix},
   \quad |V\rangle = 
   \begin{pmatrix}
-  0 \\
+  0 \cr
   1
   \end{pmatrix}.
   $$
+
 - 与 x 轴成 $+45^\circ$（对角）和 $-45^\circ$（反对角）的线偏振光分别表示为：
   
   
   $$
-  |D\rangle = \frac{1}{\sqrt{2}}(|H\rangle + |V\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix},
+  |D\rangle = \frac{1}{\sqrt{2}}(|H\rangle + |V\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \cr 1 \end{pmatrix},
   $$
   
   
   $$
-  |A\rangle = \frac{1}{\sqrt{2}}(|H\rangle - |V\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix}.
+  |A\rangle = \frac{1}{\sqrt{2}}(|H\rangle - |V\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \cr -1 \end{pmatrix}.
   $$
 
 - 右旋圆偏振光表示为：
   $$
-  |R\rangle = \frac{1}{\sqrt{2}}(|H\rangle - i|V\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -i \end{pmatrix}
+  |R\rangle = \frac{1}{\sqrt{2}}(|H\rangle - i|V\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \cr -i \end{pmatrix}
   $$
 
   也就是说，
@@ -103,7 +109,7 @@ $$
 
 - 左旋圆偏振光表示为：
   $$
-  |L\rangle = \frac{1}{\sqrt{2}}(|H\rangle + i|V\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ i \end{pmatrix}
+  |L\rangle = \frac{1}{\sqrt{2}}(|H\rangle + i|V\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \cr i \end{pmatrix}
   $$
 
 - 请注意，在干涉中，我们讨论了二维实空间 $\mathbb{R}^2$中的叠加。
@@ -111,7 +117,7 @@ $$
 - 对于偏振，我们将一维复空间 $\mathbb{C}^1$ 推广到了二维复空间 $\mathbb{C}^2 = \mathbb{C}^1 \otimes \mathbb{C}^1$，或一个二维复向量空间（以琼斯矢量表示）。  
   这个额外的 $\mathbb{C}^1$空间由两个正交的线偏振态 $|H\rangle$和 $|V\rangle$张成。
 
-- 当两个实向量 $\vec{A}$与$\vec{B}$ 满足 $\vec{A} \cdot \vec{B} = 0$ 时，称它们正交；类似地，两个复向量 $\vec{A}$ 与$\vec{B}$当满足 $\langle A|B\rangle \equiv \vec{A}^* \cdot \vec{B} = 0 $时，称为正交。
+- 当两个实向量 $\vec{A}$与$\vec{B}$ 满足 $\vec{A} \cdot \vec{B} = 0$ 时，称它们正交；类似地，两个复向量 $\vec{A}$ 与$\vec{B}$当满足 $\langle A|B\rangle \equiv \vec{A}^* \cdot \vec{B} = 0$时，称为正交。
 
 - 任何偏振态都存在一个对应的正交态：
   $$
@@ -185,6 +191,7 @@ $$
 当光以特定入射角（称为**布鲁斯特角** $\theta_B$）入射时，反射光将完全偏振。
 
 ![反射](image/反射.png)
+
 实验发现，在入射角为$\theta_B$ 时，反射光线与折射光线**互相垂直**：
 
 $$
@@ -254,6 +261,7 @@ $$
 ![波晶片](image/波晶片.png)
 
 波晶片有两种类型:
+
 - 四分之一波晶片：$o/e$光程差为$\lambda/4$：
   $$
   d_{1/4}=\frac{\lambda}{4|n_o-n_e|} \quad |\Delta \varphi|=\pi/2

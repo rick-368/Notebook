@@ -20,10 +20,12 @@ $$
 \nabla \cdot(\nabla × \overrightarrow B) = - \mu_{0}\frac{\partial \rho}{\partial t} = - \mu_{0}\frac{\partial(\epsilon_{0}\nabla \cdot \overrightarrow E)}{\partial t} = - \nabla \cdot(\mu_{0}\epsilon_{0}\frac{\partial \overrightarrow E}{\partial t})
 $$
 麦克斯韦指出，通过修正安培定律，可以消除额外的散度
+
 $$
 \nabla × \overrightarrow{B} = \mu_{0}\overrightarrow{J} + \mu_{0}\overrightarrow{J}_{d} = \mu_{0}\overrightarrow J + \mu_{0}\epsilon_{0}\frac{\partial \overrightarrow{E}}{\partial t}
 $$ 
-其中额外的项$\overrightarrow{J}_{d} = \epsilon_{0}\frac{\partial \overrightarrow{E}}{\partial t}$被称为位移电流。
+
+其中额外的项$\overrightarrow{J}_{d} = \epsilon_{0}\frac{\partial \overrightarrow{E}}{\partial t}$被称为位移电流。  
 正如变化的磁场会感应出电场（法拉第定律），变化的电场也会感应出磁场。安培定律的积分形式为
 $$
 \oint_{C} \overrightarrow{B} \cdot d \overrightarrow{s} = \mu_{0} i_{e n c} = \mu_{0} \int_{S} \overrightarrow{J} \cdot d \overrightarrow{A}
@@ -34,12 +36,16 @@ $$
 $$
 ## 麦克斯韦方程组
 麦克斯韦方程组是电磁学中最重要的方程组之一。它描述了电场、磁场的关系。它有以下形式：
+
 $$
-\nabla \cdot \overrightarrow{E} = \frac{\rho}{\epsilon_{0}} \\
-\nabla × \overrightarrow{E} = - \frac{\partial \overrightarrow{B}}{\partial t} \\ 
-\nabla \cdot \overrightarrow{B} = 0 \\
-\nabla × \overrightarrow{B} = \mu_{0}\overrightarrow J + \mu_{0}\epsilon_{0}\frac{\partial \overrightarrow{E}}{\partial t}
+\begin{aligned}
+&\nabla \cdot \overrightarrow{E} = \frac{\rho}{\epsilon_{0}} \\
+&\nabla × \overrightarrow{E} = - \frac{\partial \overrightarrow{B}}{\partial t} \\ 
+&\nabla \cdot \overrightarrow{B} = 0 \\
+&\nabla × \overrightarrow{B} = \mu_{0}\overrightarrow J + \mu_{0}\epsilon_{0}\frac{\partial \overrightarrow{E}}{\partial t}
+\end{aligned}
 $$
+
 与之相关的力定律：
 $$
 \overrightarrow{F} = q(\overrightarrow{E} + \overrightarrow{v}\times\overrightarrow{B})
@@ -60,15 +66,18 @@ $$
 $$
 \nabla \times(\nabla × \overrightarrow{C}) = \nabla(\nabla \cdot \overrightarrow{C}) - \nabla^{2}\overrightarrow{C}
 $$
-由于高斯定律告诉我们，在真空中 $\nabla·\overrightarrow{E}=0 $和 $\nabla·\overrightarrow{B}=0$，我们得出
+由于高斯定律告诉我们，在真空中 $\nabla·\overrightarrow{E}=0$和 $\nabla·\overrightarrow{B}=0$，我们得出
 $$
 \nabla^{2}\overrightarrow{E} = \mu_{0}\epsilon_{0}\frac{\partial^{2}\overrightarrow{E}}{\partial t^{2}} , \nabla^{2}\overrightarrow{B} = \mu_{0}\epsilon_{0}\frac{\partial^{2}\overrightarrow{B}}{\partial t^{2}}
 $$
 因此，在真空中，电场和磁场的每个笛卡尔分量都满足波动方程
+
 $$
 \frac{\partial^{2}f}{\partial t^{2}} = c^{2}\nabla^{2}f
 $$ 
+
 其中所有电磁波的速度为
+
 $$
 c = \frac{1}{\sqrt{\mu_{0}\epsilon_{0}}}\approx 3 . 0 0 × 1 0^{8}m / s
 $$
@@ -87,24 +96,34 @@ $$
 \lambda = \frac{2 \pi}{k} , T = \frac{2 \pi}{\omega}
 $$
 那么我们可以将电场和磁场表示为位置x（沿波传播方向的+x方向）和时间t的正弦函数
+
 $$
 \overrightarrow{E}(x , t) = \overrightarrow{E}_{m}\cos(k x - \omega t + \phi)
 $$ 
+
 $$
 \overrightarrow{B}(x , t) = \overrightarrow{B}_{m}\cos(k x - \omega t + \phi)
 $$
+
 由于E和B的每个分量都满足波动方程
+
 $$
 \frac{\partial^{2}f}{\partial t^{2}} = c^{2}\nabla^{2}f
 $$ 
+
 因此必须有$ω² = c²k²$，即$ω= ck$。
 
 麦克斯韦方程组对电场和磁场施加了额外的约束。计算电场的散度和旋度，我们得到
+
 $$
-\nabla \cdot \overrightarrow E(x , t) = - k \hat x \cdot \overrightarrow E_{m}\sin(k x - \omega t + \phi) ,\\ 
-\nabla × \overrightarrow{E}(x , t) = - k \hat{x} × \overrightarrow{E}_{m}\sin(k x - \omega t + \phi)
+\begin{aligned}
+&\nabla \cdot \overrightarrow E(x , t) = - k \hat x \cdot \overrightarrow E_{m}\sin(k x - \omega t + \phi) ,\\ 
+&\nabla × \overrightarrow{E}(x , t) = - k \hat{x} × \overrightarrow{E}_{m}\sin(k x - \omega t + \phi)
+\end{aligned}
 $$
+
 同样，时间导数可以表示为
+
 $$
 \frac{\partial}{\partial t} \overrightarrow{E} ( x , t ) = \omega \overrightarrow{E}_{m} \sin ( k x - \omega t + \phi )
 $$
@@ -116,14 +135,19 @@ $$
 \nabla × \bar E = - \frac{\partial \overrightarrow B}{\partial t}
 $$
 我们发现
+
 $$
 k \hat{x} × \bar{E}_{m} = - \omega \overrightarrow{B}_{m}
 $$
+
 因此，
+
 $$
 \overrightarrow{B}_{m} = \frac{1}{c}(\hat{k} × \overrightarrow{E}_{m}) , o r \overrightarrow{B} = \frac{1}{c}(\hat{k} × \overrightarrow{E})
 $$
+
 另一种写法是
+
 $$
 (E_{m})_{y} = c(B_{m})_{z} , (E_{m})_{z} = - c(B_{m})_{y}
 $$
@@ -139,13 +163,17 @@ $$
 平面波中单位面积的能量传输速率是总能量密度与电磁波速度的乘积，即
 $$S = (u_{E} + u_{B})c $$
 由于$\overrightarrow E$和$\overrightarrow B$都是时间的正弦函数:
+
 $$
 [E^{2}]_{a v g} = \frac{E_{m}^{2}}{2} , [B^{2}]_{a v g} = \frac{B_{m}^{2}}{2}
 $$
+
 同样，S的时间平均值，即波的强度，为 
+
 $$
 I=S_{a v g} = \frac{\epsilon_{0}E_{m}^{2}}{2}c = \frac{B_{m}^{2}}{2 \mu_{0}}c
 $$ 
+
 维度分析表明，S或I的单位与单位面积功率相同，其国际单位制单位为瓦特每平方米（W/m²）。
 
 #### 补：球面波的强度

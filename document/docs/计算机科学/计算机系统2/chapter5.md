@@ -2,11 +2,15 @@
 ## 竞态条件（Race Condition）
 当多个进程（或线程）并发地访问和操作同一数据，且执行结果依赖于访问发生的特定顺序时，这种情况称之为竞态条件。  
 如下图是一个例子:
+
 ![静态条件](image/竞态条件.png)
 ## 临界区
 在竞态条件发生时，临界区（Critical Section）保证被多个进程共享的资源，在同一时刻只能被一个进程访问。  
+
 ![临界区](image/临界区.png)
+
 临界区需要满足以下三个条件：
+
 ![临界区2](image/临界区2.png)
 ### Peterson's Solution
 - 两个线程的 Mutual Exclusion（只适用于两个线程）
@@ -304,6 +308,7 @@ Philosopher i :
 Deadlock Avoidance即是确保系统不会进入不安全状态，从而避免死锁。
 
 Banker's Algorithm是一种死锁避免算法，它是基于资源分配图来实现的。（具体算法请参考：浙江大学 计算机系统2 卢立 2025-12-26第1-2节）以下只给出一个典例。
+
 ![Bankers_Algorithm](image/Bankers_Algorithm.png)
 ![Bankers_Algorithm2](image/Bankers_Algorithm2.png)
 
