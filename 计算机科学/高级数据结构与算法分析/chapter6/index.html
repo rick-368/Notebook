@@ -1996,8 +1996,8 @@
 <p>顶点覆盖（<span class="arithmatex">\(VC\)</span>）和独立集（<span class="arithmatex">\(IS\)</span>）可双向多项式归约，即<span class="arithmatex">\(VC \equiv_p IS\)</span>。</p>
 <h3 id="_3">汉密尔顿圈和旅行商问题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>汉密尔顿圈（<span class="arithmatex">\(HC\)</span>）：给定一张图，是否存在一个经过所有顶点恰好一次的环。</p>
-<p>旅行商问题（<span class="arithmatex">\(TSP\)</span>）：给定一个有权完全图，给定一个<span class="arithmatex">\(k\)</span>，是否存在经过所有顶点恰好一次的环且经过边的总长。</p>
-<p>给定一个图<span class="arithmatex">\(G\)</span>，将其边的权重设为1，再将其补成完全图<span class="arithmatex">\(G’\)</span>，补的边权重设为2。则<span class="arithmatex">\(G\)</span>的汉密尔顿圈问题等价为当<span class="arithmatex">\(k=V\)</span>（原图边的个数）时，对于<span class="arithmatex">\(G’\)</span>的旅行商问题有没有解。</p>
+<p>旅行商问题（<span class="arithmatex">\(TSP\)</span>）：给定一个有权完全图，给定一个<span class="arithmatex">\(k\)</span>，是否存在经过所有顶点恰好一次的环且经过边的总长小于k。</p>
+<p>给定一个图<span class="arithmatex">\(G\)</span>，将其边的权重设为1，再将其补成完全图<span class="arithmatex">\(G’\)</span>，补的边权重设为2。则<span class="arithmatex">\(G\)</span>的汉密尔顿圈问题等价为当<span class="arithmatex">\(k=V\)</span>（原图顶点的个数）时，对于<span class="arithmatex">\(G’\)</span>的旅行商问题有没有解。</p>
 <p>由上可证明<span class="arithmatex">\(HC \leq_p TSP\)</span></p>
 <h3 id="3-sat">3-SAT<a class="headerlink" href="#3-sat" title="Permanent link">&para;</a></h3>
 <p>给定m个3文字子句（如(<span class="arithmatex">\(x₁∨¬x₂∨x₃\)</span>)），变量集为n个布尔变量，问是否存在变量赋值使所有子句都为真？</p>

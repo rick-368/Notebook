@@ -2099,7 +2099,7 @@ $$
 <p>令<span class="arithmatex">\(\delta=\Delta x\sin\theta=r_{i+1}-r_i\)</span>，则有：</p>
 <div class="arithmatex">\[
 \begin{aligned}
-&amp;S=[1+e^{ik\delta}+e^{ik(2\delta)}+\cdots+e^{ik(N\delta)}] \\
+&amp;S=[1+e^{ik\delta}+e^{ik(2\delta)}+\cdots+e^{ik((N-1)\delta)}] \\
 &amp;= [\frac{e^{iNk\delta}-1}{e^{ik\delta}-1}] \\
 &amp;= \frac{e^{iNk\delta/2}(e^{iNk\delta/2}-e^{-iNk\delta/2})}{e^{ik\delta/2}(e^{ik\delta/2}-e^{-ik\delta/2})} \\
 &amp;= e^{i(N-1)k\delta/2}\frac{\sin\frac{Nk\delta}{2}}{\sin\frac{k\delta}{2}}
@@ -2159,9 +2159,9 @@ E_0&amp;\quad |x|\leq a/2 \\
 \]</div>
 <p>该积分可计算为：</p>
 <p>$$
-\tilde{E_{sq}}(k_x)=E_0a\frac{\sin \alpha}{\alpha}    <br />
+\tilde{E_{sq}}(k_x)=E_0\frac{\sin \alpha}{\alpha}    <br />
 $$
-其中<span class="arithmatex">\(\alpha=\frac{a}{2}k_x=k_x\sin\theta(\frac{a}{2})\)</span>。</p>
+其中<span class="arithmatex">\(\alpha=\frac{a}{2}k_x=k\sin\theta(\frac{a}{2})\)</span>。</p>
 <p>这就可以推导出我们的结果：
 $$
 I_{sq}(\theta)=I_{max}\left[\frac{\sin \alpha}{\alpha}\right]^2
