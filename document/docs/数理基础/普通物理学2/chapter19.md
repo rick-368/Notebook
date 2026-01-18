@@ -91,7 +91,7 @@ $$
   |D\rangle = \frac{1}{\sqrt{2}}(|H\rangle + |V\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \cr 1 \end{pmatrix},
   $$
   
-  
+   
   $$
   |A\rangle = \frac{1}{\sqrt{2}}(|H\rangle - |V\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \cr -1 \end{pmatrix}.
   $$

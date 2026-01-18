@@ -96,7 +96,7 @@ E(X) = \int_{ - \infty}^{ + \infty}\int_{ - \infty}^{ + \infty}x f(x , y)d x d y
 $$
 ### 数学期望的性质
 - 设C是常数，则有$E(C)=C$
-- 设X是一个随机变，C为常数，则有$E(CX)=C\cdot E(X)$
+- 设X是一个随机变量，C为常数，则有$E(CX)=C\cdot E(X)$
 - 设X，Y是两个随机变量，则有$E(X+Y)=E(X)+E(Y)$
 - 设X，Y是两个相互独立的随机变量，则有$E(XY)=E(X)E(Y)$
 ## 方差

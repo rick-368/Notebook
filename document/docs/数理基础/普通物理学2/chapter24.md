@@ -116,7 +116,7 @@ $$
 要找到描述电子在有限深势阱中量子态的波函数，我们必须使用**不含时薛定谔方程**：
 
 $$
-\hbar^2 \frac{\partial^2 \psi(x)}{\partial x^2} + U(x) \psi(x) = E \psi(x).
+-\frac{\hbar^2}{2m} \frac{\partial^2 \psi(x)}{\partial x^2} + U(x) \psi(x) = E \psi(x).
 $$
 
 我们不具体求解，下面只进行定性讨论。
@@ -173,7 +173,7 @@ $$
 其中包含两个量子数 $n_x$和 $n_y$ ，对应的能量为：
 
 $$
-E_{n_x, n_y} = \frac{\hbar^2}{8m} \left( \frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} \right).
+E_{n_x, n_y} = \frac{h^2}{8m} \left( \frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} \right).
 $$
 
 电子也可以被束缚在一个体积为 $V = L_x L_y L_z$ 的三维无限深势阱中。此时，被束缚的电子具有三个量子数 $n_x, \, n_y,$ 和 $n_z$。
@@ -186,5 +186,5 @@ $$
 $$
 
 $$
-E_{n_x, n_y, n_z} = \frac{\hbar^2}{8m} \left( \frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} + \frac{n_z^2}{L_z^2} \right).
+E_{n_x, n_y, n_z} = \frac{h^2}{8m} \left( \frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} + \frac{n_z^2}{L_z^2} \right).
 $$

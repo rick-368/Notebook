@@ -20,13 +20,6 @@ $$
 E_0\sin \alpha= E_{01}\sin \alpha_1+E_{02}\sin \alpha_2
 $$
 由此可得：
-$$
-E_{01}\cos \alpha_1+E_{02}\cos\alpha_2=E_{0}\cos(\alpha-\omega t)
-$$
-$$
-E_{01}\sin \alpha_1+E_{02}\sin\alpha_2=E_{0}\sin(\alpha-\omega t)
-$$
-将上式两边同时除以$E_0$，并令$E_0=1$，可得：
 
 $$
 E_0^2=E_{01}^2+E_{02}^2+2E_{01}E_{02}\cos(\alpha_1-\alpha_2)
@@ -67,9 +60,9 @@ $$
 $$
 E_2=E_0cos(kr_2-\omega t)=E_0cos(kL-\beta-\omega t)
 $$
-其中相位差$L=(r_1+r_2)/2= \sqrt{D^2+y^2}$
+其中相位差[$L=(r_1+r_2)/2= \sqrt{D^2+y^2}$]
 $$
-\delta=2\beta=k\nabla L=\frac{2\pi d}{\lambda}\sin\theta
+\delta=2\beta=k\Delta L=\frac{2\pi d}{\lambda}\sin\theta
 $$
 总强度由下式给出：
 $$

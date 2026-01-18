@@ -58,7 +58,7 @@ $$
 
 $$
 \begin{aligned}
-&S=[1+e^{ik\delta}+e^{ik(2\delta)}+\cdots+e^{ik(N\delta)}] \\
+&S=[1+e^{ik\delta}+e^{ik(2\delta)}+\cdots+e^{ik((N-1)\delta)}] \\
 &= [\frac{e^{iNk\delta}-1}{e^{ik\delta}-1}] \\
 &= \frac{e^{iNk\delta/2}(e^{iNk\delta/2}-e^{-iNk\delta/2})}{e^{ik\delta/2}(e^{ik\delta/2}-e^{-ik\delta/2})} \\
 &= e^{i(N-1)k\delta/2}\frac{\sin\frac{Nk\delta}{2}}{\sin\frac{k\delta}{2}}
@@ -139,9 +139,9 @@ $$
 该积分可计算为：
 
 $$
-\tilde{E_{sq}}(k_x)=E_0a\frac{\sin \alpha}{\alpha}      
+\tilde{E_{sq}}(k_x)=E_0\frac{\sin \alpha}{\alpha}      
 $$
-其中$\alpha=\frac{a}{2}k_x=k_x\sin\theta(\frac{a}{2})$。
+其中$\alpha=\frac{a}{2}k_x=k\sin\theta(\frac{a}{2})$。
 
 这就可以推导出我们的结果：
 $$

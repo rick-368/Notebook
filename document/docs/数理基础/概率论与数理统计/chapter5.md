@@ -31,7 +31,7 @@ $$
 P(|Y|< \epsilon)\geq 1- \frac{E(|Y|^{k})}{\epsilon^{k}}
 $$
 ## 切比雪夫不等式
-设随机变量$X$具有数学期望$E(X)$，方差$\sigma^{2}$，则对于任意$\epsilon >0$，有：
+设随机变量$X$具有数学期望$\mu$，方差$\sigma^{2}$，则对于任意$\epsilon >0$，有：
 
 $$
 P(|X-\mu|>\epsilon)\leq \frac{\sigma^{2}}{\epsilon^{2}}

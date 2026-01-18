@@ -1,0 +1,2754 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter7/">
+      
+      
+        <link rel="next" href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>假设检验 - rick 的笔记本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="rick 的笔记本" class="md-header__button md-logo" aria-label="rick 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            rick 的笔记本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              假设检验
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="天黑请闭眼"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="天黑请闭眼" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="天亮请睁眼"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="天亮请睁眼" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rick-368/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rick/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  前言
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%AF%BE%E5%A4%96%E6%8B%93%E5%B1%95/01-markdown/markdown_basic_grammar/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  课外拓展
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%85%B6%E4%BB%96/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="rick 的笔记本" class="md-nav__button md-logo" aria-label="rick 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    rick 的笔记本
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rick-368/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rick/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机事件和概率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机变量及其概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    多维随机变量
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机变量的数字特征
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大数定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    统计与抽样分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    估计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    假设检验
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    假设检验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本思想
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        假设检验的步骤
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        假设
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检验
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两类错误
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        显著性水平
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        假设检验的基本步骤
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正态分布总体下参数的假设检验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="正态分布总体下参数的假设检验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单个正态总体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两个正态总体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理学二
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理学二
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导体
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电阻和电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    磁性材料
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LC振荡电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    光
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期中复习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    几何光学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    光的干涉
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    衍射
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    光栅与光谱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    光的偏振
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    光的量子性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电磁辐射的量子性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物质波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    薛定谔方程和量子隧穿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    量子阱（Quantum Wells）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    氢原子模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/chapter26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电子的角动量和自旋
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../%E8%AF%BE%E5%A4%96%E6%8B%93%E5%B1%95/01-markdown/markdown_basic_grammar/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课外拓展
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../%E5%85%B6%E4%BB%96/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本思想
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        假设检验的步骤
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        假设
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检验
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两类错误
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        显著性水平
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        假设检验的基本步骤
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正态分布总体下参数的假设检验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="正态分布总体下参数的假设检验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单个正态总体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两个正态总体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">假设检验<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">基本思想<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>先对总体参数、分布形式等作出某种假设，然后利用样本信息来判断该假设是否合理。</p>
+<p>推断理由：实际推断原理（小概率事件在一次试验中是不会发生的）</p>
+<h2 id="_3">假设检验的步骤<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>我们以下面的例子来说明假设检验的步骤：
+<img alt="假设检验的步骤" src="../image/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C1.png" />
+<img alt="假设检验的步骤" src="../image/%E6%A3%80%E9%AA%8C%E5%81%87%E8%AE%BE2.png" />
+<img alt="假设检验的步骤" src="../image/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C3.png" />
+<img alt="假设检验的步骤" src="../image/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C4.png" />
+<img alt="假设检验的步骤" src="../image/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C5.png" />
+<img alt="假设检验的步骤" src="../image/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C6.png" /></p>
+<h2 id="_4">基本概念<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">假设<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>假设：指关于总体分布的命题。  </p>
+<p>假设检验中常涉及两个假设：</p>
+<ul>
+<li>原假设（零假设），记为 <span class="arithmatex">\(H_0\)</span> ：所要检验的假设。  </li>
+<li>备择假设（对立假设），记为 <span class="arithmatex">\(H_1\)</span> ：与 <span class="arithmatex">\(H_0\)</span> 不相容的假设。  </li>
+</ul>
+<p>给定 <span class="arithmatex">\(H_0\)</span> 与 <span class="arithmatex">\(H_1\)</span> 即构成一个检验问题，记作<span class="arithmatex">\((H_0, H_1)\)</span>。  </p>
+<ul>
+<li>参数假设：对总体分布中的未知参数作假设，形式如<br />
+  $$
+  H_0 : \theta \in \Theta_0 \leftrightarrow H_1 : \theta \in \Theta_1
+  $$ 
+  其他假设称为非参数假设。  </li>
+</ul>
+<p>参数假设检验分为：</p>
+<ul>
+<li>简单假设：假设空间为单元素集。  </li>
+<li>复杂假设：假设空间包含多个元素。</li>
+</ul>
+<blockquote>
+<p>原假设<span class="arithmatex">\(H_0\)</span>和备择假设<span class="arithmatex">\(H_1\)</span>一定不相容，但不一定互补。</p>
+<p>原假设<span class="arithmatex">\(H_0\)</span>是不易被否定的，原假设和备择假设对于一定立场下不可以互换。原假设是研究者想收集证据予以反驳的假设，而备择假设是研究者想收集证据予以支持的假设。</p>
+<p>参数假设问题中，我们不成文规定原假设<span class="arithmatex">\(H_0\)</span>中一般含有“=”。</p>
+</blockquote>
+<h3 id="_6">检验<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>检验：指给出一个规则，依据该规则，在获得样本观测值后，即可决定是接受（保留）还是拒绝原假设 <span class="arithmatex">\(H_0\)</span>。这样的规则称为检验。  </p>
+<p>检验的实质：是给出样本空间 <span class="arithmatex">\(\Omega\)</span> 的一个分划，即将样本空间划分为两个互补的集合 <span class="arithmatex">\(W\)</span>和 <span class="arithmatex">\(A\)</span> ，满足：
+  $$
+  W \cup A = \Omega, \quad W \cap A = \emptyset.
+  $$</p>
+<ul>
+<li>当样本 <span class="arithmatex">\(x \in W\)</span>  时，拒绝<span class="arithmatex">\(H_0\)</span> ，称  <span class="arithmatex">\(W\)</span> 为拒绝域（或否定域）；  </li>
+<li>当样本 <span class="arithmatex">\(x \in A\)</span>  时，接受  <span class="arithmatex">\(H_0\)</span> ，称<span class="arithmatex">\(A\)</span>为接受域。  </li>
+</ul>
+<p>这一划分即构成了检验的规则。</p>
+<p>为了确定拒绝域，需要构造一个统计量，称能从样本空间中划分出拒绝域的统计量为检验统计量。</p>
+<h3 id="_7">两类错误<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>由于样本的随机性，在应用任何检验规则时，都有可能做出错误的判断。</p>
+<ul>
+<li>
+<p>第Ⅰ类错误（弃真）：拒绝了实际上为真的原假设 <span class="arithmatex">\(H_0\)</span> 。<br />
+  犯第Ⅰ类错误的概率称为弃真概率，通常记为 <span class="arithmatex">\(\alpha(\theta)\)</span>，即：
+  $$
+  \alpha(\theta) = P(\text{第Ⅰ类错误}) = P(\text{拒绝 } H_0 \mid H_0 \text{ 为真} )= P(X \in W \mid H_0 \text{ 为真}).
+  $$</p>
+</li>
+<li>
+<p>第Ⅱ类错误（取伪/存伪）：接受了实际上为假的原假设  <span class="arithmatex">\(H_0\)</span> 。<br />
+  犯第Ⅱ类错误的概率称为取伪概率，通常记为 <span class="arithmatex">\(\beta(\theta)\)</span>，即：
+  $$
+  \beta(\theta) = P(\text{第Ⅱ类错误} )= P(\text{接受 } H_0 \mid H_0 \text{ 为假}) = P(X \in A \mid H_0 \text{ 为假}).
+  $$</p>
+</li>
+</ul>
+<blockquote>
+<p>两类错误的关系：当<span class="arithmatex">\(n\)</span>固定时，<span class="arithmatex">\(\alpha\)</span>越小，<span class="arithmatex">\(\beta\)</span>就越大；<span class="arithmatex">\(\alpha\)</span>越大，<span class="arithmatex">\(\beta\)</span>就越小。</p>
+</blockquote>
+<h3 id="_8">显著性水平<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>目标是控制犯第Ⅰ类错误的概率不超过给定的 <span class="arithmatex">\(\alpha\)</span>（其中 <span class="arithmatex">\(0 &lt; \alpha &lt; 1\)</span>），即要求：
+  $$
+  \sup_{\theta \in \Theta_0} \alpha (\theta) \leq \alpha.
+  $$</p>
+<p>为了兼顾控制犯第Ⅱ类错误的概率，通常选取检验的临界点，使得：
+  $$
+  \sup_{\theta \in \Theta_0} \alpha (\theta) = \alpha \quad \text{或尽量接近 } \alpha.
+  $$</p>
+<p>凡控制犯第Ⅰ类错误的概率不超过 <span class="arithmatex">\(\alpha\)</span> 的检验，称为 显著性水平为 <span class="arithmatex">\(\alpha\)</span> 的检验。</p>
+<blockquote>
+<p>显著性水平时事先由研究者指定的犯第一类错误的最大允许值，通常记为<span class="arithmatex">\(\alpha (0&lt;\alpha&lt;1)\)</span>。
+常用的<span class="arithmatex">\(\alpha\)</span>值有0.01、0.05、0.1。
+拒绝原假设，表明检验的结果是显著的，否则表明检验的结果是不显著的。</p>
+</blockquote>
+<h2 id="_9">假设检验的基本步骤<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p><img alt="假设检验的基本步骤" src="../image/%E5%A4%84%E7%90%86%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E9%97%AE%E9%A2%98%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4.png" /></p>
+<h2 id="_10">正态分布总体下参数的假设检验<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">单个正态总体<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>设总体 <span class="arithmatex">\(X \sim N(\mu, \sigma^2)\)</span>，<span class="arithmatex">\(\overline{X} = (X_1, X_2, \cdots, X_n)\)</span> （有时也常记为 <span class="arithmatex">\(\bar{X}\)</span>）是取自该总体的容量为 <span class="arithmatex">\(n\)</span>  的（简单随机）样本。并记样本均值和样本方差分别为：</p>
+<div class="arithmatex">\[
+\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i,
+\]</div>
+<div class="arithmatex">\[
+S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2.
+\]</div>
+<h4 id="mu">正态总体均值 <span class="arithmatex">\(\mu\)</span>的假设检验<a class="headerlink" href="#mu" title="Permanent link">&para;</a></h4>
+<h5 id="_12">方差已知时<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<h6 id="h_0-mu-mu_0-longleftrightarrow-h_1-mu-mu_0"><span class="arithmatex">\(H_0 : \mu = \mu_0 \longleftrightarrow H_1 : \mu &gt; \mu_0\)</span><a class="headerlink" href="#h_0-mu-mu_0-longleftrightarrow-h_1-mu-mu_0" title="Permanent link">&para;</a></h6>
+<p>由于 <span class="arithmatex">\(\overline{X}\)</span> 是 <span class="arithmatex">\(\mu\)</span> 的极大似然估计量（也是矩法估计量）且为其无偏估计量，故可取它做检验统计量。  </p>
+<p>相对于备择假设<span class="arithmatex">\(H_1\)</span> 而言，当原假设 <span class="arithmatex">\(H_0\)</span> 为真时，<span class="arithmatex">\(\overline{X}\)</span> 的值不应该太大。而当 <span class="arithmatex">\(\overline{X}\)</span> 过大（比 <span class="arithmatex">\(\mu_0\)</span> 大很多）时，应拒绝 <span class="arithmatex">\(H_0\)</span>。<br />
+  于是拒绝域应有如下形式：<br />
+  $$
+  W = {\mathbf{x}: \overline{x} \geq C} = {(x_1, x_2, \cdots, x_n): \overline{x} \geq C} \equiv {\overline{x} \geq C},
+  $$
+  其中 <span class="arithmatex">\(C\)</span> 为待定的临界值。</p>
+<p>由于 <span class="arithmatex">\(\overline{X} \sim N(\mu, \sigma^2/n)\)</span>，故当原假设 <span class="arithmatex">\(H_0\)</span> 为真时，有 <span class="arithmatex">\(\overline{X} \sim N(\mu_0, \sigma^2/n)\)</span>。此时，犯第一类错误的概率为：</p>
+<div class="arithmatex">\[
+\alpha(\mu) = P_\mu \left( \overline{X} \geq C \mid H_0 \text{ 为真} \right) = P \left( \overline{X} \geq C \mid \mu = \mu_0 \right)
+\]</div>
+<div class="arithmatex">\[
+= P \left( \frac{\overline{X} - \mu_0}{\sigma/\sqrt{n}} \geq \frac{C - \mu_0}{\sigma/\sqrt{n}} \;\Big|\; \mu = \mu_0 \right) = 1 - \Phi \left( \frac{C - \mu_0}{\sigma/\sqrt{n}} \right)。
+\]</div>
+<p>对于给定的显著性水平 <span class="arithmatex">\(\alpha\)</span>，需确定临界值 <span class="arithmatex">\(C\)</span>，使得犯第一类错误概率的上确界等于 <span class="arithmatex">\(\alpha\)</span>，即：</p>
+<div class="arithmatex">\[
+\sup_{\mu = \mu_0} \alpha(\mu) = 1 - \Phi \left( \frac{C - \mu_0}{\sigma/\sqrt{n}} \right) = \alpha。
+\]</div>
+<p>由此可得：</p>
+<div class="arithmatex">\[
+\frac{C - \mu_0}{\sigma/\sqrt{n}} = Z_\alpha, \quad \text{即} \quad C = \mu_0 + Z_\alpha \cdot \frac{\sigma}{\sqrt{n}}。
+\]</div>
+<p>因此，所求的显著性水平为 <span class="arithmatex">\(\alpha\)</span> 的检验，其拒绝域为：</p>
+<div class="arithmatex">\[
+W = \{ \bar{x} \geq \mu_0 + Z_\alpha \cdot \frac{\sigma}{\sqrt{n}} \}。
+\]</div>
+<p>而</p>
+<div class="arithmatex">\[
+\{\bar{x} \geq \mu_0 + Z_\alpha \cdot \frac{\sigma}{\sqrt{n}}\} = \left\{ \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \geq Z_\alpha \right\},
+\]</div>
+<p>所以，可取检验统计量</p>
+<div class="arithmatex">\[
+Z = Z(X) = \frac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}, \quad \text{当 } \mu = \mu_0 \text{ 时，} Z \sim N(0,1).
+\]</div>
+<p>拒绝域可写为</p>
+<div class="arithmatex">\[
+W = \{Z(x) \geq Z_\alpha\} = \left\{ \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \geq Z_\alpha \right\},
+\]</div>
+<p>简写为  <span class="arithmatex">\(W = \{z \geq Z_\alpha\}\)</span> 。</p>
+<h6 id="h_0-mu-mu_0-longleftrightarrow-h_1-mu-mu_1"><span class="arithmatex">\(H_0 : \mu = \mu_0 \longleftrightarrow H_1 : \mu &lt; \mu_0\)</span><a class="headerlink" href="#h_0-mu-mu_0-longleftrightarrow-h_1-mu-mu_1" title="Permanent link">&para;</a></h6>
+<p>仍取<br />
+$$
+Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}, \quad \text{当 } \mu = \mu_0 \text{ 时，} Z \sim N(0, 1)
+$$
+作为检验统计量。</p>
+<p>此时，拒绝域具有形式  <span class="arithmatex">\(W = \{ z \leq C \}\)</span> 。<br />
+检验犯第一类错误的概率为<br />
+$$
+\alpha(\mu) = P_\mu (Z \leq C \mid H_0 \text{ 为真}) = \Phi(C).
+$$</p>
+<h6 id="h_0-mu-mu_0-longleftrightarrow-h_1-mu-neq-mu_0"><span class="arithmatex">\(H_0 : \mu = \mu_0 \longleftrightarrow H_1 : \mu \neq \mu_0\)</span><a class="headerlink" href="#h_0-mu-mu_0-longleftrightarrow-h_1-mu-neq-mu_0" title="Permanent link">&para;</a></h6>
+<p>仍取<br />
+$$
+Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}, \quad \text{当 } \mu = \mu_0 \text{ 时，} Z \sim N(0, 1)
+$$
+为检验统计量。</p>
+<p>当 <span class="arithmatex">\(H_0\)</span>  为真时，<span class="arithmatex">\(\overline{X}\)</span> 与 <span class="arithmatex">\(\mu_0\)</span> 的差异不应过大，即 <span class="arithmatex">\(|Z|\)</span> 的值不应过大。因此，检验的拒绝域取为以下形式：<br />
+$$
+W = { |z| \geq C }.
+$$</p>
+<p>检验犯第一类错误的概率为<br />
+$$
+P_\mu (|Z| \geq C \mid \mu = \mu_0) = P_{\mu_0} (|Z| \geq C) = 2 \left(1 - \Phi(C) \right).
+$$</p>
+<p>对于给定的显著性水平 <span class="arithmatex">\(\alpha\)</span>，需确定常数 <span class="arithmatex">\(C\)</span>，使其满足<br />
+$$
+2 \left(1 - \Phi(C) \right) = \alpha.
+$$</p>
+<h6 id="h_0-mu-geq-mu_0-longleftrightarrow-h_1-mu-mu_0"><span class="arithmatex">\(H_0 : \mu \geq \mu_0 \longleftrightarrow H_1 : \mu &lt; \mu_0\)</span><a class="headerlink" href="#h_0-mu-geq-mu_0-longleftrightarrow-h_1-mu-mu_0" title="Permanent link">&para;</a></h6>
+<p>此类问题仍属于正态总体均值 <span class="arithmatex">\(\mu\)</span> 的检验（已知 <span class="arithmatex">\(\sigma\)</span>），故仍取检验统计量为：
+$$
+Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}, \quad \text{当 } \mu = \mu_0 \text{ 时，} Z \sim N(0, 1).
+$$</p>
+<p>拒绝域的形式为：
+$$
+W = { z \leq c }.
+$$</p>
+<p>接下来需要确定临界值 <span class="arithmatex">\(c\)</span>。犯第一类错误的概率为：
+$$
+\alpha(\mu) = P_\mu \left( \frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}} \leq C \;\Big|\; H_0 \text{ 为真} \right) = P_\mu \left( \frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}} \leq C \;\Big|\; \mu \geq \mu_0 \right).
+$$</p>
+<p>那么要求
+$$
+\sup_{\mu \geq \mu_0} P_\mu \left( \frac{\bar{X} - \mu_0}{\sigma / \sqrt{n}} \leq C \right) \leq \alpha.
+$$</p>
+<p>注意到
+$$
+LHS = \sup_{\mu \geq \mu_0} P_\mu \left( \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \leq C + \frac{\mu_0 - \mu}{\sigma / \sqrt{n}} \right) = \sup_{\mu \geq \mu_0} \Phi (C + \frac{\mu_0 - \mu}{\sigma / \sqrt{n}})
+$$</p>
+<p>而在<span class="arithmatex">\(mu \geq \mu_0\)</span>时，<span class="arithmatex">\(\alpha(\mu)\)</span> 是 <span class="arithmatex">\(\mu\)</span>的严格减函数，故其最大值在 <span class="arithmatex">\(\mu = \mu_0\)</span> 处达到。因此，对于给定的显著性水平 <span class="arithmatex">\(\alpha\)</span>，要求 <span class="arithmatex">\(C\)</span> 满足
+$$
+\sup_{\mu \geq \mu_0} \alpha(\mu) = \Phi (C) = \alpha
+$$</p>
+<p>此时，有 <span class="arithmatex">\(C = Z_{1-\alpha} = -Z_\alpha\)</span>。拒绝域为
+$$
+W = { x : z(x) \leq -Z_\alpha } = { x : \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \leq -Z_\alpha }
+$$</p>
+<p>（这与 <span class="arithmatex">\(H_0 : \mu = \mu_0 \longleftrightarrow H_1 : \mu &lt; \mu_0\)</span> 的拒绝域是相同的，两者的 <span class="arithmatex">\(P\)</span> 值也是相同的）</p>
+<h6 id="h_0-mu-leq-mu_0-longleftrightarrow-h_1-mu-mu_0"><span class="arithmatex">\(H_0 : \mu \leq \mu_0 \longleftrightarrow H_1 : \mu &gt; \mu_0\)</span><a class="headerlink" href="#h_0-mu-leq-mu_0-longleftrightarrow-h_1-mu-mu_0" title="Permanent link">&para;</a></h6>
+<p>仍取</p>
+<div class="arithmatex">\[
+Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}
+\]</div>
+<p>为检验统计量。这时拒绝域形为 <span class="arithmatex">\(W = \{ z \geq C \}\)</span> 。检验犯第一类错误的概率为</p>
+<div class="arithmatex">\[
+\alpha(\mu) = P_\mu (Z \geq C | H_0 为真)
+\]</div>
+<div class="arithmatex">\[
+= P_\mu \left( \frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \geq C + \frac{\mu_0 - \mu}{\sigma / \sqrt{n}} \right)
+\]</div>
+<div class="arithmatex">\[
+= 1 - \Phi \left( C + \frac{\mu_0 - \mu}{\sigma / \sqrt{n}} \right), \quad \mu \leq \mu_0
+\]</div>
+<p>在 <span class="arithmatex">\(\mu \leq \mu_0\)</span> 时，<span class="arithmatex">\(\alpha(\mu)\)</span> 是 <span class="arithmatex">\(\mu\)</span> 的严格增函数，故其最大值在 <span class="arithmatex">\(\mu = \mu_0\)</span> 时达到。从而对给定的显著性水平 <span class="arithmatex">\(\alpha\)</span>，要求<span class="arithmatex">\(C\)</span> 满足</p>
+<div class="arithmatex">\[
+\sup_{\mu \leq \mu_0} \alpha(\mu) = \alpha(\mu_0) = 1 - \Phi(C) = \alpha
+\]</div>
+<p>那么得 <span class="arithmatex">\(C = Z_\alpha\)</span>。故拒绝域为 <span class="arithmatex">\(\{z \geq Z_\alpha\}\)</span> 的检验就是所要求的水平为 <span class="arithmatex">\(\alpha\)</span> 的检验。</p>
+<p>（与 <span class="arithmatex">\(H_0 : \mu = \mu_0 \longleftrightarrow H_1 : \mu &gt; \mu_0\)</span>的拒绝域是一样的）</p>
+<p>（两者的 <span class="arithmatex">\(P\)</span> 值也是一样的）</p>
+<h6 id="_13">总结<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h6>
+<p><img alt="假设检验总结1" src="../image/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E6%80%BB%E7%BB%931.png" /></p>
+<h5 id="_14">方差未知时<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h5>
+<p>当 <span class="arithmatex">\(\sigma^2\)</span> 已知时，检验统计量为
+$$
+Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}
+$$
+而现在不能用 <span class="arithmatex">\(Z\)</span> 作为检验统计量，因为它含有未知参数 <span class="arithmatex">\(\sigma\)</span>。一个自然的想法就是用 <span class="arithmatex">\(\sigma^2\)</span> 的无偏估计</p>
+<div class="arithmatex">\[
+S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2
+\]</div>
+<p>代替 <span class="arithmatex">\(\sigma^2\)</span>，得检验统计量为</p>
+<div class="arithmatex">\[
+t = t(\overline{X}) = \frac{\overline{X} - \mu_0}{S / \sqrt{n}}
+\]</div>
+<p>当<span class="arithmatex">\(H_0 : \mu \geq \mu_0 \longleftrightarrow H_1 : \mu &lt; \mu_0\)</span>时</p>
+<p>取检验统计量为</p>
+<div class="arithmatex">\[
+t = t(X) = \frac{\overline{X} - \mu_0}{S / \sqrt{n}}
+\]</div>
+<p>那么拒绝域形为： <span class="arithmatex">\(W = \{t(x) \leq C\}\)</span> 。而检验犯第一类错误的概率为
+$$
+\alpha(\mu) = P_{\mu, \sigma^2}(t(X) \leq C|H_0 为真), \quad \mu \geq \mu_0
+$$
+我们要取临界值 <span class="arithmatex">\(C\)</span> 使得</p>
+<div class="arithmatex">\[
+\sup_{\mu \geq \mu_0} P_{\mu, \sigma^2}(t(X) \leq C) = \alpha
+\]</div>
+<p>可证其检验的拒绝域为（具体证明略）：
+$$
+W = {t \leq t_\alpha(n-1)}
+$$</p>
+<p>类似地，假设检验问题<br />
+$$
+H_0 : \mu \leq \mu_0 \Longleftrightarrow H_1 : \mu &gt; \mu_0<br />
+$$</p>
+<p>的水平为 <span class="arithmatex">\(\alpha\)</span> 的检验的拒绝域为<br />
+$$
+W = { t \geq t_{\alpha}(n-1) } 
+$$</p>
+<p>假设检验问题<br />
+$$
+H_0 : \mu = \mu_0 \Longleftrightarrow H_1 : \mu \neq \mu_0 
+$$
+的水平为 <span class="arithmatex">\(\alpha\)</span> 的检验的拒绝域为<br />
+$$
+W = { |t| \geq t_{\alpha/2}(n-1) }<br />
+$$
+这些检验称为 <span class="arithmatex">\(t\)</span>-检验法。</p>
+<h4 id="sigma2">正太总体方差 <span class="arithmatex">\(\sigma^2\)</span> 的假设检验<a class="headerlink" href="#sigma2" title="Permanent link">&para;</a></h4>
+<p>我们主要讨论<span class="arithmatex">\(\mu\)</span>未知的情况。</p>
+<p>当 <span class="arithmatex">\(\mu\)</span> 已知时，检验统计量为</p>
+<div class="arithmatex">\[
+\chi^2 = \chi^2(\mathbf{X}) = \frac{\sum_{i=1}^n (X_i - \mu)^2}{\sigma_0^2}
+\]</div>
+<p>但此统计量不能作为 <span class="arithmatex">\(\mu\)</span> 未知时的检验统计量。一个自然的想法是：用 <span class="arithmatex">\(\mu\)</span> 的无偏估计量 <span class="arithmatex">\(\overline{X}\)</span> 去代替，即取检验统计量为：</p>
+<div class="arithmatex">\[
+\chi^2 = \chi^2(\mathbf{X}) = \frac{(n-1)S^2}{\sigma_0^2} = \frac{\sum_{i=1}^n (X_i - \overline{X})^2}{\sigma_0^2}
+\]</div>
+<p>当<span class="arithmatex">\(H_0 : \sigma^2 \geq \sigma_0^2 \longleftrightarrow H_1 : \sigma^2 &lt; \sigma_0^2\)</span>时拒绝域为
+$$ 
+W = { \chi^2 \leq C }
+$$</p>
+<p><span class="arithmatex">\(C\)</span> 由下式确定</p>
+<div class="arithmatex">\[
+\alpha = \sup_{\sigma^2 \geq \sigma_0^2} P_{\sigma^2, \mu} (\chi^2 \leq C) = \sup_{\sigma^2 \geq \sigma_0^2} P_{\sigma^2, \mu} \left( \frac{\sum_{i=1}^n (X_i - \overline{X})^2}{\sigma^2} \leq C \frac{\sigma_0^2}{\sigma^2} \right)
+\]</div>
+<div class="arithmatex">\[
+= \sup_{\sigma^2 \geq \sigma_0^2} P_{\sigma^2, \mu} \left( \chi^2 (n-1) \leq C \frac{\sigma_0^2}{\sigma^2} \right) = P \left( \chi^2 (n-1) \leq C \right)
+\]</div>
+<p>所以此问题显著性水平为 <span class="arithmatex">\(\alpha\)</span> 的检验的拒绝域为 <span class="arithmatex">\(\{ \chi^2 \leq \chi_{1-\alpha}^2 (n-1) \}\)</span></p>
+<p>类似地，假设检验问题</p>
+<div class="arithmatex">\[
+ H_0 : \sigma^2 \leq \sigma_0^2 \longleftrightarrow H_1 : \sigma^2 &gt; \sigma_0^2 
+\]</div>
+<p>的显著性水平为 <span class="arithmatex">\(\alpha\)</span> 的检验的拒绝域为</p>
+<div class="arithmatex">\[
+W = \{ \chi^2 \geq \chi_{\alpha}^2 (n - 1) \} 
+\]</div>
+<p>假设检验问题</p>
+<div class="arithmatex">\[ 
+H_0 : \sigma^2 = \sigma_0^2 \longleftrightarrow H_1 : \sigma^2 \neq \sigma_0^2 
+\]</div>
+<p>的显著性水平为 <span class="arithmatex">\(\alpha\)</span> 的检验的拒绝域为
+$$
+W = { \chi^2 \geq \chi_{\alpha/2}^2 (n - 1) \text{ 或 } \chi^2 \leq \chi_{1-\alpha/2}^2 (n - 1) } 
+$$
+这些检验也称为 <span class="arithmatex">\(\chi^2\)</span>-检验。</p>
+<h3 id="_15">两个正态总体<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(X_1, X_2, \cdots, X_m\)</span> 是来自正态总体<span class="arithmatex">\(N(\mu_X, \sigma_X^2)\)</span>的样本，<span class="arithmatex">\(Y_1, Y_2, \cdots, Y_n\)</span> 是来自正态总体 <span class="arithmatex">\(N(\mu_Y, \sigma_Y^2)\)</span> 的样本，且两个样本相互独立。并记
+$$
+\overline{X} = \frac{1}{m} \sum_{i=1}^m X_i, \quad \overline{Y} = \frac{1}{n} \sum_{j=1}^n Y_j
+$$
+$$
+S_X^2 = \frac{1}{m-1} \sum_{i=1}^m (X_i - \overline{X})^2, \quad S_Y^2 = \frac{1}{n-1} \sum_{j=1}^n (Y_j - \overline{Y})^2
+$$</p>
+<h4 id="_16">比较均值的假设检验<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<h5 id="_17">方差均已知时<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h5>
+<p>这时 <span class="arithmatex">\(\mu_X\)</span> 和 <span class="arithmatex">\(\mu_Y\)</span> 的 MLE 分别为 <span class="arithmatex">\(\overline{X}\)</span> 和 <span class="arithmatex">\(\overline{Y}\)</span>。 与作为尺度参数的方差不同, 均值是位置参数, 位置可以平行移动, 我们取  </p>
+<p>$$
+d = \overline{X} - \overline{Y}
+$$
+作为检验统计量. 注意到  </p>
+<div class="arithmatex">\[
+\overline{X} - \overline{Y} \sim N\left(\mu_X - \mu_Y, \sigma_X^2/m + \sigma_Y^2/n\right)
+\]</div>
+<p>我们可取 
+$$
+Z = \frac{\overline{X} - \overline{Y}}{\sqrt{\sigma_X^2/m + \sigma_Y^2/n}}
+$$
+作检验统计量。
+这样与单个正态总体的均值的 <span class="arithmatex">\(Z\)</span>-检验类似, 我们得
+$$
+H_0 : \mu_X \geq \mu_Y \Longleftrightarrow H_1 : \mu_X &lt; \mu_Y,
+$$
+$$
+W = {(x, y) : z \leq -z_\alpha}
+$$
+$$
+H_0 : \mu_X \leq \mu_Y \Longleftrightarrow H_1 : \mu_X &gt; \mu_Y,
+$$
+$$
+W = {(x, y) : z \geq z_\alpha}
+$$
+$$
+H_0 : \mu_X = \mu_Y \Longleftrightarrow H_1 : \mu_X \neq \mu_Y,
+$$
+$$
+W = {(x, y) : |z| \geq z_{\alpha/2}}
+$$</p>
+<h5 id="_18">方差均未知时<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h5>
+<p>我们只考虑 <span class="arithmatex">\(\sigma_X^2=\sigma_Y^2=\sigma^2\)</span> 的情况。 
+这时，<span class="arithmatex">\(S_w^2 = (Q_X^2 + Q_Y^2)/(m+n-2)\)</span> 是 <span class="arithmatex">\(\sigma^2\)</span> 的无偏估计，其中 <span class="arithmatex">\(Q_X^2 = \sum_{i=1}^m (X_i - \overline{X})^2\)</span>，<br />
+<span class="arithmatex">\(Q_Y^2 = \sum_{j=1}^n (Y_i - \overline{Y})^2\)</span>。用它代替 <span class="arithmatex">\(Z\)</span> 中的 <span class="arithmatex">\(\sigma_X^2\)</span> 和 <span class="arithmatex">\(\sigma_Y^2\)</span> 得  </p>
+<div class="arithmatex">\[
+t = \frac{\overline{X} - \overline{Y}}{S_w \sqrt{\frac{1}{m} + \frac{1}{n}}}
+\]</div>
+<p>取 <span class="arithmatex">\(t\)</span> 为检验统计量，得</p>
+<div class="arithmatex">\[
+H_0 : \mu_X \geq \mu_Y \longleftrightarrow H_1 : \mu_X &lt; \mu_Y,
+\]</div>
+<div class="arithmatex">\[
+W = \{(x, y) : t \leq -t_\alpha (n + m - 2)\}
+\]</div>
+<div class="arithmatex">\[
+H_0 : \mu_X \leq \mu_Y \longleftrightarrow H_1 : \mu_X &gt; \mu_Y,
+\]</div>
+<div class="arithmatex">\[
+W = \{(x, y) : t \geq t_\alpha (n + m - 2)\}
+\]</div>
+<div class="arithmatex">\[
+H_0 : \mu_X = \mu_Y \longleftrightarrow H_1 : \mu_X \neq \mu_Y,
+\]</div>
+<div class="arithmatex">\[
+W = \{(x, y) : t \leq -t_\alpha / 2 (n + m - 2) \text{ 或 } t \geq t_\alpha / 2 (n + m - 2)\}
+\]</div>
+<h4 id="_19">比较方差的假设检验<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>我们只考虑<span class="arithmatex">\(μ_X\)</span> 和 <span class="arithmatex">\(μ_Y\)</span> 都未知。<br />
+这时 <span class="arithmatex">\(σ_X^2\)</span> 和 <span class="arithmatex">\(σ_Y^2\)</span> 的无偏估计量分别为<br />
+$$
+S_X^2 = \frac{1}{m-1} \sum_{i=1}^m (X_i - \overline{X})^2, \quad S_Y^2 = \frac{1}{n-1} \sum_{j=1}^n (Y_j - \overline{Y})^2.
+$$
+取  </p>
+<div class="arithmatex">\[
+F = \frac{S_X^2}{S_Y^2} = \frac{\sum_{i=1}^m (X_i - \overline{X})^2 / (m-1)}{\sum_{j=1}^n (Y_i - \overline{Y})^2 / (n-1)}
+\]</div>
+<p>作检验统计量。且  </p>
+<div class="arithmatex">\[
+\frac{F}{\sigma_X^2 / \sigma_Y^2} = \frac{S_X^2 / \sigma_X^2}{S_Y^2 / \sigma_Y^2} \sim F(m-1, n-1).
+\]</div>
+<h3 id="_20">总结<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p><strong>正态分布总体下参数的假设检验中检验统计量与相应正态分布总体下参数的区间估计的枢轴量有关。把枢轴量中出现的未知参数替换成假设检验中未知参数与之比较的数之后，就可以得到相应的检验统计量。且检验统计量的分布和枢轴量的分布一样</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../chapter7/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 估计">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                估计
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A62/" class="md-footer__link md-footer__link--next" aria-label="下一页: 普通物理学Ⅱ">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                普通物理学Ⅱ
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rick-368/Notebook" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.sections", "navigation.prune", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "navigation.indexes", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/math-config.js"></script>
+      
+        <script src="../../../javascripts/math-fix.js"></script>
+      
+    
+  </body>
+</html>
