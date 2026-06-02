@@ -2230,7 +2230,7 @@
 <ul>
 <li>给定堆中任意节点，如果其右子树节点的数量，大于其子树节点数量的一半，我们说这个节点是heavy的，否则为light的。</li>
 <li>则定义斜堆的势函数为：<span class="arithmatex">\(f(H)=(\text{the number of heavy nodes in H})*C\)</span>，其中<span class="arithmatex">\(C\)</span>为常数。<span class="arithmatex">\(f(H)\)</span>满足非负性。</li>
-<li>设合并前两个堆右路径的轻节点数和重节点数一共为<span class="arithmatex">\(a\)</span>和<span class="arithmatex">\(b\)</span>，合并操作的实际代价为：<span class="arithmatex">\(O(1)*\text{互换操作的数目}*(a+b)C\)</span>。</li>
+<li>设合并前两个堆右路径的轻节点数和重节点数一共为<span class="arithmatex">\(a\)</span>和<span class="arithmatex">\(b\)</span>，合并操作的实际代价为：<span class="arithmatex">\(O(1)*(a+b)C(\text{互换操作的数目})\)</span>。</li>
 <li>势函数变化分析：由于合并操作：重节点的右子树节点数增加，变得更重，但又由于合并后左右子树互换，导致重节点变轻节点，则势函数变化了<span class="arithmatex">\(-b\)</span>，而轻节点可能会变重，则势函数的变化小于等于<span class="arithmatex">\((-b+a)*C\)</span>。</li>
 <li>均摊费用则小于等于<span class="arithmatex">\(2aC\)</span>，小于等于<span class="arithmatex">\(O(a)\)</span>，小于等于<span class="arithmatex">\(O(\log N)\)</span>。</li>
 </ul>
