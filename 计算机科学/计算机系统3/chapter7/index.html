@@ -1,0 +1,4145 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter6/">
+      
+      
+        <link rel="next" href="../chapter8/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>文件系统 - rick 的笔记本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="rick 的笔记本" class="md-header__button md-logo" aria-label="rick 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            rick 的笔记本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              文件系统
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="天黑请闭眼"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="天黑请闭眼" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="天亮请睁眼"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="天亮请睁眼" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rick-368/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rick/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  前言
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%AF%BE%E5%A4%96%E6%8B%93%E5%B1%95/01-markdown/markdown_basic_grammar/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  课外拓展
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%85%B6%E4%BB%96/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="rick 的笔记本" class="md-nav__button md-logo" aria-label="rick 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    rick 的笔记本
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rick-368/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rick/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级数据结构与算法分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级数据结构与算法分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摊还分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    堆
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本算法（回溯、分治、动态规划）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贪心算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P与NP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    近似算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    局部搜索
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    并行算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    外部排序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机系统Ⅱ
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机系统Ⅱ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU调度
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进程间通信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    同步
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机系统Ⅲ
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机系统Ⅲ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    量化研究
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ISP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory Hierarchy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    内存
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大容量存储结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O设备管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文件系统
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件访问
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统挂载
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件共享
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件保护
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统数据结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统的操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件系统的操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        打开文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        挂载文件系统
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        虚拟文件系统
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录实现
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        磁盘块分配
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="磁盘块分配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        连续分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链接分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        索引分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分配的选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        空闲空间管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="空闲空间管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        位图空闲空间管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链表空闲空间管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统性能
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面缓存
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日志结构文件系统
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        补充
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件描述符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        硬链接和软链接
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统组织
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读写文件的流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    系统安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIMD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MIMD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能引论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能引论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    知识表达与推理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    搜索探寻与问题求解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    神经网络与深度学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    博弈论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能伦理与安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    面向对象程序设计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    面向对象程序设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    容器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    结构与类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数复用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    异常
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++的输入输出
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cast 运算符
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据库系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关系模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL 语言基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entitiy-Relationship Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关系型数据库设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    存储和文件结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    索引和哈希
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    查询处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    事务
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    并发控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    恢复系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../%E8%AF%BE%E5%A4%96%E6%8B%93%E5%B1%95/01-markdown/markdown_basic_grammar/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课外拓展
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../%E5%85%B6%E4%BB%96/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件访问
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统挂载
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件共享
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件保护
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统数据结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统的操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件系统的操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        打开文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        挂载文件系统
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        虚拟文件系统
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录实现
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        磁盘块分配
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="磁盘块分配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        连续分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链接分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        索引分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分配的选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        空闲空间管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="空闲空间管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        位图空闲空间管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链表空闲空间管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统性能
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面缓存
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日志结构文件系统
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        补充
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件描述符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        硬链接和软链接
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统组织
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读写文件的流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">文件系统<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>文件是用于存储信息的连续逻辑空间，如数据库、音频、视频、网页等等。</p>
+<p>文件有很多信息：</p>
+<ul>
+<li>名称 – 唯一以人可读形式保存的信息</li>
+<li>标识符 – 在文件系统内标识文件的唯一标签（编号）</li>
+<li>类型 – 对于支持不同类型的系统是必需的</li>
+<li>位置 – 指向文件在设备上位置的指针</li>
+<li>大小 – 文件的当前大小</li>
+<li>保护 – 控制谁可以进行读、写、执行操作</li>
+<li>时间、日期和用户标识 – 用于保护、安全和使用监控的数据</li>
+</ul>
+<p>文件的相关信息保存在目录结构中，目录结构维护在磁盘上。</p>
+<p>在Linux系统中，可以通过file命令来查看文件的类型，通过stat命令来查看文件的详细信息。</p>
+<h3 id="_3">文件操作<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>操作系统提供文件操作用于：</p>
+<ul>
+<li>创建：<ul>
+<li>需要在文件系统中找到空间</li>
+<li>必须在目录中分配一个目录项</li>
+</ul>
+</li>
+<li>打开：大多数操作需要先打开文件<ul>
+<li>返回一个句柄供其他操作使用</li>
+</ul>
+</li>
+<li>读/写：需要维护一个指针</li>
+<li>在文件内重新定位 – 寻址（seek）</li>
+<li>关闭</li>
+<li>删除<ul>
+<li>释放文件空间</li>
+<li>硬链接：维护一个计数器 – 直到最后一个链接被删除才真正删除文件</li>
+</ul>
+</li>
+<li>截断：清空文件但保留其属性</li>
+</ul>
+<p>其他操作可以基于这些操作实现。如复制就是创建以及读/写操作的集合。</p>
+<p>管理打开文件需要若干数据：</p>
+<ul>
+<li>打开文件表：跟踪已打开的文件</li>
+<li>文件指针：指向上一次读/写位置的指针，每个打开文件的进程独立拥有</li>
+<li>文件打开计数：文件被打开的次数计数器 – 当最后一个进程关闭该文件时，允许从打开文件表中删除对应数据</li>
+<li>文件的磁盘位置：数据访问信息的缓存</li>
+<li>访问权限：每个进程的访问模式信息</li>
+</ul>
+<p>某些文件系统提供文件锁来协调对文件的访问。</p>
+<p>两种锁类型
+  - 共享锁 - 多个进程可以同时获取该锁
+  - 独占锁 - 只有一个进程可以获取该锁</p>
+<p>两种锁机制
+  - 强制锁：根据已持有的锁和请求的锁来决定是否拒绝访问
+  - 建议锁：进程可以查看锁的状态并自行决定如何处理</p>
+<h3 id="_4">文件类型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>文件有不同的类型：</p>
+<ul>
+<li>数据文件：字符文件、二进制文件以及应用程序特定格式的文件。</li>
+<li>程序文件</li>
+<li>特殊文件：proc 文件系统 – 使用文件系统接口来检索系统信息。</li>
+</ul>
+<p>文件的具体类型可以作为文件名的一部分（文件扩展名），也可以作为文件的魔数（在文件开头（或固定偏移位置）存放的一小段特定字节序列，用于唯一标识文件格式）。</p>
+<p><img alt="文件类型" src="../image/%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B.png" /></p>
+<h3 id="_5">文件结构<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>文件可以有不同的结构，由操作系统或程序决定。</p>
+<ul>
+<li>无结构：字节流或字流，例如 Linux 转储文件。</li>
+<li>简单记录结构：记录行，固定长度或可变长度，例如数据库。</li>
+<li>复杂结构，例如Word 文档、可重定位程序文件。</li>
+</ul>
+<p>通常由用户程序负责识别文件结构。</p>
+<h3 id="_6">文件访问<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>文件访问有不同的方式，最常见的两种是顺序访问和直接访问。</p>
+<p>顺序访问即一组元素按照预定顺序进行访问，对于某些介质类型（如磁带），这是唯一的访问模式。</p>
+<p>直接访问是以（大致）相等的时间访问序列中任意位置上的元素，且该时间与序列大小无关。有时也称为随机访问。</p>
+<p><img alt="文件访问" src="../image/%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE.png" /></p>
+<p>文件访问还有许多其他方法，如文件的索引指向数据块，要查找文件中的某条记录，先搜索索引，然后使用指针访问数据块。可以使用多层索引。</p>
+<h2 id="_7">目录结构<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>磁盘可以细分为分区，不同的分区可以有不同的文件系统，包含文件系统的分区称为卷（Volume），每个卷在卷的目录表中跟踪文件系统信息。</p>
+<p>当然磁盘或分区可以裸使用（不带文件系统），如数据库等应用程序更倾向于使用裸磁盘。</p>
+<p><img alt="磁盘分区" src="../image/%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA.png" /></p>
+<p>目录是包含所有文件信息的节点的集合。</p>
+<p><img alt="目录结构" src="../image/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png" /></p>
+<p>以下是一些常见的对目录执行的操作：</p>
+<ul>
+<li>创建文件：需要创建新文件并将其添加到目录中</li>
+<li>删除文件：从目录中移除文件</li>
+<li>列出目录：列出目录中的所有文件</li>
+<li>搜索文件：模式匹配</li>
+<li>遍历文件系统：访问目录内的每个目录和文件</li>
+</ul>
+<p>在实现目录时，我们需要考虑查找的效率，以快速定位文件；我们还需要考虑命名问题，来更好的组织目录结构。</p>
+<p>以下是一些常见的目录实现：</p>
+<p>1.单级目录：所有用户共享一个目录。存在命名问题和分组问题（如两个用户可能想对不同的文件使用相同的文件名）。</p>
+<p><img alt="单级目录" src="../image/%E5%8D%95%E7%BA%A7%E7%9B%AE%E5%BD%95.png" /></p>
+<p>2.二级目录：每个用户有自己的用户文件目录（UFD），这些 UFD 位于主文件目录（MFD）中。这样可以提高搜索效率，也可以解决命名问题。</p>
+<p><img alt="二级目录" src="../image/%E4%BA%8C%E7%BA%A7%E7%9B%AE%E5%BD%95.png" /></p>
+<p>3.树型目录：每个用户有自己的用户文件目录，这些目录组织成树状结构。这种结构的搜索效率高，可以对文件进行分组，命名也方便。  </p>
+<p>在树形目录中，文件可以使用绝对路径或相对路径来访问。</p>
+<ul>
+<li>绝对路径：<code>/home/user/file</code></li>
+<li>相对路径：相对于当前目录（pwd）的路径。</li>
+</ul>
+<p>树形目录中：</p>
+<ul>
+<li>创建新文件：<code>touch &lt;filename&gt;</code></li>
+<li>删除文件：<code>rm &lt;filename&gt;</code></li>
+<li>创建新子目录:<code>mkdir &lt;dirname&gt;</code></li>
+</ul>
+<p>在删除目录时，如果目录为空，则容易处理；如果目录不为空，则要么不允许删除，要么删除相关的所有文件和子目录。</p>
+<p>树型结构中不允许共享文件/目录。</p>
+<p><img alt="树型目录" src="../image/%E6%A0%91%E5%9E%8B%E7%9B%AE%E5%BD%95.png" /></p>
+<p>4.无环图目录：将目录组织成无环图结构，它允许多个目录指向同一个文件。这种结构可以实现别名。</p>
+<p>但无环图目录会引入悬空指针问题（如下图如果删除文件 /dict/all，那么 /dict/w/list 和 /spell/words/list 就会变成悬空指针）</p>
+<p><img alt="无环图目录" src="../image/%E6%97%A0%E7%8E%AF%E5%9B%BE%E7%9B%AE%E5%BD%95.png" /></p>
+<p>可以通过反向指针的方式解决悬空指针问题，反向指针记录指向该实体的所有指针，或者或者记录指向它的链接数，仅当计数器为零时才（物理）删除它。</p>
+<p>无环图目录支持共享文件。这涉及到文件系统中用于创建文件别名或引用的两种机制：硬链接（Hard Link）和软链接（Soft Link）（见后文）。</p>
+<p>5.一般图目录：允许任意链接。</p>
+<p>一般图目录的问题是可能会在目录结构中产生循环。解决方案有两种：一是允许循环，但使用垃圾回收来回收磁盘空间；二是每次添加新链接时，使用循环检测算法来确保不会形成循环。</p>
+<p><img alt="一般图目录" src="../image/%E4%B8%80%E8%88%AC%E5%9B%BE%E7%9B%AE%E5%BD%95.png" /></p>
+<h2 id="_8">文件系统挂载<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>文件系统必须先挂载才能被访问。</p>
+<ul>
+<li>文件系统必须先挂载才能被访问</li>
+<li>被挂载的文件系统所在的位置称为挂载点</li>
+<li>已挂载的文件系统会使挂载点处的原目录不可见</li>
+</ul>
+<blockquote>
+<p>在操作系统（如 Linux、Unix）中，挂载点原本是一个普通目录，这个目录里可能已经有一些文件或子目录。当你把另一个文件系统挂载到这个目录上时，原先目录里的内容就会被“遮住”——暂时看不见、也无法直接访问。你通过这个挂载点路径看到和访问的，会变成新挂载的文件系统的根目录内容。只有卸载（umount）这个文件系统后，原来的目录内容才会重新显现出来。</p>
+</blockquote>
+<p><img alt="文件系统挂载" src="../image/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%8C%82%E8%BD%BD.png" /></p>
+<h2 id="_9">文件共享<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>在多用户系统中，文件共享是很有必要的。</p>
+<p>共享必须通过保护机制来实现：</p>
+<ul>
+<li>用户 ID 用于标识用户，允许按用户进行保护。</li>
+<li>组 ID 允许用户属于某个组，从而赋予组访问权限。</li>
+</ul>
+<p>在分布式系统中，文件可以通过网络进行共享，如网络文件系统（NFS）是一种常见的分布式文件共享方法。</p>
+<h2 id="_10">文件保护<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>文件所有者/创建者应能够控制：</p>
+<ul>
+<li>可以对文件进行哪些操作（读、写、执行、删除、列出）</li>
+<li>可以由谁来进行这些操作</li>
+</ul>
+<p>为了实现上述功能，我们可以为每个文件和目录分配一个访问控制列表（ACL），记录哪些用户或组对某个文件或目录拥有哪些类型的访问权限。</p>
+<p>以下是windows的文件访问控制：</p>
+<p><img alt="ACL" src="../image/ACL.png" /></p>
+<p>在Unix的文件访问控制中，分为三种访问模式：读、写、执行（编码为三个比特位）；分为三类用户：所有者、组、其他用户。</p>
+<p><img alt="Unix文件保护" src="../image/Unix%E6%96%87%E4%BB%B6%E4%BF%9D%E6%8A%A4.png" /></p>
+<p>若要向用户授予访问权限，可创建一个组并更改其访问模式。</p>
+<p>以下是Unix文件目录列表示例：</p>
+<p><img alt="Unix文件保护" src="../image/Unix%E6%96%87%E4%BB%B6%E4%BF%9D%E6%8A%A42.png" /></p>
+<h2 id="_11">文件系统结构<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>文件系统位于辅助存储设备（磁盘）上，通常按层次实现和组织。</p>
+<p><img alt="文件系统结构" src="../image/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84.png" /></p>
+<p>逻辑文件系统（logic file system）：维护文件系统所需的所有元数据（即，除文件内容之外的所有信息）；存储目录结构；存储一种数据结构，用于记录文件描述信息（文件控制块 - FCB）。</p>
+<p>文件组织模块（file-organization module）：了解逻辑文件块（从 0 到 N）以及对应的物理文件块：负责执行转换；同时管理空闲空间。</p>
+<p>基本文件系统（basic file system）：分配/维护包含文件系统、目录和数据块的各种缓冲区（缓存），用于提高性能。</p>
+<p>I/O 控制（I/O control）：设备驱动程序和中断处理程序。</p>
+<p>这种分层文件系统有助于降低复杂性和冗余，但会增加开销并可能降低性能。</p>
+<p>常见的文件系统包括Windows的FAT、FAT32 和 NTFS，UNIX的UFS等等，大多数操作系统支持多种文件系统。</p>
+<h2 id="_12">文件系统数据结构<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>文件系统包含多种数据结构，按存储位置分为磁盘上的结构和内存中的结构。</p>
+<p>磁盘上的结构有：</p>
+<ul>
+<li>可选引导控制块：存储操作系统的卷的第一个块</li>
+<li>卷控制块：包含卷中的块数、块大小、空闲块计数、空闲块指针、空闲 FCB 计数、FCB 指针。</li>
+<li>目录：与 ID 关联的文件名、FCB 指针。</li>
+<li>每个文件的文件控制块（file control block,FCB）</li>
+</ul>
+<p><img alt="FCB" src="../image/FCB.png" /></p>
+<p>以下是在UNIX系统中FCB（inode）的布局：</p>
+<p><img alt="FCB" src="../image/FCB2.png" /></p>
+<p>内存中的结构有：</p>
+<ul>
+<li>挂载表，每个已挂载卷对应一个条目</li>
+<li>目录缓存，用于快速路径转换（性能优化）</li>
+<li>全局打开文件表</li>
+<li>每个进程的打开文件表</li>
+<li>用于“传输中”磁盘块的各种缓冲区（性能优化）77</li>
+</ul>
+<h2 id="_13">文件系统的操作<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14">创建文件<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>创建文件的过程一般为：</p>
+<ul>
+<li>应用程序进程请求创建一个新文件</li>
+<li>逻辑文件系统分配一个新的 FCB（即 inode 结构）</li>
+<li>相应的目录用新文件名和 FCB 进行更新</li>
+</ul>
+<h3 id="_15">打开文件<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>在打开文件时，我们首先搜索系统范围的打开文件表，查看该文件当前是否正在使用。</p>
+<p>如果正在使用，则创建一个每进程打开文件表条目，指向已有的系统范围打开文件表。</p>
+<p>如果未使用，则在目录中搜索该文件名；找到后，将 FCB 从磁盘加载到内存，并放入系统范围的打开文件表中。</p>
+<p><img alt="打开文件" src="../image/%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6.png" /></p>
+<p>open()的具体操作如下：</p>
+<ul>
+<li>在进程级打开文件表中创建一个条目，包含指向系统级打开文件表中条目的指针，以及其他字段，如指向文件当前位置的指针和文件打开时的访问模式。</li>
+<li>增加系统级打开文件表中的打开计数。</li>
+<li>返回指向进程级打开文件表中条目的指针。</li>
+<li>后续所有操作都通过该指针执行。</li>
+<li>进程关闭文件 → 进程级打开文件表中的条目被移除；打开计数递减。</li>
+<li>所有进程都关闭文件 → 将内存中的目录信息写回磁盘，并从内存中移除系统级打开文件表。</li>
+</ul>
+<p>在Unix系统中，系统级打开文件表中包含文件、目录、设备和网络连接的 inode（索引节点）。</p>
+<h2 id="_16">挂载文件系统<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>启动块：一系列连续的块，其中包含引导加载程序的内存映像，用于定位并挂载根分区；该分区包含内核；引导加载程序定位、加载并启动内核执行。</p>
+</li>
+<li>
+<p>内存中的挂载表：外部文件系统必须挂载到设备上，挂载表记录了挂载点、已挂载文件系统的类型，以及通往目标文件系统的访问路径。在Unix中，内存中的挂载表包含一个指向该设备上文件系统<strong>超级块</strong>的指针。</p>
+</li>
+</ul>
+<h2 id="_17">虚拟文件系统<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p>虚拟文件系统（VFS）是一种抽象层，它为各种文件系统提供统一的接口，让操作系统可以处理不同的文件系统。</p>
+<p><img alt="VFS" src="../image/VFS.png" /></p>
+<p>VFS 提供了一种面向对象的方式来实现文件系统，操作系统为文件系统定义了一个通用接口，所有文件系统都实现该接口。系统调用基于这个通用接口实现。这使得同一个系统调用 API 可以用于不同类型的文件系统。</p>
+<p>VFS 将文件系统的通用操作与实现细节分离，具体实现可以是多种文件系统类型之一，也可以是网络文件系统。</p>
+<p>Linux 定义了四种VFS 对象类型：</p>
+<ul>
+<li><strong>超级块（superblock）</strong>：定义文件系统的类型、大小、状态及其他元数据</li>
+<li><strong>索引节点（inode）</strong>：包含关于<strong>文件</strong>的元数据（位置、访问模式、所有者等）</li>
+<li><strong>目录项（dentry）</strong>：将名称与索引节点关联，并描述目录结构</li>
+<li><strong>文件（file）</strong>：文件的实际数据</li>
+</ul>
+<h2 id="_18">目录实现<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>目录是一种特殊的文件，它存储从文件名到 inode 的映射。</p>
+<p><img alt="目录项" src="../image/%E7%9B%AE%E5%BD%95%E9%A1%B9.png" /></p>
+<p>以下是目录项的一个实现：</p>
+<ul>
+<li>inode 编号，名称；</li>
+<li>rec_len：目录项的长度，为4的倍数（目的是为了能够重用该条目）</li>
+<li>name_len：名称的长度</li>
+</ul>
+<p><img alt="目录项" src="../image/%E7%9B%AE%E5%BD%95%E9%A1%B92.png" /></p>
+<p>我们通过目录搜索有两种方式：</p>
+<ul>
+<li>
+<p>文件名的线性列表，附带指向文件元数据的指针</p>
+<ul>
+<li>编程简单，但搜索耗时（例如线性搜索）</li>
+<li>可以通过链表按字母顺序维护文件，或使用 B+ 树</li>
+</ul>
+</li>
+<li>
+<p>哈希表：线性列表配合哈希数据结构以减少搜索时间</p>
+<ul>
+<li>可能发生冲突：两个或多个文件名哈希到同一个位置</li>
+</ul>
+</li>
+</ul>
+<p>在Unix中目录被视为包含特殊数据的文件；在Windows中目录与文件不同，它们需要一套单独的系统调用来创建、操作等。</p>
+<h2 id="_19">磁盘块分配<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p>文件需要分配磁盘块来存储数据，不同的分配策略具有不同的复杂度和性能。有多种分配策略，如连续分配、链式分配、索引分配等等。</p>
+<h3 id="_20">连续分配<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>每个文件占用一组连续的磁盘块。目录中记录每个文件的起始块地址和所占块数。</p>
+<p>优点：顺序访问时磁盘头移动少，从而缩短寻道时间。</p>
+<p><img alt="连续分配" src="../image/%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D.png" /></p>
+<p>连续分配有很多缺点：</p>
+<ul>
+<li>可能难以找到空闲空间</li>
+<li>造成外部碎片</li>
+<li>文件增长困难</li>
+</ul>
+<h3 id="_21">链接分配<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>每个块包含指向下一个块的指针，文件结束处为空指针，块可以分散在磁盘的任何位置（无外部碎片，无需压缩）。</p>
+<p>缺点是定位一个文件块可能需要多次 I/O 和磁盘寻道；在512 字节中有 4 字节用于指针，会浪费部分空间。</p>
+<p>改进方法是将块聚类，例如 4 个块为一组。但这样会产生内部碎片。</p>
+<p><img alt="链接分配" src="../image/%E9%93%BE%E6%8E%A5%E5%88%86%E9%85%8D.png" /></p>
+<p>FAT（文件分配表）就采用链接分配方式。</p>
+<p><img alt="链接分配" src="../image/%E9%93%BE%E6%8E%A5%E5%88%86%E9%85%8D2.png" /></p>
+<h3 id="_22">索引分配<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>每个文件拥有自己的索引块，其中包含指向其数据块的指针。索引表提供对文件数据块的随机/直接访问。</p>
+<p>索引分配不会产生外部碎片，但有索引块的开销。它允许文件中有空洞。</p>
+<p><img alt="索引分配" src="../image/%E7%B4%A2%E5%BC%95%E5%88%86%E9%85%8D.png" /></p>
+<p><img alt="索引分配" src="../image/%E7%B4%A2%E5%BC%95%E5%88%86%E9%85%8D2.png" /></p>
+<p>索引分配支持链接索引块（将索引块链接起来以支持超大文件），多级索引块（例如二级索引）。</p>
+<p>在UNIX的FCB中的inode（索引节点）中，前12个指针直接指向数据块，后面的3个指针间接指向数据块。</p>
+<p><img alt="索引分配" src="../image/%E7%B4%A2%E5%BC%95%E5%88%86%E9%85%8D3.png" /></p>
+<p>以下是一个inode能指向的数据的最大大小：</p>
+<p><img alt="索引分配" src="../image/%E7%B4%A2%E5%BC%95%E5%88%86%E9%85%8D4.png" /></p>
+<h3 id="_23">分配的选择<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>最佳分配方法取决于文件访问类型：</p>
+<ul>
+<li>连续分配非常适合顺序访问和随机访问</li>
+<li>链接分配适合顺序访问，但不适合随机访问</li>
+<li>索引分配（组合方案）更复杂<ul>
+<li>访问单个块可能需要先读取 2 个索引块，再读取数据块</li>
+<li>聚类（clustering）有助于提高吞吐量、减少 CPU 开销</li>
+</ul>
+</li>
+</ul>
+<h2 id="_24">空闲空间管理<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<p>文件系统需要维护空闲空间列表，用于跟踪可用的块/簇，并及时回收已删除文件的空间。</p>
+<h3 id="_25">位图空闲空间管理<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>为每个块使用一个比特位，跟踪其分配状态。</p>
+<p><img alt="位图空闲空间管理" src="../image/%E4%BD%8D%E5%9B%BE%E7%A9%BA%E9%97%B2%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86.png" /></p>
+<p>位图空闲空间管理相对容易找到连续的空闲块。</p>
+<p>但位图需要额外的存储空间。</p>
+<p><img alt="位图空闲空间管理" src="../image/%E4%BD%8D%E5%9B%BE%E7%A9%BA%E9%97%B2%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%862.png" /></p>
+<h3 id="_26">链表空闲空间管理<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>将空闲块保存在链表中。</p>
+<p>这种方法不浪费空间，直接使用空闲块中的内存来存放指针，且通常无需遍历整个链表，直接返回第一个块即可。</p>
+<p>但链表空闲空间管理不容易获得连续的空闲空间。</p>
+<p><img alt="链表空闲空间管理" src="../image/%E9%93%BE%E8%A1%A8%E7%A9%BA%E9%97%B2%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86.png" /></p>
+<p>简单的空闲块链表效率较低，分配一个空闲块需要额外的一次磁盘 I/O（磁盘 I/O 极其缓慢），分配多个空闲块需要遍历链表。</p>
+<p>我们可以用分组和计数的方法对链表进行优化。</p>
+<p>分组：使用索引对空闲块进行分组。在第一个空闲块中存储 n-1 个空闲块的地址，再加上一个指向下一个索引块的指针，这使得在分配多个空闲块时无需遍历链表。</p>
+<p>计数：使用簇的链表（起始块 + 连续块数量），这使得空间通常以连续方式被分配和释放。在链表节点中，保存第一个空闲块的地址及其后面连续空闲块的数量。</p>
+<h2 id="_27">文件系统性能<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<p>文件系统的效率和性能取决于：</p>
+<ul>
+<li>磁盘分配与目录算法</li>
+<li>文件目录条目中所保存数据的类型</li>
+<li>元数据结构的预分配或按需分配</li>
+<li>数据结构的大小是固定还是可变</li>
+</ul>
+<p>为了提高文件系统性能：</p>
+<ul>
+<li>让数据和元数据彼此靠近</li>
+<li>使用缓存：在主存中划出专门区域存放常用块</li>
+<li>使用异步写入，可以被缓冲/缓存，因此更快（同步写入无法缓存，必须在返回前将数据写入磁盘）</li>
+<li>自由滞后与预读：用于优化顺序访问的技术——从缓冲区中移除前一个页面，提前读取多个页面</li>
+<li>读取通常比写入慢（写入可以先写到缓存中）</li>
+</ul>
+<h2 id="_28">页面缓存<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<p>操作系统具有不同层次的缓存：</p>
+<ul>
+<li>页面缓存用于缓存内存映射 I/O（MMIO）的页面，例如内存映射文件</li>
+<li>文件系统使用缓冲区（磁盘）缓存来处理磁盘 I/O（内存映射 I/O 可能会在系统中被缓存两次）</li>
+<li>统一缓冲区缓存使用同一个页面缓存来同时缓存内存映射页面和磁盘 I/O，以避免双重缓存。</li>
+</ul>
+<p><img alt="页面缓存" src="../image/%E9%A1%B5%E9%9D%A2%E7%BC%93%E5%AD%98.png" /></p>
+<h2 id="_29">日志结构文件系统<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<p>文件系统需要一致性检查以确保一致性，即将目录中的数据与磁盘上的某些元数据进行比较以检查一致性。</p>
+<p>日志结构文件系（LSFS）通常用于数据的一致性检查和恢复。</p>
+<p>在 LSFS 中，更新的元数据按顺序写入一个循环日志。一旦更改写入日志，即视为已提交，系统调用即可返回。</p>
+<p>与此同时，日志条目会在文件系统上回放以实际执行更新，日志是循环的，但尚未回放的条目不会被覆盖，当一个事务回放完成后，会从日志中移除。</p>
+<p>系统崩溃后，只需回放日志中现存的事务即可。</p>
+<h2 id="_30">补充<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<h3 id="_31">文件描述符<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p>文件描述符（File Descriptor，简称 fd） 是 Unix/Linux 系统中内核用于访问文件或 I/O 资源的一个非负整数。它是对打开的文件、管道、套接字、设备等的抽象引用。</p>
+<p>每个进程在启动时都会有一个文件描述符表，由内核维护。当进程打开一个文件（或创建管道、socket 等），内核会在该表中分配一个空闲的整数，并返回给进程。进程后续对该文件的所有操作（读、写、关闭等）都通过这个整数进行。</p>
+<p>每个 Unix 进程默认有三个标准描述符：</p>
+<p><img alt="文件描述符" src="../image/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6.png" /></p>
+<p>它们通常在进程启动时由 shell 打开，默认指向终端。可以通过重定向修改。</p>
+<p>文件描述符是进程私有的。两个进程即使有相同的数值（如 3），也指向各自不同的打开文件。</p>
+<h3 id="_32">硬链接和软链接<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<p>一个文件在一个或多个目录中可能有多个名称。这种多个名称称为链接。</p>
+<p>硬链接是一个与文件关联的目录项。每个硬链接都直接指向底层的 inode（索引节点），该 inode 存储了文件的实际元数据（权限、大小、数据块位置等）和引用计数。</p>
+<p>如目录中的文件名“.” 是指向该目录自身的硬链接， 文件名“..” 是指向父目录的硬链接。</p>
+<p><img alt="硬链接" src="../image/%E7%A1%AC%E9%93%BE%E6%8E%A5.png" /></p>
+<p><img alt="硬链接" src="../image/%E7%A1%AC%E9%93%BE%E6%8E%A52.png" /></p>
+<p>软链接是一个特殊的文件，有自己的 inode 和文件数据（存储路径字符串）,其内容存储的是另一个文件的路径名（可以是相对路径或绝对路径）。它类似于 Windows 的快捷方式。</p>
+<p>与硬链接不同，软链接可以指向目录，并且可以跨越文件系统边界。</p>
+<p><img alt="软链接" src="../image/%E8%BD%AF%E9%93%BE%E6%8E%A5.png" /></p>
+<p><img alt="软链接" src="../image/%E8%BD%AF%E9%93%BE%E6%8E%A52.png" /></p>
+<p>link() 系统调用：该系统调用接受两个参数，一个旧路径名和一个新路径名。如果旧路径名指向一个文件，系统会创建一个硬链接指向该文件，并将新路径名指向该硬链接。</p>
+<p>在创建文件时，系统会自动创建一个硬链接指向该文件，并将该链接放入目录中。</p>
+<p>删除文件实际上就是删除该文件的硬链接，即执行 unlink() 操作，unlink() 会从文件系统中删除一个名称。如果该名称是文件的最后一个链接，并且没有进程打开该文件，则文件会被删除，其占用的空间将被释放以供重用。</p>
+<p>inode中会存放该文件的引用计数，它表示有多少个硬链接指向该文件。当引用计数为 0 时，文件将被删除。</p>
+<p>软连接不会影响文件的引用计数，删除目标文件时，软链接仍然存在，但链接失效。</p>
+<h3 id="_33">文件系统组织<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<p>以下是一个文件系统组织的例子：</p>
+<p>假设我们有64个块，每个块大小为4KB，总大小为256KB。</p>
+<p><img alt="文件系统组织" src="../image/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%84%E7%BB%87.png" /></p>
+<p>我们首先保留一些块存储文件的data。例如用56个块。</p>
+<p><img alt="文件系统组织" src="../image/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%84%E7%BB%872.png" /></p>
+<p>我们再用5个块存储文件的inodes。假设inode的大小为256bytes，那么5个块可以存储80个inode，则整个文件系统最多存储80个文件。</p>
+<p><img alt="文件系统组织" src="../image/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%84%E7%BB%873.png" /></p>
+<p>假设我们用bitmap来管理空闲块。那么我们只需要保留2个块来存储inode的bitmap和data region的bitmap。</p>
+<p><img alt="文件系统组织" src="../image/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%84%E7%BB%874.png" /></p>
+<p>剩余一个超级块，包含该文件系统的信息：inode/数据块的数量、inode 表的起始位置、数据区域的起始位置，以及一个魔数。</p>
+<p><img alt="文件系统组织" src="../image/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%84%E7%BB%875.png" /></p>
+<p>如上，我们就可以进行一些计算，如计算inode的地址。每个 inode 通过一个编号（inumber）来标识。</p>
+<p>则要读取第 32 号 inode，对应地址为：
+4K（超级块）+ 8K（bitmap）+ 32 * sizeof(inode) = 4K+8K+8K = 20K</p>
+<p><img alt="文件系统组织" src="../image/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%84%E7%BB%876.png" />    </p>
+<h3 id="_34">读写文件的流程<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<p><img alt="读文件" src="../image/%E8%AF%BB%E6%96%87%E4%BB%B6.png" /></p>
+<p><img alt="写文件" src="../image/%E5%86%99%E6%96%87%E4%BB%B6.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../chapter6/" class="md-footer__link md-footer__link--prev" aria-label="上一页: I/O设备管理">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                I/O设备管理
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../chapter8/" class="md-footer__link md-footer__link--next" aria-label="下一页: 系统安全">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                系统安全
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rick-368/Notebook" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.sections", "navigation.prune", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "navigation.indexes", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/math-config.js"></script>
+      
+        <script src="../../../javascripts/math-fix.js"></script>
+      
+    
+  </body>
+</html>

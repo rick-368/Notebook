@@ -1,0 +1,4224 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter2/">
+      
+      
+        <link rel="next" href="../chapter4/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>结构与类 - rick 的笔记本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="rick 的笔记本" class="md-header__button md-logo" aria-label="rick 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            rick 的笔记本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              结构与类
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="天黑请闭眼"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="天黑请闭眼" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="天亮请睁眼"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="天亮请睁眼" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rick-368/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rick/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  前言
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%AF%BE%E5%A4%96%E6%8B%93%E5%B1%95/01-markdown/markdown_basic_grammar/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  课外拓展
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%85%B6%E4%BB%96/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="rick 的笔记本" class="md-nav__button md-logo" aria-label="rick 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59zm-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11z"/></svg>
+
+    </a>
+    rick 的笔记本
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rick-368/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rick/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级数据结构与算法分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级数据结构与算法分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摊还分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    堆
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本算法（回溯、分治、动态规划）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贪心算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P与NP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    近似算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    局部搜索
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    并行算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/chapter11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    外部排序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机系统Ⅱ
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机系统Ⅱ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU调度
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进程间通信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F2/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    同步
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机系统Ⅲ
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机系统Ⅲ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    量化研究
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ISP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory Hierarchy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    内存
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    大容量存储结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O设备管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/chapter8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    系统安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/chapter9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIMD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F3/chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MIMD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能引论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能引论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    知识表达与推理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    搜索探寻与问题求解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    神经网络与深度学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    强化学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    博弈论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA/chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能伦理与安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    面向对象程序设计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    面向对象程序设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    容器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    结构与类
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    结构与类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解析器::
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类的初始化与清理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        访问控制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局部对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="局部对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        字段、参数、局部变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全局对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="全局对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静态初始化依赖
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static(静态)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="引用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引用与指针的比较
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        左值与右值
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常量
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constexpr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constexpr
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常量对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动态内存分配
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数重载
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        默认参数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内联函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内联函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内联变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数复用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    异常
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++的输入输出
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cast 运算符
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据库系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库介绍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关系模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL 语言基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entitiy-Relationship Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关系型数据库设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    存储和文件结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    索引和哈希
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    查询处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    事务
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    并发控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/chapter12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    恢复系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../%E8%AF%BE%E5%A4%96%E6%8B%93%E5%B1%95/01-markdown/markdown_basic_grammar/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课外拓展
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../%E5%85%B6%E4%BB%96/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解析器::
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类的初始化与清理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        访问控制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局部对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="局部对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        字段、参数、局部变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全局对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="全局对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静态初始化依赖
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static(静态)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="引用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引用与指针的比较
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        左值与右值
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常量
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constexpr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constexpr
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常量对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动态内存分配
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数重载
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        默认参数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内联函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内联函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内联变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">结构与类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在C语言中，结构体是一种用户定义的数据类型，它可以包含多个数据成员，每个数据成员都有自己的类型和名称。结构体可以用来表示复杂的数据结构，比如学生信息、图形图像、日期等。</p>
+<p>但有关结构体的函数定义不能定义在结构体内部，只能定义在外部。</p>
+<div class="language-c highlight"><span class="filename">C</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="p">}</span><span class="w"> </span><span class="n">Point</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><a href="#__codelineno-0-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><a href="#__codelineno-0-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><a href="#__codelineno-0-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="n">Point</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><a href="#__codelineno-0-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><a href="#__codelineno-0-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><a href="#__codelineno-0-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><a href="#__codelineno-0-11"><span class="linenos" data-linenos="11 "></span></a><span class="n">print</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div>
+<p>在C++中，结构体可以包含构造函数、析构函数、成员函数等，可以实现更复杂的功能。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><a href="#__codelineno-1-3"><span class="linenos" data-linenos="3 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos="4 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">();</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><a href="#__codelineno-1-5"><span class="linenos" data-linenos="5 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><a href="#__codelineno-1-6"><span class="linenos" data-linenos="6 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><a href="#__codelineno-1-7"><span class="linenos" data-linenos="7 "></span></a><span class="p">};</span>
+</code></pre></div>
+<p>结构体的成员函数可以在结构体外部定义，但需要声明。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">Point::init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ix</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">iy</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ix</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iy</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">Point::move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><a href="#__codelineno-2-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><a href="#__codelineno-2-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="n">x</span><span class="o">+=</span><span class="w"> </span><span class="n">dx</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="o">+=</span><span class="w"> </span><span class="n">dy</span><span class="p">;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><a href="#__codelineno-2-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><a href="#__codelineno-2-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">Point::print</span><span class="p">()</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><a href="#__codelineno-2-10"><span class="linenos" data-linenos="10 "></span></a><span class="p">{</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><a href="#__codelineno-2-11"><span class="linenos" data-linenos="11 "></span></a><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><a href="#__codelineno-2-12"><span class="linenos" data-linenos="12 "></span></a><span class="p">}</span>
+</code></pre></div>
+<p>如果要访问结构体的成员函数和成员变量，可以通过<code>.</code>运算符来访问。如果是指向结构体的指针，则可以通过<code>-&gt;</code>运算符来访问。
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><a href="#__codelineno-3-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">p</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><a href="#__codelineno-3-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">p</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><a href="#__codelineno-3-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">Point</span><span class="o">*</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><a href="#__codelineno-3-5"><span class="linenos" data-linenos="5 "></span></a><span class="n">p2</span><span class="o">-&gt;</span><span class="n">print</span><span class="p">();</span>
+</code></pre></div></p>
+<p>结构体的成员函数可以直接访问和修改结构体的成员变量和其他成员函数。
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><a href="#__codelineno-4-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">Point::move_and_print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><a href="#__codelineno-4-2"><span class="linenos" data-linenos="2 "></span></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><a href="#__codelineno-4-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">move</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><a href="#__codelineno-4-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">print</span><span class="p">();</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><a href="#__codelineno-4-5"><span class="linenos" data-linenos="5 "></span></a><span class="p">}</span>
+</code></pre></div></p>
+<p>this变量是指向当前对象的指针，是所有成员函数隐藏变量，你无法定义它，但可以直接使用它。<br />
+<code>void Point::move(int dx, int dy);</code>可以被视为<code>void move(Point* this, int dx, int dy);</code></p>
+<h3 id="_3">解析器::<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>在C++中，解析器::是用来区分全局作用域和命名空间作用域的。在全局作用域中，::可以省略，但在命名空间作用域中，::是必须的。</p>
+<ul>
+<li><code>&lt;Class Name&gt;::&lt;Function Name&gt;</code>：调用类作用域的函数。</li>
+<li><code>::&lt;Function Name&gt;</code>：调用全局作用域的函数。</li>
+</ul>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><a href="#__codelineno-5-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">S::f</span><span class="p">(){</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><a href="#__codelineno-5-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">    </span><span class="o">::</span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// 调用全局作用域的函数，而不是递归调用。</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><a href="#__codelineno-5-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="o">::</span><span class="n">a</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// 全局变量a的递增。</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><a href="#__codelineno-5-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="n">a</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// 类S作用域的变量a的递增。</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><a href="#__codelineno-5-5"><span class="linenos" data-linenos="5 "></span></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="_4">类<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>类是面向对象编程的基本单元，它包含数据成员、成员函数和构造函数。</p>
+<h3 id="_5">类定义<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>在C++中，类定义分为两部分：类声明和类实现。<br />
+类的声明以及该类中的函数原型位于头文件（.h）中，所有这些函数的函数体都在源文件（.cpp）中定义。
+类定义的代码如下：</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><a href="#__codelineno-6-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">ClassName</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><a href="#__codelineno-6-2"><span class="linenos" data-linenos="2 "></span></a><span class="c1">// class members</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><a href="#__codelineno-6-3"><span class="linenos" data-linenos="3 "></span></a><span class="p">};</span>
+</code></pre></div>
+<p>类的函数定义和成员定义和结构体类似，</p>
+<h4 id="_6">编译过程<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>编译器一次只能编译一个.cpp文件，并生成.obj文件。</li>
+<li>链接器将所有.obj文件和库文件链接成一个可执行文件。</li>
+<li>如果要对一个.cpp文件提供其他.cpp文件中的类，则需要在编译命令中添加相应的头文件.h。</li>
+</ul>
+<p><img alt="编译过程" src="../image/%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B.png" /></p>
+<h4 id="_7">头文件<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>.cpp文件是一个编译单元。外部变量、函数原型、类声明都在头文件.h中定义。</p>
+<p>如果一个函数或类在头文件中声明，那么在所有使用该函数或类以及函数定义的地方或定义类成员函数的地方都必须包含该头文件。</p>
+<p><code>#include</code>是将被包含的文件插入到.cpp文件中<code>#include</code>语句所在的位置。</p>
+<p><code>#include"filename.h"</code>：首先在当前目录查找，如果找不到，则在系统目录查找。</p>
+<p><code>#include&lt;filename.h&gt;</code>/<code>#include&lt;filename&gt;</code>：系统目录查找。</p>
+<p>标准头文件的结构如下：</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><a href="#__codelineno-7-1"><span class="linenos" data-linenos="1 "></span></a><span class="cp">#ifndef HEADER_FLAG</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><a href="#__codelineno-7-2"><span class="linenos" data-linenos="2 "></span></a><span class="cp">#define HEADER_FLAG</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><a href="#__codelineno-7-3"><span class="linenos" data-linenos="3 "></span></a><span class="c1">// Type declaration here...</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><a href="#__codelineno-7-4"><span class="linenos" data-linenos="4 "></span></a><span class="cp">#endif </span><span class="c1">// HEADER_FLAG</span>
+</code></pre></div>
+<p>注意：<br />
+- 每个头文件仅定义一个类
+- 与同一文件名前缀下的一个源文件.cpp相关联
+- 头文件的内容必须在预处理器指令<code>#ifndef</code> <code>#define</code> 和 <code>#endif</code>之间定义。</p>
+<h3 id="_8">类的初始化与清理<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>在创建类的对象时，我们可能需要对类中定义的成员变量进行初始化。一个解决方法是在类中定义一个<code>init()</code>函数，该函数在对象创建时调用。</p>
+<p><div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><a href="#__codelineno-8-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><a href="#__codelineno-8-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><a href="#__codelineno-8-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><a href="#__codelineno-8-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">);</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><a href="#__codelineno-8-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><a href="#__codelineno-8-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><a href="#__codelineno-8-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="p">};</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><a href="#__codelineno-8-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><a href="#__codelineno-8-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="c1">// a as a local variable</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><a href="#__codelineno-8-10"><span class="linenos" data-linenos="10 "></span></a><span class="n">a</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><a href="#__codelineno-8-11"><span class="linenos" data-linenos="11 "></span></a><span class="n">a</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><a href="#__codelineno-8-12"><span class="linenos" data-linenos="12 "></span></a><span class="n">a</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</code></pre></div>
+但如果用户忘记调用<code>init()</code>函数，则会导致未初始化的变量。为了避免这种情况，我们的一个解决方案是在类定义中给定成员变量的默认值。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><a href="#__codelineno-9-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><a href="#__codelineno-9-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><a href="#__codelineno-9-3"><span class="linenos" data-linenos="3 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><a href="#__codelineno-9-4"><span class="linenos" data-linenos="4 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">);</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><a href="#__codelineno-9-5"><span class="linenos" data-linenos="5 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><a href="#__codelineno-9-6"><span class="linenos" data-linenos="6 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><a href="#__codelineno-9-7"><span class="linenos" data-linenos="7 "></span></a><span class="p">};</span>
+</code></pre></div>
+<p>一种更有效的方式是通过构造函数保证初始化。构造函数是类中特殊的成员函数，它的名字与类名相同，它在对象创建时自动调用。构造函数允许你指定对象的构建方式，并为对象提供初始值。</p>
+<p><div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><a href="#__codelineno-10-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><a href="#__codelineno-10-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">Point</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">xx</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">yy</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">xx</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><a href="#__codelineno-10-3"><span class="linenos" data-linenos="3 "></span></a><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><a href="#__codelineno-10-4"><span class="linenos" data-linenos="4 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">);</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><a href="#__codelineno-10-5"><span class="linenos" data-linenos="5 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><a href="#__codelineno-10-6"><span class="linenos" data-linenos="6 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><a href="#__codelineno-10-7"><span class="linenos" data-linenos="7 "></span></a><span class="p">};</span>
+</code></pre></div>
+默认构造函数是指没有参数的构造函数，它可以为对象提供默认值。<br />
+如果你有构造函数，编译器会确保构造过程始终发生。如果（且仅当）一个类（或结构体）没有提供构造函数，编译器会自动生成默认构造函数。</p>
+<p>当对象不再需要时，我们需要对其进行清理，释放其占用的内存。在C++中，我们可以通过析构函数来实现。析构函数的作用是释放对象占用的内存，并释放对象中申请的资源。<br />
+析构函数以类名开头，前面加上<code>~</code>，析构函数不能有返回值，不能有参数，不能被重载。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><a href="#__codelineno-11-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><a href="#__codelineno-11-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">Point</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">xx</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">yy</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">xx</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><a href="#__codelineno-11-3"><span class="linenos" data-linenos="3 "></span></a><span class="o">~</span><span class="n">Point</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><a href="#__codelineno-11-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Destructor called&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><a href="#__codelineno-11-5"><span class="linenos" data-linenos="5 "></span></a><span class="p">}</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><a href="#__codelineno-11-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">};</span>
+</code></pre></div>
+<p><div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><a href="#__codelineno-12-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">Point</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">xx</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">yy</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">xx</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+在这个构造函数中，我们用了成员初始化列表。它是 C++ 构造函数中用来直接初始化成员变量的一种语法，写在构造函数参数列表之后、函数体之前，以冒号 <code>:</code>开头，多个成员之间用逗号分隔。当成员是<code>const</code> 类型、引用类型、没有默认构造函数的类类型，都需要必须使用成员初始化列表进行初始化。</p>
+<p>当对象超出作用域时，析构函数会由编译器自动调用。
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><a href="#__codelineno-13-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><a href="#__codelineno-13-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><a href="#__codelineno-13-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><a href="#__codelineno-13-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">    </span><span class="n">MyClass</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;构造函数</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><a href="#__codelineno-13-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="o">~</span><span class="n">MyClass</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;析构函数</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><a href="#__codelineno-13-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="p">};</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><a href="#__codelineno-13-7"><span class="linenos" data-linenos=" 7 "></span></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><a href="#__codelineno-13-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><a href="#__codelineno-13-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a><a href="#__codelineno-13-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">        </span><span class="n">MyClass</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span><span class="w">  </span><span class="c1">// 在块内定义对象</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a><a href="#__codelineno-13-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">        </span><span class="c1">// 使用 obj ...</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a><a href="#__codelineno-13-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="c1">// 此处 obj 超出作用域，析构函数被自动调用</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a><a href="#__codelineno-13-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;对象已超出作用域</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a><a href="#__codelineno-13-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15"></a><a href="#__codelineno-13-15"><span class="linenos" data-linenos="15 "></span></a><span class="p">}</span>
+</code></pre></div></p>
+<blockquote>
+<p>作用域是程序中变量可以被访问的区域。常见的作用域有：<br />
+1 块作用域：由一对花括号 {} 包围的代码块，例如函数体、循环体、if 语句块。  <br />
+2 函数作用域：整个函数体内。  <br />
+3 类作用域：类定义内部。<br />
+4 命名空间作用域：命名空间内部。<br />
+局部变量（在函数或块内定义的非静态变量）具有块作用域，它们的生命周期从定义点开始，到包含它们的最小块的末尾结束。<br />
+编译器在作用域的{处分配该作用域的内存，并在}处释放该内存。  </p>
+</blockquote>
+<h2 id="_9">访问控制<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>类的成员可以分类并被标记为：<code>public</code>、<code>private</code>、<code>protected</code>。</p>
+<ul>
+<li><code>public</code>：表示后续成员声明对所有人可用。</li>
+<li><code>private</code>：表示只有该类的内部函数成员才能访问该成员。</li>
+</ul>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><a href="#__codelineno-14-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><a href="#__codelineno-14-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><a href="#__codelineno-14-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">publicMember</span><span class="p">;</span><span class="w"> </span><span class="c1">// public member</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><a href="#__codelineno-14-4"><span class="linenos" data-linenos="4 "></span></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><a href="#__codelineno-14-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">privateMember</span><span class="p">;</span><span class="w"> </span><span class="c1">// private member</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><a href="#__codelineno-14-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">};</span>
+</code></pre></div>
+<p>一个对象可以访问同一类的另一个对象的<code>private</code>成员。</p>
+<p><code>friend</code>关键字是一种显式授予对非结构成员函数的访问权限的机制。<br />
+可以将全局函数声明为友元，也可以将另一个类的成员函数，甚至整个类声明为友元。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><a href="#__codelineno-15-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><a href="#__codelineno-15-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><a href="#__codelineno-15-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">initialize</span><span class="p">();</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><a href="#__codelineno-15-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span><span class="c1">//全局函数</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><a href="#__codelineno-15-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Y::f</span><span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="p">);</span><span class="w"> </span><span class="c1">// Y类的成员函数</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><a href="#__codelineno-15-6"><span class="linenos" data-linenos="6 "></span></a><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">struct</span><span class="w"> </span><span class="n">Z</span><span class="p">;</span><span class="w"> </span><span class="c1">// Z结构体</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><a href="#__codelineno-15-7"><span class="linenos" data-linenos="7 "></span></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><a href="#__codelineno-15-8"><span class="linenos" data-linenos="8 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">privateMember</span><span class="p">;</span><span class="w"> </span><span class="c1">// private member</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><a href="#__codelineno-15-9"><span class="linenos" data-linenos="9 "></span></a><span class="p">};</span>
+</code></pre></div>
+<p>若一个成员未指定它的访问权限，则在类中默认是<code>private</code>，而在结构体中默认是<code>public</code>。</p>
+<h2 id="_10">局部对象<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>局部变量在方法内部定义，其作用域仅限于所属的方法。当方法结束时，局部变量也就销毁了。</p>
+<p><div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><a href="#__codelineno-16-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">TicketMachine::refundBalance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><a href="#__codelineno-16-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">amountToRefund</span><span class="p">;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><a href="#__codelineno-16-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="n">amountToRefund</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="p">;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><a href="#__codelineno-16-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><a href="#__codelineno-16-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amountToRefund</span><span class="p">;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><a href="#__codelineno-16-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">}</span>
+</code></pre></div>
+与字段同名的局部变量将会阻止在方法内部访问该字段。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><a href="#__codelineno-17-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><a href="#__codelineno-17-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><a href="#__codelineno-17-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// 局部变量</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><a href="#__codelineno-17-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 20</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><a href="#__codelineno-17-5"><span class="linenos" data-linenos="5 "></span></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="_11">字段、参数、局部变量<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>这三种变量都能够存储与其定义类型相适应的值。  </p>
+<h4 id="_12">字段<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>字段定义在构造函数和方法之外，但在类内部。 <br />
+字段用于存储在整个对象生命周期内持续存在的数据。因此，它们维护着对象的当前状态。它们的生命周期与其所属对象的生命周期相同。<br />
+字段具有类作用域：它们的可访问性扩展到整个类，因此可以在定义它们的类的任何构造函数或方法中使用。  </p>
+<h4 id="_13">形式参数<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>形式参数和局部变量仅在构造函数或方法执行期间存在。它们的生命周期仅持续一次调用，因此其值在调用之间会丢失。因此，它们充当的是临时存储位置，而非永久存储位置。<br />
+形式参数定义在构造函数或方法的头部。它们从外部获取值，由构成构造函数或方法调用的实际参数值进行初始化。  <br />
+形式参数的作用域仅限于定义它们的构造函数或方法。</p>
+<h4 id="_14">局部变量<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>局部变量定义在构造函数或方法的主体内部。它们只能在定义它们的构造函数或方法内部进行初始化和使用。<br />
+局部变量在用于表达式之前必须先进行初始化——它们不会获得默认值。<br />
+局部变量的作用域仅限于定义它们的代码块。在该代码块之外的任何地方都无法访问它们。  </p>
+<h2 id="_15">全局对象<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>全局对象是指在程序的整个生命周期内都存在的对象。它们的生命周期与程序的生命周期相同。</p>
+<p>考虑以下代码</p>
+<div class="language-cpp highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><a href="#__codelineno-18-1"><span class="linenos" data-linenos="1 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;X.h&quot;</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><a href="#__codelineno-18-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">X</span><span class="w"> </span><span class="nf">global_x</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">34</span><span class="p">);</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><a href="#__codelineno-18-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">X</span><span class="w"> </span><span class="nf">global_x2</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
+</code></pre></div>
+<p><code>X</code>类的构造函数在进入 <code>main()</code> 之前被调用，<code>main()</code> 不再是第一个被调用的函数。</p>
+<p>析构函数在以下情况被调用，<code>main()</code> 退出时，或<code>exit()</code> 被调用时。</p>
+<h3 id="_16">静态初始化依赖<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>单个文件内的构造顺序是已知的，而不同文件之间的构造顺序未指定。因此，如果不同文件中的非局部静态对象存在依赖关系时，就会产生问题。</p>
+<p>非局部静态对象指的是： </p>
+<ul>
+<li>定义在全局或命名空间作用域的对象</li>
+<li>在类中声明为 <code>static</code> 的对象</li>
+<li>在文件作用域定义为 <code>static</code> 的对象</li>
+</ul>
+<p>解决方法：</p>
+<ul>
+<li>避免静态初始化依赖</li>
+<li>将静态变量按正确顺序定义在单文件内</li>
+</ul>
+<h3 id="static">Static(静态)<a class="headerlink" href="#static" title="Permanent link">&para;</a></h3>
+<p>两层基本含义：静态存储和受限访问<br />
+在 C++ 中，除函数和类内部外，不要使用 <code>static</code>来限制访问。</p>
+<p>我们可以在静态局部对象前面加上 <code>static</code> 关键字，使其具有静态存储。 <br />
+此时构造发生在对象定义执行时，且至多被调用一次，析构则是发生在程序退出时。</p>
+<p><img alt="静态对象" src="../image/%E9%9D%99%E6%80%81%E5%AF%B9%E8%B1%A1.png" /></p>
+<p><code>static</code> 也可用于成员变量和成员函数。使成员变量和函数对所有类成员函数全局可见。它初始化一次，在文件作用域进行。</p>
+<p>静态成员变量和成员函数的声明在<code>.h</code>文件中。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><a href="#__codelineno-19-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">StatMem</span><span class="p">{</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><a href="#__codelineno-19-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getHeight</span><span class="p">(){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_h</span><span class="p">;}</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><a href="#__codelineno-19-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setHeight</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="p">){</span><span class="w"> </span><span class="n">m_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">;}</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><a href="#__codelineno-19-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getWeight</span><span class="p">(){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_w</span><span class="p">;}</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><a href="#__codelineno-19-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setWeight</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">){</span><span class="w"> </span><span class="n">m_w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">;}</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><a href="#__codelineno-19-6"><span class="linenos" data-linenos="6 "></span></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m_h</span><span class="p">;</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a><a href="#__codelineno-19-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_w</span><span class="p">;</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a><a href="#__codelineno-19-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">};</span>
+</code></pre></div>
+<p>静态成员变量和成员函数的定义在<code>.cpp</code>文件中，在此时不能用<code>static</code>关键字修饰，且需要全局初始化。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><a href="#__codelineno-20-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">StatMem</span><span class="o">::</span><span class="n">m_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><a href="#__codelineno-20-2"><span class="linenos" data-linenos="2 "></span></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><a href="#__codelineno-20-3"><span class="linenos" data-linenos="3 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><a href="#__codelineno-20-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="n">StatMem</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">;</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><a href="#__codelineno-20-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">    </span><span class="n">s1</span><span class="p">.</span><span class="n">setHeight</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><a href="#__codelineno-20-6"><span class="linenos" data-linenos="6 "></span></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="n">getHeight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 15</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a><a href="#__codelineno-20-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">    </span><span class="n">s1</span><span class="p">.</span><span class="n">setWeight</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a><a href="#__codelineno-20-8"><span class="linenos" data-linenos="8 "></span></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="n">getWeight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 不确定值</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9"></a><a href="#__codelineno-20-9"><span class="linenos" data-linenos="9 "></span></a><span class="p">}</span>
+</code></pre></div>
+<p>静态成员变量和成员函数的作用域是整个类，而不是某个对象。因此，它们可以被所有对象共享。</p>
+<p>静态成员函数没有隐式指针<code>this</code>，所以它只能访问静态成员变量，而不能访问非静态成员变量。而静态成员函数的优势就是可以直接通过类名调用，而不需要通过对象调用。（当然也可以通过对象调用）</p>
+<p>总结的static用法以及静态对象的性质如下：</p>
+<p><img alt="static" src="../image/static.png" /></p>
+<p><img alt="作用域和生命周期" src="../image/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" /></p>
+<h2 id="_17">引用<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p>引用是一种在 C++ 中操作对象的新方式</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><a href="#__codelineno-21-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w">    </span><span class="c1">// 一个字符</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><a href="#__codelineno-21-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c</span><span class="p">;</span><span class="w">  </span><span class="c1">// 一个指向字符的指针</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><a href="#__codelineno-21-3"><span class="linenos" data-linenos="3 "></span></a><span class="kt">char</span><span class="w"> </span><span class="o">&amp;</span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w">  </span><span class="c1">// 一个指向字符的引用</span>
+</code></pre></div>
+<p><code>&amp;</code> 表示其右侧的变量是一个引用，对一个变量引用的形式为<code>类型&amp; 引用名 = 变量名</code>。</p>
+<p>在参数列表和成员变量中，引用的形式为<code>类型&amp; 引用名</code>，由调用者或构造函数确定绑定关系。</p>
+<p>引用的实质就是对变量的别名，因此对引用的修改会影响到其绑定的变量。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><a href="#__codelineno-22-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="o">=</span><span class="mi">47</span><span class="p">;</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><a href="#__codelineno-22-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Y</span><span class="o">=</span><span class="n">X</span><span class="p">;</span><span class="w"> </span><span class="c1">// Y is a reference to X</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><a href="#__codelineno-22-3"><span class="linenos" data-linenos="3 "></span></a><span class="c1">// X and Y now refer to the same variable</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><a href="#__codelineno-22-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Y=&quot;</span><span class="o">&lt;&lt;</span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">//printsY=47</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a><a href="#__codelineno-22-5"><span class="linenos" data-linenos="5 "></span></a><span class="n">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><a href="#__codelineno-22-6"><span class="linenos" data-linenos="6 "></span></a><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;X=&quot;</span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">//printsX=18</span>
+</code></pre></div>
+<p>引用在定义时必须用变量进行初始化，即建立绑定关系，与指针不同，引用在运行时不会改变绑定关系。</p>
+<p>引用的目标必须具有内存位置，不能是字面值常量或是算数表达式。
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><a href="#__codelineno-23-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><a href="#__codelineno-23-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">func</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="c1">// 警告或错误！</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><a href="#__codelineno-23-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">func</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// 警告或错误！</span>
+</code></pre></div></p>
+<p>不能有引用的引用，不能有指向引用的指针。</p>
+<p><div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><a href="#__codelineno-24-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="o">&amp;*</span><span class="n">p</span><span class="p">;</span><span class="w">    </span><span class="c1">// 非法</span>
+</code></pre></div>
+指向指针的引用是允许的。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><a href="#__codelineno-25-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*&amp;</span><span class="n">p</span><span class="p">);</span>
+</code></pre></div>
+<p>不能有引用的数组。</p>
+<h3 id="_18">引用与指针的比较<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>引用</p>
+<ul>
+<li>不能为空</li>
+<li>依赖于已有变量，是某个变量的别名</li>
+<li>不能更改指向新的“地址”位置</li>
+</ul>
+</li>
+<li>
+<p>指针 </p>
+<ul>
+<li>可以设为空</li>
+<li>独立于已有对象</li>
+<li>可以更改指向不同的地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="_19">左值与右值<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>左值可以简单理解为能用在赋值语句左侧的值：</li>
+<li>变量、引用</li>
+<li>
+<p>运算符 <code>*</code>、<code>[ ]</code>、<code>.</code> 和 <code>-&gt;</code> 的结果</p>
+</li>
+<li>
+<p>右值是可以用在赋值语句右侧的值：</p>
+</li>
+<li>字面量</li>
+<li>
+<p>表达式</p>
+</li>
+<li>
+<p>引用参数只能接受左值 —— 引用是左值的别名</p>
+</li>
+<li>
+<p>在C++11中，右值是由两个概念构成的，⼀个是将亡值（xvalue，eXpiringValue），另⼀个则是纯右值（prvalue，Pure Rvalue）</p>
+<ul>
+<li>纯右值就是C++98标准中右值的概念，讲的是⽤于辨识临时变量和⼀些不跟对象关联的值。⽐如⾮引⽤返回的函数返回的临时变量值就是⼀个纯右值。⼀些运算表达式，⽐如 1 + 3 产⽣的临时变量值，也是纯右值。⽽不跟对象关联的字⾯量值，⽐如： 2 、 'c' 、 true ，也是纯右值。此外，类型转换函数的返回值、lambda表达式等，也都是右值。</li>
+<li>将亡值则是C++11新增的跟右值引⽤相关的表达式，这样表达式通常是将要被移动的对象（移为他⽤），⽐如返回右值引⽤ T&amp;&amp; 的函数返回值、 std::move 的返回值，或者转换为 T&amp;&amp; 的类型转换函数的返回值</li>
+</ul>
+</li>
+</ul>
+<h4 id="_20">右值引用<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p>右值引⽤就是对⼀个右值进⾏引⽤的类型。事实上，由于右值通常不具有名字，我们也只能通过引⽤的⽅式找到它的存在。通常情况下，我们只能是从右值表达式获得其引⽤。⽐如：</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><a href="#__codelineno-26-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReturnRvalue</span><span class="p">();</span>
+</code></pre></div>
+<p>这个表达式中，假设 <code>ReturnRvalue</code> 返回⼀个右值，我们就声明了⼀个名为 <code>a</code> 的右值引⽤，其值等于 <code>ReturnRvalue</code> 函数返回的临时变量的值。</p>
+<p>右值引⽤和左值引⽤都是属于引⽤类型。⽆论是声明⼀个左值引⽤还是右值引⽤，都必须⽴即进⾏初始化。⽽其原因可以理解为是引⽤类型本身⾃⼰并不拥有所绑定对象的内存，只是该对象的⼀个别名。左值引⽤是具名变量值的别名，⽽右值引⽤则是不具名（匿名）变量的别名。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><a href="#__codelineno-27-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReturnRvalue</span><span class="p">();</span>
+</code></pre></div>
+<p>ReturnRvalue 函数返回的右值在表达式语句结束后，其⽣命也就终结了（通常我们也称其具有表达式⽣命期），⽽通过右值引⽤的声明，该右值⼜“重获新⽣”，其⽣命期将与右值引⽤类型变量 a 的⽣命期⼀样。只要 a 还“活着”，该右值临时量将会⼀直“存活”下去</p>
+<p>所以相⽐于以下语句的声明⽅式：</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><a href="#__codelineno-28-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">T</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReturnRvalue</span><span class="p">();</span>
+</code></pre></div>
+<p>右值引⽤变量声明就会少⼀次对象的析构及⼀次对象的构造。因为 a 是右值引⽤，直接绑定了 ReturnRvalue() 返回的临时量，⽽ b 只是由临时值构造⽽成的，⽽临时量在表达式结束后会析构因应就会多⼀次析构和构造的开销。</p>
+<p>能够声明右值引⽤ a 的前提是 ReturnRvalue 返回的是⼀个右值。通常情况下，右值引⽤是不能够绑定到任何的左值的。⽐如下⾯的表达式就是⽆法通过编译的。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><a href="#__codelineno-29-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><a href="#__codelineno-29-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">int</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+</code></pre></div>
+<p>相对地，在C++98标准中就已经出现的左值引⽤是否可以绑定到右值（由右值进⾏初始化）呢？⽐如：</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><a href="#__codelineno-30-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReturnRvalue</span><span class="p">();</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><a href="#__codelineno-30-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReturnRvalue</span><span class="p">();</span>
+</code></pre></div>
+<p>e 的初始化会导致编译时错误，⽽ f 则不会。</p>
+<p>在常量左值引⽤在C++98标准中开始就是个“万能”的引⽤类型。它可以接受⾮常量左值、常量左值、右值对其进⾏初始化。⽽且在使⽤右值对其初始化的时候，常量左值引⽤还可以像右值引⽤⼀样将右值的⽣命期延⻓。相⽐于右值引⽤所引⽤的右值，常量左值所引⽤的右值在它的“余⽣”中只能是只读的。相对地，⾮常量左值只能接受⾮常量左值对其进⾏初始化。</p>
+<p>右值引用也可以作为函数的参数传入：</p>
+<p><img alt="右值引用" src="../image/%E5%8F%B3%E5%80%BC%E5%8F%98%E9%87%8F.png" /></p>
+<h2 id="_21">常量<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>在c++中，要定义一个常量，我们需要在变量的类型前加上关键字<code>const</code>。常量在赋值后不可以被修改。
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><a href="#__codelineno-31-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span><span class="p">;</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a><a href="#__codelineno-31-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">27</span><span class="p">;</span><span class="w"> </span><span class="c1">// illegal!</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a><a href="#__codelineno-31-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">x</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// illegal!</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a><a href="#__codelineno-31-4"><span class="linenos" data-linenos="4 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// Ok, copy const to non-const</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a><a href="#__codelineno-31-5"><span class="linenos" data-linenos="5 "></span></a><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a><a href="#__codelineno-31-6"><span class="linenos" data-linenos="6 "></span></a><span class="c1">// Ok, same thing</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a><a href="#__codelineno-31-7"><span class="linenos" data-linenos="7 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok, const is safer</span>
+</code></pre></div></p>
+<p>其中<code>const int x =123</code>这种在编译时就已经确定了常量值的形式叫做编译时常量，而<code>const int z = y</code>这种在运行时才确定值的形式叫做运行时常量。
+常量也是变量，它遵循作用域规则。</p>
+<p>C++ 中的 const 默认为内部链接，编译器会尽量避免为 const 分配存储空间 —— 将其值保存在符号表中。extern 会强制分配存储空间。</p>
+<p>除非使用显式的 extern 声明，const必须初始化。</p>
+<p>常量可以被利用：
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><a href="#__codelineno-32-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">class_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="kt">int</span><span class="w"> </span><span class="n">finalGrade</span><span class="p">[</span><span class="n">class_size</span><span class="p">];</span><span class="w"> </span><span class="c1">// okint x;</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><a href="#__codelineno-32-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a><a href="#__codelineno-32-3"><span class="linenos" data-linenos="3 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><a href="#__codelineno-32-4"><span class="linenos" data-linenos="4 "></span></a><span class="kt">double</span><span class="w"> </span><span class="n">classAverage</span><span class="p">[</span><span class="n">size</span><span class="p">];</span><span class="w"> </span><span class="c1">// ok</span>
+</code></pre></div></p>
+<p>const 可以用于聚合类型，但会分配存储空间。在这种情况下，const 的含义是“一块不可更改的存储空间”。</p>
+<p>然而，该值不能在编译时使用，因为编译器不需要在编译时知道该存储空间的内容。
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><a href="#__codelineno-33-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><a href="#__codelineno-33-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">3</span><span class="p">]];</span><span class="w"> </span><span class="c1">// 非法</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a><a href="#__codelineno-33-3"><span class="linenos" data-linenos="3 "></span></a><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a><a href="#__codelineno-33-4"><span class="linenos" data-linenos="4 "></span></a><span class="k">const</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a><a href="#__codelineno-33-5"><span class="linenos" data-linenos="5 "></span></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">j</span><span class="p">];</span><span class="w"> </span><span class="c1">// 非法</span>
+</code></pre></div></p>
+<p>指针也可以是常量。当指针是常量时，形如<code>int * const p</code>，它指向的地址不能被修改，但它指向的对象的值可以被修改。当形式如<code>const int *a</code>或<code>int const*a</code>时，这通常指的是<code>*a</code>为常量，即无法通过<code>a</code>指针改变内存空间所存储的值，但可以改变<code>a</code>指向的地址。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><a href="#__codelineno-34-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// q is const</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a><a href="#__codelineno-34-2"><span class="linenos" data-linenos="2 "></span></a><span class="o">*</span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a><a href="#__codelineno-34-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">q</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// ERROR</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a><a href="#__codelineno-34-4"><span class="linenos" data-linenos="4 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ABCD&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (*p) is a const char</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a><a href="#__codelineno-34-5"><span class="linenos" data-linenos="5 "></span></a><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// ERROR! (*p) is the const</span>
+</code></pre></div>
+<p><img alt="指针和常量" src="../image/%E6%8C%87%E9%92%88%E5%92%8C%E5%B8%B8%E9%87%8F.png" /></p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><a href="#__codelineno-35-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, world!&quot;</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><code>s</code> 是一个指针，初始化为指向一个字符串常量</li>
+<li>实际上这应该是 <code>const char *s</code> 类型，但编译器接受不带 <code>const</code> 的写法</li>
+<li>不要尝试修改其中的字符值（这是未定义行为）</li>
+<li>如果需要修改字符串，请将其放入数组中：<code>char s[] = "Hello, world!";</code></li>
+</ul>
+<p>非 const 值总是可以作为 const 来使用</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><a href="#__codelineno-36-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a><a href="#__codelineno-36-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a><a href="#__codelineno-36-3"><span class="linenos" data-linenos="3 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4"></a><a href="#__codelineno-36-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">f</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span><span class="w"> </span><span class="c1">// 正确</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5"></a><a href="#__codelineno-36-5"><span class="linenos" data-linenos="5 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a id="__codelineno-36-6" name="__codelineno-36-6"></a><a href="#__codelineno-36-6"><span class="linenos" data-linenos="6 "></span></a>
+<a id="__codelineno-36-7" name="__codelineno-36-7"></a><a href="#__codelineno-36-7"><span class="linenos" data-linenos="7 "></span></a><span class="n">f</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// 正确</span>
+<a id="__codelineno-36-8" name="__codelineno-36-8"></a><a href="#__codelineno-36-8"><span class="linenos" data-linenos="8 "></span></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 错误！</span>
+</code></pre></div>
+<p>但在没有显式转换（<code>const_cast</code>）的情况下，不能将常量对象作为非常量对象来使用。</p>
+<p>函数返回变量只是值的传递，返回变量类型可以修改。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a><a href="#__codelineno-37-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">f3</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2"></a><a href="#__codelineno-37-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f4</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3"></a><a href="#__codelineno-37-3"><span class="linenos" data-linenos="3 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4"></a><a href="#__codelineno-37-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f3</span><span class="p">();</span><span class="w"> </span><span class="c1">// 没问题</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5"></a><a href="#__codelineno-37-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f4</span><span class="p">();</span><span class="w"> </span><span class="c1">// 这样也没问题！</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6"></a><a href="#__codelineno-37-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">}</span>
+</code></pre></div>
+<p>然而，如果函数返回的是一个const指针，如<code>const int*</code>类型，则不能修改指针所指向的值。</p>
+<h3 id="constexpr">constexpr<a class="headerlink" href="#constexpr" title="Permanent link">&para;</a></h3>
+<p>constexper是C++11中新增的关键字，用来指示表达式或函数在编译期求值，而不是在运行期。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a><a href="#__codelineno-38-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">){</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a><a href="#__codelineno-38-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span><span class="c1">//只有一条return语句</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3"></a><a href="#__codelineno-38-3"><span class="linenos" data-linenos="3 "></span></a><span class="p">}</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4"></a><a href="#__codelineno-38-4"><span class="linenos" data-linenos="4 "></span></a>
+<a id="__codelineno-38-5" name="__codelineno-38-5"></a><a href="#__codelineno-38-5"><span class="linenos" data-linenos="5 "></span></a><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// a的值在编译器计算为9</span>
+</code></pre></div>
+<p>if constexpr在编译期可以决定分支，未选中的分支不参与编译。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a><a href="#__codelineno-39-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">auto</span><span class="w"> </span><span class="n">get_value</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">){</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2"></a><a href="#__codelineno-39-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pointer_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3"></a><a href="#__codelineno-39-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">;</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4"></a><a href="#__codelineno-39-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5"></a><a href="#__codelineno-39-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<a id="__codelineno-39-6" name="__codelineno-39-6"></a><a href="#__codelineno-39-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="_22">常量对象<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>常量对象是指在程序运行期间其值不能被修改的对象。</p>
+<p>但有些成员函数可能对其内部变量产生修改，那编译器应该如何得知常量对象的成员函数是否能被安全调用呢。这时我们就需要将成员函数声明为 const。使得常量对象只能调用const成员函数。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a><a href="#__codelineno-40-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">Date::set_day</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">){</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2"></a><a href="#__codelineno-40-2"><span class="linenos" data-linenos="2 "></span></a><span class="w">    </span><span class="c1">//...error check d here...   </span>
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a><a href="#__codelineno-40-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w">  </span><span class="c1">// ok, non-const so can modify</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a><a href="#__codelineno-40-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5"></a><a href="#__codelineno-40-5"><span class="linenos" data-linenos="5 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">Date::get_day</span><span class="p">()</span><span class="k">const</span><span class="p">{</span><span class="w">    </span>
+<a id="__codelineno-40-6" name="__codelineno-40-6"></a><a href="#__codelineno-40-6"><span class="linenos" data-linenos="6 "></span></a><span class="w">    </span><span class="n">day</span><span class="o">++</span><span class="p">;</span><span class="w">   </span><span class="c1">//ERROR modifies data member</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7"></a><a href="#__codelineno-40-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">    </span><span class="n">set_day</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span><span class="w"> </span><span class="c1">// ERROR calls non-const member</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8"></a><a href="#__codelineno-40-8"><span class="linenos" data-linenos="8 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w">  </span><span class="c1">// ok</span>
+<a id="__codelineno-40-9" name="__codelineno-40-9"></a><a href="#__codelineno-40-9"><span class="linenos" data-linenos="9 "></span></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<p>声明为const的成员函数不会对任何成员变量进行写入，也不会调用任何非const的成员函数。</p>
+<p>在声明和定义中都要重复使用 const 关键字
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a><a href="#__codelineno-41-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">get_day</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2"></a><a href="#__codelineno-41-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">get_day</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="p">};</span>
+</code></pre></div></p>
+<p>不修改数据的成员函数应声明为 const，这样的 const 成员函数对于声明为 const 的常量对象是安全的。</p>
+<p>const关键字实际上修饰的是成员函数中隐含的this指针，所以静态成员函数不能被声明为const。</p>
+<p>mutable关键字用来修饰成员变量，它的作用是允许某个成员变量在const成员函数中被修改。它只能用于类的非静态成员变量，不能用于类的静态成员变量、局部变量和全局变量。</p>
+<p>对于类中的常量成员变量，我们必须在构造函数的初始化列表中初始化</p>
+<h2 id="_23">动态内存分配<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<p>在c++中，动态内存分配和释放主要是通过new和delete运算符来完成的。</p>
+<ul>
+<li>
+<p>new</p>
+<ul>
+<li><code>new int;</code></li>
+<li><code>new Stash;</code></li>
+<li><code>new int[10]</code></li>
+</ul>
+</li>
+<li>
+<p>delete</p>
+<ul>
+<li><code>delete p;</code></li>
+<li><code>delete[] p;</code></li>
+</ul>
+</li>
+</ul>
+<p>new 是在程序运行时分配内存的方式。指针成为访问该内存的唯一途径。</p>
+<p><code>{}</code>可用于向新生成的对象传递初始值。</p>
+<p>delete 使你在使用完内存后可以将其归还给内存池。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a><a href="#__codelineno-42-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">psome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newint</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2"></a><a href="#__codelineno-42-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">psome</span><span class="p">;</span>
+</code></pre></div>
+<p><code>new</code> 操作符返回该内存块第一个元素的地址。<br />
+方括号的存在告诉程序应该释放整个数组，而不仅仅是单个元素。</p>
+<p>以下是new 和 delete 的一些使用技巧：</p>
+<ul>
+<li>不要使用 <code>delete</code> 来释放并非由 <code>new</code> 分配的内存。</li>
+<li>不要连续两次使用 <code>delete</code> 释放同一块内存。</li>
+<li>如果使用 <code>new []</code> 分配了数组，则应使用 <code>delete []</code>。</li>
+<li>如果使用 <code>new</code> 分配了单个实体，则应使用 <code>delete</code>（不带方括号）。</li>
+<li>对空指针应用 <code>delete</code> 是安全的（不会发生任何操作）。</li>
+</ul>
+<h2 id="_24">函数重载<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<p>c++支持函数重载，即一个函数可以根据不同的参数列表来实现不同的功能。或者说，同一个函数名可以对应多个函数定义，只要它们的参数列表不同。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1"></a><a href="#__codelineno-43-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">);</span><span class="w"> </span><span class="c1">//#1</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2"></a><a href="#__codelineno-43-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">);</span><span class="w"> </span><span class="c1">//#2</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3"></a><a href="#__codelineno-43-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">);</span><span class="w"> </span><span class="c1">//#3</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4"></a><a href="#__codelineno-43-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">);</span><span class="w"> </span><span class="c1">//#4</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5"></a><a href="#__codelineno-43-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span><span class="w"> </span><span class="c1">//#5</span>
+<a id="__codelineno-43-6" name="__codelineno-43-6"></a><a href="#__codelineno-43-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="n">print</span><span class="p">(</span><span class="s">&quot;Pancakes&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span><span class="w"> </span><span class="c1">//#1</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7"></a><a href="#__codelineno-43-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="n">print</span><span class="p">(</span><span class="s">&quot;Syrup&quot;</span><span class="p">);</span><span class="c1">// #5</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8"></a><a href="#__codelineno-43-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="n">print</span><span class="p">(</span><span class="mf">1999.0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="c1">// #2</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9"></a><a href="#__codelineno-43-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="n">print</span><span class="p">(</span><span class="mi">1999</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span><span class="c1">// #3</span>
+<a id="__codelineno-43-10" name="__codelineno-43-10"></a><a href="#__codelineno-43-10"><span class="linenos" data-linenos="10 "></span></a><span class="n">print</span><span class="p">(</span><span class="mf">1999L</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span><span class="c1">// #4</span>
+</code></pre></div>
+<p>当有多个同名函数且调用时参数列表均匹配时，编译器会报错。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1"></a><a href="#__codelineno-44-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">short</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2"></a><a href="#__codelineno-44-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">);</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3"></a><a href="#__codelineno-44-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">f</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4"></a><a href="#__codelineno-44-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="c1">//error</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5"></a><a href="#__codelineno-44-5"><span class="linenos" data-linenos="5 "></span></a><span class="n">f</span><span class="p">(</span><span class="mf">2L</span><span class="p">);</span><span class="c1">//error</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6"></a><a href="#__codelineno-44-6"><span class="linenos" data-linenos="6 "></span></a><span class="n">f</span><span class="p">(</span><span class="mf">3.2</span><span class="p">);</span><span class="c1">//error</span>
+</code></pre></div>
+<p>在函数重载时，可以允许一个同名函数为const，另一个为非const。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1"></a><a href="#__codelineno-45-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">A::print</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2"></a><a href="#__codelineno-45-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;A::print() const&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3"></a><a href="#__codelineno-45-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="p">}</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4"></a><a href="#__codelineno-45-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">A::print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5"></a><a href="#__codelineno-45-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;A::print() non-const&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6"></a><a href="#__codelineno-45-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="p">}</span>
+<a id="__codelineno-45-7" name="__codelineno-45-7"></a><a href="#__codelineno-45-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="n">A</span><span class="w"> </span><span class="n">a1</span><span class="p">;</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8"></a><a href="#__codelineno-45-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">();</span><span class="w"> </span><span class="c1">// A::print() non-const</span>
+<a id="__codelineno-45-9" name="__codelineno-45-9"></a><a href="#__codelineno-45-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">a2</span><span class="p">;</span>
+<a id="__codelineno-45-10" name="__codelineno-45-10"></a><a href="#__codelineno-45-10"><span class="linenos" data-linenos="10 "></span></a><span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">();</span><span class="w"> </span><span class="c1">// A::print() const</span>
+</code></pre></div>
+<p>一个类的构造函数也可以被重载。</p>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1"></a><a href="#__codelineno-46-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">Info</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2"></a><a href="#__codelineno-46-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3"></a><a href="#__codelineno-46-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">Info</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">InitRest</span><span class="p">();}</span><span class="w"> </span><span class="c1">// target</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4"></a><a href="#__codelineno-46-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">Info</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Info</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">tyep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// delegating</span>
+<a id="__codelineno-46-5" name="__codelineno-46-5"></a><a href="#__codelineno-46-5"><span class="linenos" data-linenos="5 "></span></a><span class="n">Info</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Info</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-46-6" name="__codelineno-46-6"></a><a href="#__codelineno-46-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">};</span>
+</code></pre></div>
+<p>在c++11中引入了委托构造函数，即一个构造函数可以调用同一个类的另一个构造函数来完成部分或全部初始化工作。（在上例中，<code>Info(int i)</code>和<code>Info(char e)</code>在初始化列表中写 <code>: Info()</code>，表示先调用默认构造函数，然后再执行自己的函数体。）</p>
+<p>委托关系可以形成调用链，但这种情况应该尽量避免。</p>
+<div class="language-cpp highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1"></a><a href="#__codelineno-47-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">Info</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2"></a><a href="#__codelineno-47-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3"></a><a href="#__codelineno-47-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="n">Info</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="n">Info</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">               </span><span class="c1">// 委托</span>
+<a id="__codelineno-47-4" name="__codelineno-47-4"></a><a href="#__codelineno-47-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="n">Info</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">Info</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">     </span><span class="c1">// 目标 &amp; 委托</span>
+<a id="__codelineno-47-5" name="__codelineno-47-5"></a><a href="#__codelineno-47-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">    </span><span class="n">Info</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">Info</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-47-6" name="__codelineno-47-6"></a><a href="#__codelineno-47-6"><span class="linenos" data-linenos="6 "></span></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-47-7" name="__codelineno-47-7"></a><a href="#__codelineno-47-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">    </span><span class="n">Info</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">type</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// 目标</span>
+<a id="__codelineno-47-8" name="__codelineno-47-8"></a><a href="#__codelineno-47-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">};</span>
+</code></pre></div>
+<h2 id="_25">默认参数<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<p>默认参数是在声明中给出的一个值，如果你在函数调用中没有提供该参数的值，编译器会自动插入这个值。</p>
+<div class="language-cpp highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1"></a><a href="#__codelineno-48-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">Stash</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">initQuantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div>
+<p>在定义带有参数列表的函数时，默认参数必须从右向左依次添加。</p>
+<div class="language-cpp highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1"></a><a href="#__codelineno-49-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">harpo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2"></a><a href="#__codelineno-49-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">chico</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">);</span><span class="w">   </span><span class="c1">// 非法</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3"></a><a href="#__codelineno-49-3"><span class="linenos" data-linenos="3 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">groucho</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4"></a><a href="#__codelineno-49-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">beeps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">harpo</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5"></a><a href="#__codelineno-49-5"><span class="linenos" data-linenos="5 "></span></a><span class="n">beeps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">harpo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<a id="__codelineno-49-6" name="__codelineno-49-6"></a><a href="#__codelineno-49-6"><span class="linenos" data-linenos="6 "></span></a><span class="n">beeps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">harpo</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+</code></pre></div>
+<p>默认参数的值是在函数的声明（原型）中指定的，而不能在函数定义的头部中再次指定。如果声明和定义中都写了默认值，编译器可能遇到不一致的值，产生歧义或错误。
+<div class="language-cpp highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1"></a><a href="#__codelineno-50-1"><span class="linenos" data-linenos="1 "></span></a><span class="c1">// 声明</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2"></a><a href="#__codelineno-50-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3"></a><a href="#__codelineno-50-3"><span class="linenos" data-linenos="3 "></span></a>
+<a id="__codelineno-50-4" name="__codelineno-50-4"></a><a href="#__codelineno-50-4"><span class="linenos" data-linenos="4 "></span></a><span class="c1">// 定义中又写默认值 —— 错误</span>
+<a id="__codelineno-50-5" name="__codelineno-50-5"></a><a href="#__codelineno-50-5"><span class="linenos" data-linenos="5 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 编译错误：重复指定默认参数</span>
+<a id="__codelineno-50-6" name="__codelineno-50-6"></a><a href="#__codelineno-50-6"><span class="linenos" data-linenos="6 "></span></a><span class="p">}</span>
+</code></pre></div></p>
+<h2 id="_26">内联函数<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<p>函数调用时是需要时间开销的，如进行以下操作：</p>
+<ul>
+<li>压入参数</li>
+<li>压入返回地址</li>
+<li>准备返回值</li>
+<li>弹出所有压入的内容</li>
+</ul>
+<p>内联函数会在调用处直接展开，就像预处理器的宏一样，从而消除函数调用的开销。</p>
+<div class="language-cpp highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1"></a><a href="#__codelineno-51-1"><span class="linenos" data-linenos="1 "></span></a><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2"></a><a href="#__codelineno-51-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-51-3" name="__codelineno-51-3"></a><a href="#__codelineno-51-3"><span class="linenos" data-linenos="3 "></span></a><span class="p">}</span>
+<a id="__codelineno-51-4" name="__codelineno-51-4"></a><a href="#__codelineno-51-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5"></a><a href="#__codelineno-51-5"><span class="linenos" data-linenos="5 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
+<a id="__codelineno-51-6" name="__codelineno-51-6"></a><a href="#__codelineno-51-6"><span class="linenos" data-linenos="6 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<a id="__codelineno-51-7" name="__codelineno-51-7"></a><a href="#__codelineno-51-7"><span class="linenos" data-linenos="7 "></span></a><span class="p">}</span>
+</code></pre></div>
+<p>内联函数的定义实际上只是声明。内联函数的定义可能不会在 <code>.obj</code> 文件中生成任何代码。因此，你必须将内联函数的函数体放在头文件中。然后在需要使用该函数的地方 <code>#include</code> 这个头文件。  </p>
+<p>被调用函数的函数体会被插入到调用函数的位置。这可能会增加代码体积，但减少了函数调用的时间开销。因此它以空间换取了速度。在大多数情况下，这是值得的。它比 C 语言中的宏要好得多。它会检查参数的类型。</p>
+<p>在类声明内部定义的任何函数都会自动成为内联函数，即使不加<code>inline</code>关键字也是如此。也可以可以将内联成员函数的定义放在类的大括号之外。  <br />
+以下两种表述等价：</p>
+<div class="language-cpp highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1"></a><a href="#__codelineno-52-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2"></a><a href="#__codelineno-52-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-52-3" name="__codelineno-52-3"></a><a href="#__codelineno-52-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-52-4" name="__codelineno-52-4"></a><a href="#__codelineno-52-4"><span class="linenos" data-linenos="4 "></span></a><span class="p">};</span>
+</code></pre></div>
+<div class="language-cpp highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1"></a><a href="#__codelineno-53-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">{</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2"></a><a href="#__codelineno-53-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-53-3" name="__codelineno-53-3"></a><a href="#__codelineno-53-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-53-4" name="__codelineno-53-4"></a><a href="#__codelineno-53-4"><span class="linenos" data-linenos="4 "></span></a><span class="p">};</span>
+<a id="__codelineno-53-5" name="__codelineno-53-5"></a><a href="#__codelineno-53-5"><span class="linenos" data-linenos="5 "></span></a>
+<a id="__codelineno-53-6" name="__codelineno-53-6"></a><a href="#__codelineno-53-6"><span class="linenos" data-linenos="6 "></span></a><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">A::f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-53-7" name="__codelineno-53-7"></a><a href="#__codelineno-53-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-53-8" name="__codelineno-53-8"></a><a href="#__codelineno-53-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>
+<p>应该内联的情况：</p>
+<ul>
+<li>小型函数，2到3行</li>
+<li>频繁调用的函数，例如在循环内部</li>
+</ul>
+</li>
+<li>
+<p>不应该内联的情况</p>
+<ul>
+<li>非常大的函数，超过20行</li>
+<li>递归函数</li>
+</ul>
+</li>
+</ul>
+<p>为了简便，我们有时可以把所有函数都设为内联，或者永远不把函数设为内联。</p>
+<p>在某些时候，编译器不一定必须遵从你要求将函数设为内联的请求。它可能会认为该函数过大，或者注意到它调用了自身（递归对于内联函数是不允许或实际上不可能的），又或者你所用的编译器可能没有实现该特性。</p>
+<h3 id="_27">内联变量<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>在 C++17 及更高版本中，<code>inline</code> 关键字除了可以用于函数之外，还可以用于变量。<code>inline</code> 变量解决了与头文件中的全局变量和常量定义相关的一个常见问题。</p>
+<p>在 C++17 之前，在头文件中定义变量会导致问题，因为包含该头文件的每个翻译单元（即 <code>.cpp</code> 文件）都会生成该变量的一个独立副本。这通常会在链接阶段导致多重定义错误。</p>
+<p>为了避免这个问题，通常使用 <code>extern</code> 在头文件中声明变量，并在一个单独的 <code>.cpp</code> 文件中定义：</p>
+<div class="language-cpp highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1"></a><a href="#__codelineno-54-1"><span class="linenos" data-linenos="1 "></span></a><span class="c1">// header.h</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2"></a><a href="#__codelineno-54-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">globalValue</span><span class="p">;</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3"></a><a href="#__codelineno-54-3"><span class="linenos" data-linenos="3 "></span></a>
+<a id="__codelineno-54-4" name="__codelineno-54-4"></a><a href="#__codelineno-54-4"><span class="linenos" data-linenos="4 "></span></a><span class="c1">// source.cpp</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5"></a><a href="#__codelineno-54-5"><span class="linenos" data-linenos="5 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">globalValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</code></pre></div>
+<p>这种方法可行，但需要将声明和定义分开，这并不总是很方便。</p>
+<p>使用 <code>inline</code> 变量，你可以直接在头文件中定义变量而不会引起链接器错误。它有以下特性：</p>
+<ul>
+<li>跨翻译单元的单一定义：即使变量被多个文件包含，编译器也确保 <code>inline</code> 变量只存在一个实例。</li>
+<li>在头文件中初始化：你可以在头文件中同时声明和初始化变量，使代码更加简洁。</li>
+<li>全局或静态变量：适用于全局常量、类的静态成员或单例模式。</li>
+</ul>
+<p><img alt="内联变量" src="../image/%E5%86%85%E8%81%94%E5%8F%98%E9%87%8F.png" /></p>
+<p><img alt="内联变量" src="../image/%E5%86%85%E8%81%94%E5%8F%98%E9%87%8F2.png" /></p>
+<p>以下是常见的使用内联变量的情况：</p>
+<ul>
+<li>在头文件中定义全局常量时。</li>
+<li>使用直接在类定义中初始化的静态类成员时。</li>
+<li>需要在多个文件之间保持变量的单一定义时。</li>
+<li>需要简化配置值或设置的管理时。</li>
+</ul>
+<p>内联变量不是万能的，以下是不应该使用内联变量的情况：</p>
+<ul>
+<li>避免将 <code>inline</code> 变量用于大型对象或占用大量内存的变量。这可能导致不必要的内存使用。</li>
+<li>不要将 <code>inline</code> 用于需要在每个编译单元中保持唯一实例的变量。</li>
+<li>对于可以在运行时修改的变量，谨慎使用 <code>inline</code>，因为这可能导致意外的副作用。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../chapter2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 容器">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                容器
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../chapter4/" class="md-footer__link md-footer__link--next" aria-label="下一页: 函数复用">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                函数复用
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rick-368/Notebook" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.sections", "navigation.prune", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "navigation.indexes", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/math-config.js"></script>
+      
+        <script src="../../../javascripts/math-fix.js"></script>
+      
+    
+  </body>
+</html>
