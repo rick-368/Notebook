@@ -54,13 +54,27 @@ nav:
       - 并行算法: 计算机科学/高级数据结构与算法分析/chapter10.md
       - 外部排序: 计算机科学/高级数据结构与算法分析/chapter11.md
 
-    - 计算机系统II:
+    - 计算机系统Ⅱ:
       - 计算机科学/计算机系统2/index.md
       - 进程: 计算机科学/计算机系统2/chapter1.md
       - CPU调度: 计算机科学/计算机系统2/chapter2.md
       - 进程间通信: 计算机科学/计算机系统2/chapter3.md
       - 线程: 计算机科学/计算机系统2/chapter4.md
       - 同步: 计算机科学/计算机系统2/chapter5.md
+
+    - 计算机系统Ⅲ:
+      - 计算机科学/计算机系统3/index.md
+      - 量化研究: 计算机科学/计算机系统3/chapter1.md
+      - ISP: 计算机科学/计算机系统3/chapter2.md
+      - Memory Hierarchy: 计算机科学/计算机系统3/chapter3.md
+      - 内存: 计算机科学/计算机系统3/chapter4.md
+      - 大容量存储结构: 计算机科学/计算机系统3/chapter5.md
+      - I/O设备管理: 计算机科学/计算机系统3/chapter6.md
+      - 文件系统: 计算机科学/计算机系统3/chapter7.md
+      - 系统安全: 计算机科学/计算机系统3/chapter8.md
+      - SIMD: 计算机科学/计算机系统3/chapter9.md
+      - MIMD: 计算机科学/计算机系统3/chapter10.md
+
     - 人工智能引论: 
       - 计算机科学/人工智能引论/index.md
       - 知识表达与推理: 计算机科学/人工智能引论/chapter1.md
@@ -70,6 +84,33 @@ nav:
       - 强化学习: 计算机科学/人工智能引论/chapter5.md
       - 博弈论: 计算机科学/人工智能引论/chapter6.md
       - 人工智能伦理与安全: 计算机科学/人工智能引论/chapter7.md
+
+    - 面向对象程序设计:
+      - 计算机科学/面向对象程序设计/index.md
+      - C++基础: 计算机科学/面向对象程序设计/chapter1.md
+      - 容器: 计算机科学/面向对象程序设计/chapter2.md
+      - 结构与类: 计算机科学/面向对象程序设计/chapter3.md
+      - 函数复用: 计算机科学/面向对象程序设计/chapter4.md
+      - 异常: 计算机科学/面向对象程序设计/chapter5.md
+      - C++的输入输出: 计算机科学/面向对象程序设计/chapter6.md
+      - Cast 运算符: 计算机科学/面向对象程序设计/chapter7.md
+
+    - 数据库系统:
+      - 计算机科学/数据库系统/index.md
+      - 数据库介绍: 计算机科学/数据库系统/chapter1.md
+      - 关系模型: 计算机科学/数据库系统/chapter2.md
+      - SQL 语言基础: 计算机科学/数据库系统/chapter3.md
+      - 进阶SQL: 计算机科学/数据库系统/chapter4.md
+      - Entitiy-Relationship Model: 计算机科学/数据库系统/chapter5.md
+      - 关系型数据库设计: 计算机科学/数据库系统/chapter6.md
+      - 存储和文件结构: 计算机科学/数据库系统/chapter7.md
+      - 索引和哈希: 计算机科学/数据库系统/chapter8.md
+      - 查询处理: 计算机科学/数据库系统/chapter9.md
+      - 事务: 计算机科学/数据库系统/chapter10.md
+      - 并发控制: 计算机科学/数据库系统/chapter11.md
+      - 恢复系统: 计算机科学/数据库系统/chapter12.md
+
+
   - 数理基础:
     - 概率论与数理统计:
       - 数理基础/概率论与数理统计/index.md
@@ -208,7 +249,7 @@ markdown_extensions:
   - tables
 
 extra_javascript:
-    - https://polyfill.io/v3/polyfill.min.js?features=es6
+    - https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6
     - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     - javascripts/math-config.js
     - javascripts/math-fix.js 
