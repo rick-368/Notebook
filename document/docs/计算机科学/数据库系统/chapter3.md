@@ -1,5 +1,15 @@
 # SQL 语言基础
 
+## SQL 语言组成
+
+SQL 语言由以下部分组成：
+
+- **数据定义语言（Data Definition Language，DDL）**：created、drop、alter等
+- **数据操作语言（Data Manipulation Language，DML）**：select、insert、update、delete等
+- **数据控制语言（Data Control Language，DCL）**：grant、revoke等
+
+
+
 ## 数据定义语言（Data Definition Language，DDL）
 
 SQL 数据定义语言（DDL）允许指定关于关系的信息
@@ -63,6 +73,19 @@ CREATE TABLE r (A₁D₁, A₂D₂, ..., AₙDₙ,
 格式：`DROP TABLE 关系名;`
 
 >与`delete from r`有差别，`drop table`命令会删除整个关系，而`delete from r`仅删除表格中的数据。
+
+
+- `ALTER TABLE` 命令用于向已存在的关系（表）中添加属性（列）。
+
+```sql
+ALTER TABLE r ADD A D;
+ALTER TABLE r ADD (A1 D1, ..., An Dn);
+```
+
+其中，`A` 是要添加到关系 `r` 中的属性名称，`D` 是属性 `A` 的域（数据类型）。
+
+关系中所有元组（行）在新属性上的值都被赋为 **null**（空值）。
+
 
 `alter table` 命令也可以用于删除关系的属性  
 
@@ -195,7 +218,7 @@ WHERE amount BETWEEN 90000 AND 100000
 ```
 
 
-行构造器：$(V_1, V_2, \dots, V_n)$ 表示一个包含值$ V_1, V_2, \dots, V_n$ 的 $n$ 元元组。
+行构造器：$(V_1, V_2, \dots, V_n)$ 表示一个包含值$V_1, V_2, \dots, V_n$ 的 $n$ 元元组。
 
 ```sql
 select name, course_id
@@ -326,9 +349,10 @@ UNION、INTERSECT 和 EXCEPT每个操作都会自动消除重复。
 若要保留所有重复，我们可以使用相应的多重集版本，包括 UNION ALL、INTERSECT ALL 和 EXCEPT ALL。
 
 假设一个元组在 $r$ 中出现 $m$ 次，在 $s$ 中出现 $n$ 次，那么它在以下操作结果中出现的次数为：
-  - 在 $r \, \text{UNION ALL} \, s$ 中出现 $m + n$ 次
-  - 在 $r \, \text{INTERSECT ALL} \, s$ 中出现 $\min(m, n)$ 次
-  - 在 $r \, \text{EXCEPT ALL} \, s$ 中出现 $\max(0, m - n)$ 次
+
+- 在 $r \, \text{UNION ALL} \, s$ 中出现 $m + n$ 次
+- 在 $r \, \text{INTERSECT ALL} \, s$ 中出现 $\min(m, n)$ 次
+- 在 $r \, \text{EXCEPT ALL} \, s$ 中出现 $\max(0, m - n)$ 次
 
 ![集合操作](image/集合操作.png)
 
@@ -502,6 +526,7 @@ SQL 包含一项用于测试子查询结果中是否存在元组的功能：exis
 ![元素判断2](image/元素判断2.png)
 
 unique和not unique构造用于测试子查询的结果中是否存在重复元组。
+
 - `unique r`: (1) `r 中没有重复元组: TRUE` (2) `r 中有重复元组: FALSE`
 - `not unique r`: (1) `r 中没有重复元组: FALSE` (2) `r 中有重复元组: TRUE`
 

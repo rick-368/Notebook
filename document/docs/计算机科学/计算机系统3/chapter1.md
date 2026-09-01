@@ -49,6 +49,7 @@ T_{\text{improved}}=\frac{T_{\text{affected}}}{\text{improvement factor}}+T_{\te
 $$
 
 阿姆达尔定律也定义了使用特定增强特性所能获得的加速比。
+
 $$
 \text{Speedup}=\frac{\text{Performance}_{\text{using enhancement}}}{ \text{Performance}_{\text{without enhancement}}}
 =\frac{\text{Execution Time}_{\text{without enhancement}}}{\text{Execution Time}_{\text{using enhancement}}}

@@ -125,7 +125,8 @@ class ClassName {
 #endif // HEADER_FLAG
 ```
 
-注意：  
+注意：
+  
 - 每个头文件仅定义一个类
 - 与同一文件名前缀下的一个源文件.cpp相关联
 - 头文件的内容必须在预处理器指令`#ifndef` `#define` 和 `#endif`之间定义。
@@ -193,7 +194,7 @@ Point(int xx,int yy) : x(xx), y(yy) {}
 ```
 在这个构造函数中，我们用了成员初始化列表。它是 C++ 构造函数中用来直接初始化成员变量的一种语法，写在构造函数参数列表之后、函数体之前，以冒号 `: `开头，多个成员之间用逗号分隔。当成员是`const` 类型、引用类型、没有默认构造函数的类类型，都需要必须使用成员初始化列表进行初始化。
 
-当对象超出作用域时，析构函数会由编译器自动调用。
+当（在栈上的）对象超出作用域时，析构函数会由编译器自动调用。
 ```c++
 #include <iostream>
 class MyClass {
@@ -228,6 +229,7 @@ int main() {
 
 - `public`：表示后续成员声明对所有人可用。
 - `private`：表示只有该类的内部函数成员才能访问该成员。
+- `protected`：表示只有该类及其派生类的成员才能访问该成员。
 
 ```c++
 class MyClass {
@@ -516,7 +518,8 @@ C++ 中的 const 默认为内部链接，编译器会尽量避免为 const 分�
 
 常量可以被利用：
 ```c++
-const int class_size = 12;int finalGrade[class_size]; // okint x;
+const int class_size = 12;
+int finalGrade[class_size]; // okint x;
 cin >> x;
 const int size = x;
 double classAverage[size]; // ok

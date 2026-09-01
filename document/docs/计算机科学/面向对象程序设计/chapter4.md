@@ -16,16 +16,17 @@
 ```c++
 class Person { ... };
 class Currency { ... };
-class SavingsAccount {public:
-SavingsAccount(
-const char* name,
-const char* address,
-int cents );
-~SavingsAccount();
-void print();
+class SavingsAccount {
+public:
+    SavingsAccount(
+    const char* name,
+    const char* address,
+    int cents );
+    ~SavingsAccount();
+    void print();
 private:
-Person m_saver;
-Currency m_balance;
+    Person m_saver;
+    Currency m_balance;
 };
 ```
 
@@ -898,7 +899,9 @@ new[] delete[]
 ?:
 sizeof
 typeid
-static_cast dynamic_cast const_cast
+static_cast 
+dynamic_cast 
+const_cast
 reinterpret_cast
 ```
 

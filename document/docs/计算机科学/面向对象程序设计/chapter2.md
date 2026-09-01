@@ -6,6 +6,7 @@ STL（Standard Template Library，标准模板库）是一系列常用且高效�
 使用STL有很多优点：缩短开发时间，增加代码可读性，鲁棒性好，代码易移植和维护等等。
 
 C++标准库中包含：  
+
 - `Pair`类（任何类型的配对，int/int,int/char等）
 - 容器：vector（可扩展数组），deque（可扩展数组，两端均可扩展），list（双向链表），forward_list（单向链表），array（固定大小数组），string（字符串），set（集合）和 map（映射）等等
 - 基本算法：排序，搜索等等

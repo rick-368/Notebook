@@ -102,7 +102,7 @@ done
 - tldr：查看shell命令的简短用法。
 - find：搜索文件。  
   具体形式：`find 路径 -name 匹配模式 -type 类型 -size 大小`   
-  -exec可以在find的结果上执行命令，如上例删除所有名为`.tmp`的文件。  
+  - exec可以在find的结果上执行命令，如上例删除所有名为`.tmp`的文件。  
 
 ```bash
   find . -name "*.tmp" -exec rm {} \;
