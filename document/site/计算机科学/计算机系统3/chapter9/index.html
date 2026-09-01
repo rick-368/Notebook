@@ -3063,10 +3063,12 @@
 <p>SIMD 是 Single Instruction, Multiple Data（单指令流多数据流）的缩写，是计算机并行处理的一种架构类型。</p>
 <h2 id="_1">向量处理器<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>采用向量数据表示及相应向量指令的流水线处理器，称为<strong>向量处理器</strong>。不具有向量数据表示及相应向量指令的流水线处理器，称为<strong>标量处理器</strong>。</p>
-<p>向量处理器处理数据有三种方法：
-- 水平处理：向量计算按行从左到右水平进行。
-- 垂直处理：向量计算按列从上到下垂直进行。
-- 纵横处理方法（分组处理方法）：水平处理与垂直处理相结合的方式。</p>
+<p>向量处理器处理数据有三种方法：</p>
+<ul>
+<li>水平处理：向量计算按行从左到右水平进行。</li>
+<li>垂直处理：向量计算按列从上到下垂直进行。</li>
+<li>纵横处理方法（分组处理方法）：水平处理与垂直处理相结合的方式。</li>
+</ul>
 <p>拿<span class="arithmatex">\(D=A*(B+C)\)</span>为例，其中<span class="arithmatex">\(A\)</span>、<span class="arithmatex">\(B\)</span>、<span class="arithmatex">\(C\)</span>、<span class="arithmatex">\(D\)</span>都是长度为<span class="arithmatex">\(N\)</span>的向量。</p>
 <p>水平处理方法：向量计算按行从左到右水平进行。</p>
 <p><img alt="水平处理方法" src="../image/%E6%B0%B4%E5%B9%B3%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95.png" /></p>

@@ -3623,10 +3623,12 @@
 例如，<span class="arithmatex">\(instructor(instructor-schema)= instructor( ID, name, dept\_name, salary )\)</span></p>
 <p>关系的当前值（即关系实例）由一张表来指定。<br />
 <span class="arithmatex">\(r\)</span> 中的一个元素<span class="arithmatex">\(t\)</span>是一个元组，由表中的一行表示。<span class="arithmatex">\(t[name]\)</span>表示元组 <span class="arithmatex">\(t\)</span> 在 <span class="arithmatex">\(name\)</span> 属性上的取值。</p>
-<p>关系有以下几个性质：<br />
-- 元组的顺序是无关紧要的（即，元组可以任意顺序存储）。
-- 关系中不允许有重复元组。
-- 属性需满足原子性约束。</p>
+<p>关系有以下几个性质： </p>
+<ul>
+<li>元组的顺序是无关紧要的（即，元组可以任意顺序存储）。</li>
+<li>关系中不允许有重复元组。</li>
+<li>属性需满足原子性约束。</li>
+</ul>
 <h3 id="_7">键/码<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>设 <span class="arithmatex">\(K \subseteq R\)</span>，若对于关系 <span class="arithmatex">\(r(R)\)</span> 的每个可能实例，<span class="arithmatex">\(K\)</span> 的值足以唯一标识一个元组，则称 <span class="arithmatex">\(K\)</span> 为 <span class="arithmatex">\(R\)</span> 的一个超码。  <br />
 例如，在关系instructor 中，<span class="arithmatex">\(\{ID\}\)</span> 和<span class="arithmatex">\(\{ID, name\}\)</span> 都是超码。</p>
@@ -3662,16 +3664,20 @@
 <h3 id="unioncup">并(Union)<span class="arithmatex">\(\cup\)</span><a class="headerlink" href="#unioncup" title="Permanent link">&para;</a></h3>
 <p>并操作允许我们合并两个关系。<br />
 符号表示：<span class="arithmatex">\(r \cup s\)</span> ，定义为：<span class="arithmatex">\(r \cup s = \{ t | t \in r \text{ 或 } t \in s \}\)</span> <br />
-要使 <span class="arithmatex">\(r \cup s\)</span> 有效，必须满足：
-  - <span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(s\)</span>必须具有相同的元数（即相同数量的属性）
-  - 属性域必须兼容</p>
+要使 <span class="arithmatex">\(r \cup s\)</span> 有效，必须满足：</p>
+<ul>
+<li><span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(s\)</span>必须具有相同的元数（即相同数量的属性）</li>
+<li>属性域必须兼容</li>
+</ul>
 <p><img alt="并操作" src="../image/%E5%90%88%E5%B9%B6%E6%93%8D%E4%BD%9C.png" /></p>
 <h3 id="difference-">差(Difference)<span class="arithmatex">\(-\)</span><a class="headerlink" href="#difference-" title="Permanent link">&para;</a></h3>
 <p>集合差操作允许我们找出在一个关系中但不在另一个关系中的元组。<br />
 符号表示：<span class="arithmatex">\(r - s\)</span> ，定义为：<span class="arithmatex">\(r - s = \{ t | t \in r \text{ 且 } t \notin s \}\)</span>   <br />
-集合差必须在兼容的关系之间进行。
-  - <span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(s\)</span> 必须具有相同的元数。
-  - <span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(s\)</span> 的属性域必须兼容。</p>
+集合差必须在兼容的关系之间进行。</p>
+<ul>
+<li><span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(s\)</span> 必须具有相同的元数。</li>
+<li><span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(s\)</span> 的属性域必须兼容。</li>
+</ul>
 <p><img alt="差操作" src="../image/%E5%B7%AE%E6%93%8D%E4%BD%9C.png" /></p>
 <h3 id="cartesian-producttimes">笛卡尔积(Cartesian Product)<span class="arithmatex">\(\times\)</span><a class="headerlink" href="#cartesian-producttimes" title="Permanent link">&para;</a></h3>
 <p>笛卡尔积操作（用 <span class="arithmatex">\(\times\)</span> 表示）允许我们组合任意两个关系中的信息。<br />
@@ -3697,9 +3703,11 @@ $$</p>
 <h3 id="intersectioncap">交(Intersection)<span class="arithmatex">\(\cap\)</span><a class="headerlink" href="#intersectioncap" title="Permanent link">&para;</a></h3>
 <p>集合交操作允许我们找出同时存在于两个输入关系中的元组。<br />
 符号表示：<span class="arithmatex">\(r \cap s\)</span>，定义为：<span class="arithmatex">\(r \cap s = \{ t | t \in r \text{ 且 } t \in s \}\)</span></p>
-<p>前提条件：
-  - <span class="arithmatex">\(r\)</span> 和<span class="arithmatex">\(s\)</span> 具有相同的元数。
-  - <span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(s\)</span> 的属性是兼容的。</p>
+<p>前提条件：</p>
+<ul>
+<li><span class="arithmatex">\(r\)</span> 和<span class="arithmatex">\(s\)</span> 具有相同的元数。</li>
+<li><span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(s\)</span> 的属性是兼容的。</li>
+</ul>
 <p>注：<span class="arithmatex">\(r \cap s = r - (r - s)\)</span></p>
 <p><img alt="交操作" src="../image/%E4%BA%A4%E6%93%8D%E4%BD%9C.png" /></p>
 <h3 id="joinbowtie_theta">连接(Join)<span class="arithmatex">\(\bowtie_{\theta}\)</span><a class="headerlink" href="#joinbowtie_theta" title="Permanent link">&para;</a></h3>
@@ -3715,11 +3723,15 @@ r \bowtie_\theta s = \sigma_\theta (r \times s)
 <p>自然连接操作将 <span class="arithmatex">\(\bowtie_\theta\)</span> 中的谓词 <span class="arithmatex">\(\theta\)</span> 替换为一个隐含谓词，该谓词要求在左右两个关系模式中都出现的那些属性上进行相等比较。</p>
 <p>符号表示：<span class="arithmatex">\(r \bowtie s\)</span></p>
 <p>示例：<span class="arithmatex">\(R = (A, B, C, D), S = (B, D, E)\)</span>，则<span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(s\)</span> 自然连接的结果模式 <span class="arithmatex">\(= (A, B, C, D, E)\)</span>，<span class="arithmatex">\(r \bowtie s = \Pi_{r.A, r.B, r.C, r.D, s.E}(\sigma_{r.B = s.B \land r.D = s.D} \, (r \times s))\)</span>。</p>
-<p>设 <span class="arithmatex">\(r\)</span>和 <span class="arithmatex">\(s\)</span>  分别为模式 <span class="arithmatex">\(R\)</span> 和 <span class="arithmatex">\(S\)</span> 上的关系。那么，<span class="arithmatex">\(r \bowtie s\)</span> 是模式 <span class="arithmatex">\(R \cup S\)</span> 上的一个关系，其获取方式如下：<br />
-- 考虑来自 <span class="arithmatex">\(r\)</span> 的每个元组  <span class="arithmatex">\(t_r\)</span>  和来自 <span class="arithmatex">\(s\)</span> 的每个元组 <span class="arithmatex">\(t_s\)</span> 组成的一对元组。
-- 如果 <span class="arithmatex">\(t_r\)</span> 和 <span class="arithmatex">\(t_s\)</span> 在 <span class="arithmatex">\(R \cap S\)</span> 中的每个属性上都具有相同的值，则将元组 <span class="arithmatex">\(t\)</span> 添加到结果中，其中
-    - <span class="arithmatex">\(t\)</span> 在 <span class="arithmatex">\(r\)</span> 的所有属性上与 <span class="arithmatex">\(t_r\)</span> 具有相同的值。
-    - <span class="arithmatex">\(t\)</span> 在 <span class="arithmatex">\(s\)</span> 的所有属性上与  <span class="arithmatex">\(t_s\)</span> 具有相同的值。</p>
+<p>设 <span class="arithmatex">\(r\)</span>和 <span class="arithmatex">\(s\)</span>  分别为模式 <span class="arithmatex">\(R\)</span> 和 <span class="arithmatex">\(S\)</span> 上的关系。那么，<span class="arithmatex">\(r \bowtie s\)</span> 是模式 <span class="arithmatex">\(R \cup S\)</span> 上的一个关系，其获取方式如下： </p>
+<ul>
+<li>考虑来自 <span class="arithmatex">\(r\)</span> 的每个元组  <span class="arithmatex">\(t_r\)</span>  和来自 <span class="arithmatex">\(s\)</span> 的每个元组 <span class="arithmatex">\(t_s\)</span> 组成的一对元组。</li>
+<li>如果 <span class="arithmatex">\(t_r\)</span> 和 <span class="arithmatex">\(t_s\)</span> 在 <span class="arithmatex">\(R \cap S\)</span> 中的每个属性上都具有相同的值，则将元组 <span class="arithmatex">\(t\)</span> 添加到结果中，其中<ul>
+<li><span class="arithmatex">\(t\)</span> 在 <span class="arithmatex">\(r\)</span> 的所有属性上与 <span class="arithmatex">\(t_r\)</span> 具有相同的值。</li>
+<li><span class="arithmatex">\(t\)</span> 在 <span class="arithmatex">\(s\)</span> 的所有属性上与  <span class="arithmatex">\(t_s\)</span> 具有相同的值。</li>
+</ul>
+</li>
+</ul>
 <p><img alt="自然连接操作" src="../image/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png" /></p>
 <h3 id="divisiondiv">除(Division)<span class="arithmatex">\(\div\)</span><a class="headerlink" href="#divisiondiv" title="Permanent link">&para;</a></h3>
 <p>符号表示：<span class="arithmatex">\(r \div s\)</span></p>

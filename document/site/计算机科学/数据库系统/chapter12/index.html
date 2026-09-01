@@ -3340,11 +3340,13 @@
 <p>以下是一个简单的例子：</p>
 <p><img alt="即时数据库修改" src="../image/%E5%8D%B3%E6%97%B6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%AE%E6%94%B9.png" /></p>
 <p>检查点：重做/撤销日志中记录的所有事务可能会非常慢。且我们可能不必要地重做了那些已经将其更新输出到数据库的事务。我们可以通过定期执行检查点来简化恢复过程。</p>
-<p>在执行检查点时：
-- 将当前驻留在主存中的所有日志记录输出到稳定存储器。
-- 将所有修改过的缓冲区块输出到磁盘。
-- 将一条日志记录 <span class="arithmatex">\(&lt;\text{checkpoint } L&gt;\)</span> 写入稳定存储器，其中 <span class="arithmatex">\(L\)</span> 是在检查点时刻所有活跃事务的列表。
-- 在执行检查点期间，所有更新操作都会暂停。</p>
+<p>在执行检查点时：</p>
+<ul>
+<li>将当前驻留在主存中的所有日志记录输出到稳定存储器。</li>
+<li>将所有修改过的缓冲区块输出到磁盘。</li>
+<li>将一条日志记录 <span class="arithmatex">\(&lt;\text{checkpoint } L&gt;\)</span> 写入稳定存储器，其中 <span class="arithmatex">\(L\)</span> 是在检查点时刻所有活跃事务的列表。</li>
+<li>在执行检查点期间，所有更新操作都会暂停。</li>
+</ul>
 <p>在恢复期间，我们只需要考虑检查点之前开始的最晚事务 <span class="arithmatex">\(T_i\)</span>，以及在 <span class="arithmatex">\(T_i\)</span> 之后开始的事务。我们从日志末尾开始向后扫描，找到最近的 <span class="arithmatex">\(&lt;\text{checkpoint } L&gt;\)</span> 记录。只有 <span class="arithmatex">\(L\)</span> 中的事务或在检查点之后开始的事务才需要重做或撤销。在检查点之前提交或中止的事务，其所有更新已经输出到稳定存储器。</p>
 <p>日志中某些更早的部分可能仍需要用于撤销操作。继续向后扫描，直到为 <span class="arithmatex">\(L\)</span> 中的每个事务 <span class="arithmatex">\(T_i\)</span> 都找到一条<span class="arithmatex">\(&lt;T_i \text{ start}&gt;\)</span>记录。在上述最早的 <span class="arithmatex">\(&lt;T_i \text{ start}&gt;\)</span> 记录之前的日志部分在恢复中不再需要，可以在任何时候根据需要擦除。</p>
 <p>以下是一个简单的例子：</p>
@@ -3413,9 +3415,11 @@
 <li>在为主存中为数据库预留的专用区域中实现。</li>
 <li>在虚拟内存中实现。</li>
 </ul>
-<p>在预留的主存区域中实现缓冲区存在以下缺点：
-- 内存在数据库缓冲区和应用程序之间被预先划分，限制了灵活性。
-- 需求可能会发生变化，尽管操作系统了解在任意时刻应如何划分内存，但它无法改变内存的固定分区方式。</p>
+<p>在预留的主存区域中实现缓冲区存在以下缺点：</p>
+<ul>
+<li>内存在数据库缓冲区和应用程序之间被预先划分，限制了灵活性。</li>
+<li>需求可能会发生变化，尽管操作系统了解在任意时刻应如何划分内存，但它无法改变内存的固定分区方式。</li>
+</ul>
 <p>数据库缓冲区通常实现在虚拟内存中，尽管存在一些缺点：</p>
 <ul>
 <li>当操作系统需要换出一个已被修改的页面时，该页面会被写入磁盘上的<strong>交换空间</strong>。</li>
@@ -3539,11 +3543,15 @@
 <p><img alt="补偿日志记录" src="../image/%E8%A1%A5%E5%81%BF%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95.png" /></p>
 <h3 id="dirtypagetable">脏页表（DirtyPageTable）<a class="headerlink" href="#dirtypagetable" title="Permanent link">&para;</a></h3>
 <p>缓冲区中已被更新的页面的列表。</p>
-<p>对于其中的每个页面，包含以下信息：
-- 该页的 <strong>PageLSN</strong>（页LSN）。
-- <strong>RecLSN</strong>（恢复LSN）：是一个日志序列号，表示该 LSN 之前的日志记录已经应用到了磁盘上的该页版本。
-    - 当一个页面被插入脏页表时（即在被更新之前），RecLSN 被设置为当前日志末尾的 LSN。
-    - 该信息记录在检查点中，有助于最大限度地减少重做工作量。</p>
+<p>对于其中的每个页面，包含以下信息：</p>
+<ul>
+<li>该页的 <strong>PageLSN</strong>（页LSN）。</li>
+<li><strong>RecLSN</strong>（恢复LSN）：是一个日志序列号，表示该 LSN 之前的日志记录已经应用到了磁盘上的该页版本。<ul>
+<li>当一个页面被插入脏页表时（即在被更新之前），RecLSN 被设置为当前日志末尾的 LSN。</li>
+<li>该信息记录在检查点中，有助于最大限度地减少重做工作量。</li>
+</ul>
+</li>
+</ul>
 <p><img alt="脏页表" src="../image/%E8%84%8F%E9%A1%B5%E8%A1%A8.png" /></p>
 <h3 id="_13">检查点日志记录<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>包含以下信息：</p>

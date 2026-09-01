@@ -3514,10 +3514,12 @@
 <a id="__codelineno-7-3" name="__codelineno-7-3"></a><a href="#__codelineno-7-3"><span class="linenos" data-linenos="3 "></span></a><span class="c1">// Type declaration here...</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4"></a><a href="#__codelineno-7-4"><span class="linenos" data-linenos="4 "></span></a><span class="cp">#endif </span><span class="c1">// HEADER_FLAG</span>
 </code></pre></div>
-<p>注意：<br />
-- 每个头文件仅定义一个类
-- 与同一文件名前缀下的一个源文件.cpp相关联
-- 头文件的内容必须在预处理器指令<code>#ifndef</code> <code>#define</code> 和 <code>#endif</code>之间定义。</p>
+<p>注意：</p>
+<ul>
+<li>每个头文件仅定义一个类</li>
+<li>与同一文件名前缀下的一个源文件.cpp相关联</li>
+<li>头文件的内容必须在预处理器指令<code>#ifndef</code> <code>#define</code> 和 <code>#endif</code>之间定义。</li>
+</ul>
 <h3 id="_8">类的初始化与清理<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>在创建类的对象时，我们可能需要对类中定义的成员变量进行初始化。一个解决方法是在类中定义一个<code>init()</code>函数，该函数在对象创建时调用。</p>
 <p><div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><a href="#__codelineno-8-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
@@ -3565,7 +3567,7 @@
 <p><div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><a href="#__codelineno-12-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">Point</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">xx</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">yy</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">xx</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 在这个构造函数中，我们用了成员初始化列表。它是 C++ 构造函数中用来直接初始化成员变量的一种语法，写在构造函数参数列表之后、函数体之前，以冒号 <code>:</code>开头，多个成员之间用逗号分隔。当成员是<code>const</code> 类型、引用类型、没有默认构造函数的类类型，都需要必须使用成员初始化列表进行初始化。</p>
-<p>当对象超出作用域时，析构函数会由编译器自动调用。
+<p>当（在栈上的）对象超出作用域时，析构函数会由编译器自动调用。
 <div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><a href="#__codelineno-13-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2"></a><a href="#__codelineno-13-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3"></a><a href="#__codelineno-13-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="k">public</span><span class="o">:</span>
@@ -3596,6 +3598,7 @@
 <ul>
 <li><code>public</code>：表示后续成员声明对所有人可用。</li>
 <li><code>private</code>：表示只有该类的内部函数成员才能访问该成员。</li>
+<li><code>protected</code>：表示只有该类及其派生类的成员才能访问该成员。</li>
 </ul>
 <div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><a href="#__codelineno-14-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2"></a><a href="#__codelineno-14-2"><span class="linenos" data-linenos="2 "></span></a><span class="k">public</span><span class="o">:</span>
@@ -3816,10 +3819,11 @@
 <p>C++ 中的 const 默认为内部链接，编译器会尽量避免为 const 分配存储空间 —— 将其值保存在符号表中。extern 会强制分配存储空间。</p>
 <p>除非使用显式的 extern 声明，const必须初始化。</p>
 <p>常量可以被利用：
-<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><a href="#__codelineno-32-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">class_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span><span class="kt">int</span><span class="w"> </span><span class="n">finalGrade</span><span class="p">[</span><span class="n">class_size</span><span class="p">];</span><span class="w"> </span><span class="c1">// okint x;</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2"></a><a href="#__codelineno-32-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-32-3" name="__codelineno-32-3"></a><a href="#__codelineno-32-3"><span class="linenos" data-linenos="3 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-32-4" name="__codelineno-32-4"></a><a href="#__codelineno-32-4"><span class="linenos" data-linenos="4 "></span></a><span class="kt">double</span><span class="w"> </span><span class="n">classAverage</span><span class="p">[</span><span class="n">size</span><span class="p">];</span><span class="w"> </span><span class="c1">// ok</span>
+<div class="language-c++ highlight"><span class="filename">C++</span><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><a href="#__codelineno-32-1"><span class="linenos" data-linenos="1 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">class_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><a href="#__codelineno-32-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">int</span><span class="w"> </span><span class="n">finalGrade</span><span class="p">[</span><span class="n">class_size</span><span class="p">];</span><span class="w"> </span><span class="c1">// okint x;</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a><a href="#__codelineno-32-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><a href="#__codelineno-32-4"><span class="linenos" data-linenos="4 "></span></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a><a href="#__codelineno-32-5"><span class="linenos" data-linenos="5 "></span></a><span class="kt">double</span><span class="w"> </span><span class="n">classAverage</span><span class="p">[</span><span class="n">size</span><span class="p">];</span><span class="w"> </span><span class="c1">// ok</span>
 </code></pre></div></p>
 <p>const 可以用于聚合类型，但会分配存储空间。在这种情况下，const 的含义是“一块不可更改的存储空间”。</p>
 <p>然而，该值不能在编译时使用，因为编译器不需要在编译时知道该存储空间的内容。

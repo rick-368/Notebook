@@ -3515,13 +3515,15 @@
 </ul>
 <h2 id="b">B+树<a class="headerlink" href="#b" title="Permanent link">&para;</a></h2>
 <h3 id="_18">定义<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<p>一棵m阶B+树是具有如下性质：
-- 非叶根节点的子树个数为[2,m]
-- 非根内部节点的子树个数为<span class="arithmatex">\([ \lceil m/2 \rceil, m]\)</span>，键值个数比子树个数少一
-- 非根叶节点的键值个数为<span class="arithmatex">\([ \lceil m/2 \rceil, m]\)</span>
-- 所有叶节点都在同一层
-- 非根内部节点有k个键值，按顺序排列，则有k+1个指针，指向子树的根节点，且<span class="arithmatex">\(\forall i \in [1,k]\)</span>， 第i+1的子树中的键值都大于此节点的第i个键值
-<img alt="B+树" src="../image/B%2B%E6%A0%91.png" /></p>
+<p>一棵m阶B+树是具有如下性质：</p>
+<ul>
+<li>非叶根节点的子树个数为[2,m]</li>
+<li>非根内部节点的子树个数为<span class="arithmatex">\([ \lceil m/2 \rceil, m]\)</span>，键值个数比子树个数少一</li>
+<li>非根叶节点的键值个数为<span class="arithmatex">\([ \lceil m/2 \rceil, m]\)</span></li>
+<li>所有叶节点都在同一层</li>
+<li>非根内部节点有k个键值，按顺序排列，则有k+1个指针，指向子树的根节点，且<span class="arithmatex">\(\forall i \in [1,k]\)</span>， 第i+1的子树中的键值都大于此节点的第i个键值
+<img alt="B+树" src="../image/B%2B%E6%A0%91.png" /></li>
+</ul>
 <h3 id="_19">插入操作<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <ul>
 <li>找到叶子节点，将新键值插入到叶子节点的末尾</li>
