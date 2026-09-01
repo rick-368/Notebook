@@ -3315,9 +3315,11 @@ ER 数据模型采用三个基本概念：</p>
 </ul>
 <p>ER 模型还具有相应的图示表示法，即 ER 图，可以图形化地表达数据库的整体逻辑结构。</p>
 <h2 id="_1">实体集<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>现实世界可以建模为：<br />
-- 实体的集合
-- 实体之间的联系</p>
+<p>现实世界可以建模为：  </p>
+<ul>
+<li>实体的集合</li>
+<li>实体之间的联系</li>
+</ul>
 <p>实体是一个存在且能够与其他对象区分开来的对象。实体可以是具体的，也可以是抽象的。示例：某个学生、公司、事件、植物。</p>
 <p>实体具有属性。示例：学生有学号、姓名、年龄、性别和地址。</p>
 <p>实体集是具有相同属性的一类实体的集合。示例：所有学生的集合、公司的集合、树木的集合、节日的集合、顾客的集合、账户的集合、贷款的集合。</p>
@@ -3381,7 +3383,7 @@ ER 数据模型采用三个基本概念：</p>
 <p><img alt="三元关系的转化" src="../image/%E4%B8%89%E5%85%83%E5%85%B3%E7%B3%BB%E7%9A%84%E8%BD%AC%E5%8C%96.png" /></p>
 <p><img alt="关系的转化" src="../image/%E5%85%B3%E7%B3%BB%E7%9A%84%E8%BD%AC%E5%8C%96.png" /></p>
 <h3 id="_6">映射基数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>映射基数（apping Cardinalities）一个联系集中，一个实体可以与另一类实体相联系的实体数目。其中数目是指最多一个还是多个。在描述二元关系集时十分有用。</p>
+<p>映射基数（Mapping Cardinalities）一个联系集中，一个实体可以与另一类实体相联系的实体数目。其中数目是指最多一个还是多个。在描述二元关系集时十分有用。</p>
 <p>对于二元关系集，映射基数必须是以下类型之一<span class="arithmatex">\(（A : B）\)</span>：</p>
 <ul>
 <li>一对一（1 : 1），例如：现任总统（总统，国家）</li>
@@ -3560,11 +3562,15 @@ ER 数据模型采用三个基本概念：</p>
 <p>若实体集中或关系集中包含复合属性，复合属性通过为每个分量属性创建一个单独的属性来展开。<br />
 例如：给定实体集 <code>customer</code>，其中包含复合属性 <code>name</code>，该属性由分量属性 <code>first-name</code> 和 <code>last-name</code> 组成。则该实体集对应的表将具有两个属性：<code>name.first-name</code> 和 <code>name.last-name</code>。</p>
 <p>实体 <span class="arithmatex">\(E\)</span> 的多值属性 <span class="arithmatex">\(M\)</span> 通过单独的表 <span class="arithmatex">\(EM\)</span> 来表示。多值属性的每个值对应表 <span class="arithmatex">\(EM\)</span> 中的一行。 <br />
-例如，employee 的多值属性dependent-names（家属姓名）通过以下方式表示：
-- <code>employee(emp-id, ename, sex, age, dependent-names)</code> （不推荐）
-- 实际应拆分为：
-    - <code>employee(emp-id, ename, sex, age)</code>
-    - <code>employee-dependent-names(emp-id, dependent-name)</code></p>
+例如，employee 的多值属性dependent-names（家属姓名）通过以下方式表示：</p>
+<ul>
+<li><code>employee(emp-id, ename, sex, age, dependent-names)</code> （不推荐）</li>
+<li>实际应拆分为：<ul>
+<li><code>employee(emp-id, ename, sex, age)</code></li>
+<li><code>employee-dependent-names(emp-id, dependent-name)</code></li>
+</ul>
+</li>
+</ul>
 <p>一个弱实体集转换为一张表，该表中包含一个用于存放其所依赖的强实体集主键的列。弱实体集的主码由其所依赖的强实体集的主码和弱实体集的分辨符组成。</p>
 <p>一个关系集表示为一张表，该表的列包括两个参与实体集的主键（这些主键在此处作为外键），以及关系集本身的任何描述性属性。</p>
 <ul>

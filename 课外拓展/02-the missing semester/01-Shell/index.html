@@ -2062,8 +2062,8 @@
 <li>shellcheck：检查shell脚本语法错误。  </li>
 <li>tldr：查看shell命令的简短用法。</li>
 <li>find：搜索文件。<br />
-  具体形式：<code>find 路径 -name 匹配模式 -type 类型 -size 大小</code> <br />
-  -exec可以在find的结果上执行命令，如上例删除所有名为<code>.tmp</code>的文件。  </li>
+  具体形式：<code>find 路径 -name 匹配模式 -type 类型 -size 大小</code>   </li>
+<li>exec可以在find的结果上执行命令，如上例删除所有名为<code>.tmp</code>的文件。  </li>
 </ul>
 <div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><a href="#__codelineno-5-1"><span class="linenos" data-linenos="1 "></span></a><span class="w">  </span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.tmp&quot;</span><span class="w"> </span>-exec<span class="w"> </span>rm<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
 </code></pre></div>
